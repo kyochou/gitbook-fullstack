@@ -27,7 +27,7 @@
     </keep-alive>
     <router-view v-if="!$route.meta.keepAlive"></router-view>
     ```
-    参考: 
+    Refs: 
         [希望 keep-alive 能增加可以动态删除已缓存组件的功能](https://github.com/vuejs/vue/issues/6509)
         [vue-keep-scroll-position](https://github.com/beeplin/vue-keep-scroll-position)
         [vue-router 之 keep-alive](https://www.jianshu.com/p/0b0222954483)
@@ -72,7 +72,8 @@ this.$emit('load-data')
 如果你只在子组件里改变父组件的一个值, 可以使用 `$emit('input')`, 会直接改变 `v-model` 的值.
 
 ### Refs
-[vue 组件通信 -- 注意事项及经验总结](https://juejin.im/post/5bc092806fb9a05cf2301f25)
+* [vue 组件通信 -- 注意事项及经验总结](https://juejin.im/post/5bc092806fb9a05cf2301f25)
+* [Vue.js 父子组件通信的十种方式](https://juejin.im/post/5bd18c72e51d455e3f6e4334)
 
 
 ## 无渲染组件
@@ -135,13 +136,13 @@ const Tooltip = () => ({
 })
 ```
 
-### 参考
+### Refs
 * [Vue 中的异步组件](https://www.w3cplus.com/vue/async-vuejs-components.html)
 
 ## 共享
 * [详解：Vue cli3 库模式搭建组件库并发布到 npm](https://juejin.im/post/5bbab9de5188255c8c0cb0e3)
 
 
-## 参考
+## Refs
 * [探索 Vue 高阶组件](http://hcysun.me/2018/01/05/%E6%8E%A2%E7%B4%A2Vue%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6/)
 * [Vue.js 实用技巧（二）](https://zhuanlan.zhihu.com/p/25623356)
