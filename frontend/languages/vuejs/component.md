@@ -59,8 +59,8 @@ this.$on('reload', () => { this.reload() })
 ```
 
 ### 子组件到父组件
-
 子组件在运行时通过 `$emit` 方法调用父组件监听的事件.
+
 ```js
 // 父组件中
 <list ref="list" @load-data="loadData">
