@@ -6,6 +6,5 @@
     $ usr/bin/git push -q &>/dev/stdout | grep -vi 'remote:'
     ```
 
-
 ### Refs
 * [git stderr(错误流) 探秘](https://juejin.im/entry/5b96509c5188255c56448677)
