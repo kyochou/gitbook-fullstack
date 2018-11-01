@@ -12,8 +12,8 @@
 * 日期库的选择参见 [You-Dont-Need-Momentjs](https://github.com/you-dont-need/You-Dont-Need-Momentjs)
 
 ### UI
-PC 页面: [bootstrap-vue](https://github.com/bootstrap-vue/bootstrap-vue)
-Mobile 页面: [vant](https://github.com/youzan/vant)
+PC 页面: [bootstrap-vue](https://github.com/bootstrap-vue/bootstrap-vue).
+Mobile 页面: [vant](https://github.com/youzan/vant).
 中后台: [vue-manage-system](https://github.com/lin-xin/vue-manage-system) based on ElementUI.
 
 ## DOM
