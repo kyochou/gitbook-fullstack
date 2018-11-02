@@ -10,7 +10,7 @@
 ### Library
 * 多项目共享Library.
     
-    ```gradle
+    ```shell
     # settings.gradle
     include ':../Demo/library'
     # 为引用的模块指定别名, 注意别名要(全局)唯一, 因为其会在引用的模块下生成 <projectname>.iml 文件
