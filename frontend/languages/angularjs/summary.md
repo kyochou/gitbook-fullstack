@@ -1,5 +1,5 @@
 # AngularJS
-## Faqs
+## FAQs
 * Provider, Factory, Service 的区别
 
     ```js
