@@ -1,5 +1,10 @@
 # 多系统
 ## FAQs
+* Windows 上编辑的文本文件在 *nix 系统上在行末会出现 `^M`. 参考 [What does \^M character mean in Vim?](https://stackoverflow.com/questions/5843495/what-does-m-character-mean-in-vim)
+
+    Windows 的换行符为 0xD0xA(`\r\n`), *nix 系统使用 0xA(`\n`) 做为换行符. `^M` 为 `\r` 的显示. 
+    可使用 `dos2unix` 命令修复. 或在 VIM 中使用 `set ffs=unix,dos` 指令.
+    
 * 在装了多系统的电脑上时间会出现错乱
     * 起因
 
