@@ -35,4 +35,4 @@ $ brew install netcat
     ```
     
 #### 参考
-* 
+* [10 个例子教你学会 ncat (nc) 命令](https://linux.cn/article-9190-1.html)
