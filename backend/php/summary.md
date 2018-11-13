@@ -40,3 +40,7 @@ brew link php71
 pecl install xdebug
 ```
 调试 CLI 程序时, 使用入口文件做为调试的开始. 如 `php think Platserver` 这个命令, 需要调试的文件为 think, 然后在 Platserver 中设置断点即可.
+
+## Resources
+* [PHP The Right Way](https://phptherightway.com/)
+* [Modern PHP（中文版）](https://about.ac/books/modern-php/)
