@@ -31,6 +31,7 @@
         * [FTP](operation/docker/ftp.md)
 * [后端](backend/summary.md)
     * [Java](backend/java/summary.md)
+        * [IDE](backend/java/ide.md)
         * [包管理](backend/java/package-manage.md)
     * [PHP](backend/php/summary.md)
     * [Node.js](backend/nodejs/summary.md)
