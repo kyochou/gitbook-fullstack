@@ -15,10 +15,33 @@ gRPC 允许你定义四类服务方法:
 * 双向流式 RPC: 即两边都可以分别通过一个读写数据流来发送一系列消息. 这两个数据流操作是相互独立的, 所以客户端和服务端能按其希望的任意顺序读写.
 
 ## Usage
-### CLI
+### 安装相关工具
+    
+    ```shell
+    $ # 代码生成
+    $ brew install protobuf
+    $ # CLI 客户端
+    $ brew install grpc
+    ```
+    
+### Java
+1. 使用 springboot 做为基础框架, 安装 [grpc-spring-boot-starter](https://github.com/LogNet/grpc-spring-boot-starter).
+2. 配置自动生成 stub: [protobuf-gradle-plugin](https://github.com/google/protobuf-gradle-plugin).
+3. 在配置文件中将 `enableReflection` 设置为 true 以供 gRPC CLI 查询: [server-reflection-tutorial.md](https://github.com/grpc/grpc-java/blob/master/documentation/server-reflection-tutorial.md)
+4. 编写你自己的 proto 文件及实现.
+5. 开启服务: 在项目根目录执行命令 `./gradlew build && java -jar build/libs/<your-appname>.jar`.
+
+### gRPC CLI
+    
 ```shell
-$
+$ # 显示所有可用服务
+$ grpc_cli ls <IP>:<PORT>
+$ # 健康检查
+$ grpc_cli call <IP>:<PORT> grpc.health.v1.Health.Check 'service:"<Your-Service>"'
 ```
 
 ## Resources
 * [gRPC 官方文档中文版](https://doc.oschina.net/grpc)
+* [Protobuf3 语法指南](https://colobu.com/2017/03/16/Protobuf3-language-guide/)
+* [grpc.io](https://grpc.io/)
+* [protocol-buffers](https://developers.google.com/protocol-buffers/)
