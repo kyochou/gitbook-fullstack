@@ -35,6 +35,7 @@
         * [IDE](backend/java/ide.md)
         * [包管理](backend/java/package-manage.md)
     * [PHP](backend/php/summary.md)
+        * [Variable](backend/php/variable.md)
     * [Node.js](backend/nodejs/summary.md)
 * [前端](frontend/summary.md)
     * [HTML](frontend/languages/html/summary.md)
