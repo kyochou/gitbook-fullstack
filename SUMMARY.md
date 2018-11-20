@@ -9,6 +9,7 @@
     * [ID](design/ID.md)
     * [Cache](design/cache.md)
 * [数据](data/summary.md)
+    * [缓存](data/cache/summary.md)
     * [存储](data/store/summary.md)
         * [NoSQL](data/store/nosql.md)
     * [传输](data/transfer/summary.md)
