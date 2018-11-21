@@ -34,3 +34,4 @@ Makefile 文件由一系列规则构成. 每条规则的形式如下:
 
 ## Refs
 * [Make 命令教程](http://www.ruanyifeng.com/blog/2015/02/make.html)
+* [跟我一起写 Makefile](https://seisman.github.io/how-to-write-makefile/index.html)
