@@ -23,6 +23,7 @@
         * [JumpServer](operation/security/jumpserver.md)
     * [OS](operation/os/summary.md)
         * [Linux](operation/os/linux/summary.md)
+            * [CLI](operation/os/linux/cli.md)
             * [Manage](operation/os/linux/manage.md)
         * [MacOS](operation/os/macos/summary.md)
             * [Software](operation/os/macos/software.md)
