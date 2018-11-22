@@ -23,6 +23,19 @@ gRPC 允许你定义四类服务方法:
     $ # CLI 客户端
     $ brew install grpc
     ```
+
+### Golang
+```shell
+# 安装 golang 代码生成插件 protoc-gen-go, 默认会被安装到 $GOPATH/bin 下
+glide install github.com/golang/protobuf
+# 生成 go 代码文件
+# PROTOPATH 为 proto 文件所在目录
+protoc --plugin=${GOPATH}/bin/protoc-gen-go --proto_path=${PROTOPATH} --go_out=plugins=grpc:${PROTOPATH} ${PROTOPATH}/*.proto
+```
+
+### Refs
+* [golang 网络框架之 grpc](http://www.hatlonely.com/2018/02/03/golang-%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6%E4%B9%8B-grpc/)
+* [grpc-go/examples](https://github.com/grpc/grpc-go/tree/master/examples/)
     
 ### Java
 1. 使用 springboot 做为基础框架, 安装 [grpc-spring-boot-starter](https://github.com/LogNet/grpc-spring-boot-starter).
