@@ -24,32 +24,29 @@
 ## Replication(主从同步)
 `server-id` 的取值范围是 1 到 4294967295(2**32 - 1). 为防止重复, `server-id` 可使用 IP 地址的后三位.
 
-### Master
+1. 修改 mysql 配置文件. 修改后重启服务.
 
-```
-# my.cnf
+```ini
+# master my.cnf
 server-id = 1
 log-bin = mysql-bin
 binlog_format = mixed
 innodb_flush_log_at_trx_commit=2
 sync_binlog=1
 ```
-```
-# mysql cli
-mysql > GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%' IDENTIFIED BY 'l43PMUHNwY6p';
-```
 
-### Slave
-
-```
-# my.cnf
+```ini
+# slave my.cnf
 server-id = 127001
-replicate-do-db=dev_fmd
+replicate-do-db=dbname
 ```
+
+
+
 ```
 # mysql cli
-# 在 5.6 版本中已不需要指定 master 的 position, mysql 会自动进行定位同步
-mysql > CHANGE MASTER TO MASTER_HOST='172.31.160.158', MASTER_USER='repl', MASTER_PASSWORD='l43PMUHNwY6p';
+# 在 5.6 版本中已不需要指定 master 的 position, mysql 会自动进行定位同步(添加 master_auto_position = 1)
+mysql > CHANGE MASTER TO MASTER_HOST='172.31.160.158', MASTER_USER='repl', MASTER_PASSWORD='l43PMUHNwY6p', master_auto_position=1;
 ```
 ```
 # 数据无法同步时可试着重启 salve, 仍然无效的话可以 reset.
@@ -57,6 +54,12 @@ mysql > stop slave;
 mysql > start slave;
 mysql > reset slave;
 ```
+
+```
+# mysql cli
+mysql > GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%' IDENTIFIED BY 'l43PMUHNwY6p';
+```
+
     
 ## Sites
 * [http://www.innomysql.com/](http://www.innomysql.com/)
