@@ -22,6 +22,8 @@
     ```
     
 ## Replication(主从同步)
+`server-id` 的取值范围是 1 到 4294967295(2**32 - 1). 为防止重复, `server-id` 可使用 IP 地址的后三位.
+
 ### Master
 
 ```
@@ -47,7 +49,7 @@ replicate-do-db=dev_fmd
 ```
 # mysql cli
 # 在 5.6 版本中已不需要指定 master 的 position, mysql 会自动进行定位同步
-mysql > CHANGE MASTER TO MASTER_HOST='121.40.221.53', MASTER_USER='repl', MASTER_PASSWORD='l43PMUHNwY6p';
+mysql > CHANGE MASTER TO MASTER_HOST='172.31.160.158', MASTER_USER='repl', MASTER_PASSWORD='l43PMUHNwY6p';
 ```
 ```
 # 数据无法同步时可试着重启 salve, 仍然无效的话可以 reset.
