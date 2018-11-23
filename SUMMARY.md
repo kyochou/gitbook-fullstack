@@ -12,6 +12,7 @@
     * [缓存](data/cache/summary.md)
     * [存储](data/store/summary.md)
         * [NoSQL](data/store/nosql.md)
+        * [MySQL](data/store/mysql/summary.md)
     * [传输](data/transfer/summary.md)
         * [gRPC](data/transfer/grpc.md)
 * [运维](operation/summary.md)
