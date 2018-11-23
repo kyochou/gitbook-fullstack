@@ -26,40 +26,52 @@
 
 1. 修改 mysql 配置文件. 修改后重启服务.
 
-```ini
-# master my.cnf
-server-id = 1
-log-bin = mysql-bin
-binlog_format = mixed
-innodb_flush_log_at_trx_commit=2
-sync_binlog=1
-```
+    ```ini
+    # master my.cnf
+    server-id = 1
+    log-bin = mysql-bin
+    binlog_format = mixed
+    innodb_flush_log_at_trx_commit=2
+    sync_binlog=1
+    ```
+    
+    ```ini
+    # slave my.cnf
+    server-id = 127001
+    replicate-do-db=dbname
+    ```
 
-```ini
-# slave my.cnf
-server-id = 127001
-replicate-do-db=dbname
-```
+2. 手动同步已存在数据.
 
+```shell
+# on master
+mysql > RESET MASTER;
+mysql > FLUSH TABLES WITH READ LOCK;
+mysql > SHOW MASTER STATUS;
+# 保存 MASTER_LOG_FILE, MASTER_LOG_POS 信息.
+# 不要关闭 mysql 命令行(不然锁会被释放). 打开新的 shell
+$ mysqldump -u root -p dbname > db.sql
+mysql > UNLOCK TABLES;
+mysql > GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%' IDENTIFIED BY 'repl';
 
-
-```
-# mysql cli
+# on slave
+mysql > STOP SLAVE;
+# 将 db.sql 自 master 传输到 slave
+mysql -uroot -p dbname < db.sql
+mysql > RESET SLAVE;
 # 在 5.6 版本中已不需要指定 master 的 position, mysql 会自动进行定位同步(添加 master_auto_position = 1)
-mysql > CHANGE MASTER TO MASTER_HOST='172.31.160.158', MASTER_USER='repl', MASTER_PASSWORD='l43PMUHNwY6p', master_auto_position=1;
-```
-```
+mysql > CHANGE MASTER TO MASTER_HOST='<master-ip>', MASTER_USER='repl', MASTER_PASSWORD='repl',  MASTER_LOG_FILE='<master-log-file>', MASTER_LOG_POS=<master-log-pos>;
+mysql > START SLAVE;
+mysql > SHOW SLAVE STATUS;
 # 数据无法同步时可试着重启 salve, 仍然无效的话可以 reset.
 mysql > stop slave;
 mysql > start slave;
 mysql > reset slave;
 ```
 
-```
-# mysql cli
-mysql > GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%' IDENTIFIED BY 'l43PMUHNwY6p';
-```
-
+### Refs
+* [MySQL5.6 GTID 新特性实践](http://cenalulu.github.io/mysql/mysql-5-6-gtid-basic/)
+* [How to re-sync the Mysql DB if Master and slave have different database incase of Mysql replication?](https://stackoverflow.com/questions/2366018/how-to-re-sync-the-mysql-db-if-master-and-slave-have-different-database-incase-o#answer-3229580)
     
 ## Sites
 * [http://www.innomysql.com/](http://www.innomysql.com/)
