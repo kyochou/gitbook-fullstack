@@ -42,32 +42,32 @@
     ```
 
 2. 手动同步已存在数据.
-
-```shell
-# on master
-mysql > RESET MASTER;
-mysql > FLUSH TABLES WITH READ LOCK;
-mysql > SHOW MASTER STATUS;
-# 保存 MASTER_LOG_FILE, MASTER_LOG_POS 信息.
-# 不要关闭 mysql 命令行(不然锁会被释放). 打开新的 shell
-$ mysqldump -u root -p dbname > db.sql
-mysql > UNLOCK TABLES;
-mysql > GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%' IDENTIFIED BY 'repl';
-
-# on slave
-mysql > STOP SLAVE;
-# 将 db.sql 自 master 传输到 slave
-mysql -uroot -p dbname < db.sql
-mysql > RESET SLAVE;
-# 在 5.6 版本中已不需要指定 master 的 position, mysql 会自动进行定位同步(添加 master_auto_position = 1)
-mysql > CHANGE MASTER TO MASTER_HOST='<master-ip>', MASTER_USER='repl', MASTER_PASSWORD='repl',  MASTER_LOG_FILE='<master-log-file>', MASTER_LOG_POS=<master-log-pos>;
-mysql > START SLAVE;
-mysql > SHOW SLAVE STATUS;
-# 数据无法同步时可试着重启 salve, 仍然无效的话可以 reset.
-mysql > stop slave;
-mysql > start slave;
-mysql > reset slave;
-```
+    
+    ```shell
+    # on master
+    mysql > RESET MASTER;
+    mysql > FLUSH TABLES WITH READ LOCK;
+    mysql > SHOW MASTER STATUS;
+    # 保存 MASTER_LOG_FILE, MASTER_LOG_POS 信息.
+    # 不要关闭 mysql 命令行(不然锁会被释放). 打开新的 shell
+    $ mysqldump -u root -p dbname > db.sql
+    mysql > UNLOCK TABLES;
+    mysql > GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%' IDENTIFIED BY 'repl';
+    
+    # on slave
+    mysql > STOP SLAVE;
+    # 将 db.sql 自 master 传输到 slave
+    mysql -uroot -p dbname < db.sql
+    mysql > RESET SLAVE;
+    # 在 5.6 版本中已不需要指定 master 的 position, mysql 会自动进行定位同步(添加 master_auto_position = 1)
+    mysql > CHANGE MASTER TO MASTER_HOST='<master-ip>', MASTER_USER='repl', MASTER_PASSWORD='repl',  MASTER_LOG_FILE='<master-log-file>', MASTER_LOG_POS=<master-log-pos>;
+    mysql > START SLAVE;
+    mysql > SHOW SLAVE STATUS;
+    # 数据无法同步时可试着重启 salve, 仍然无效的话可以 reset.
+    mysql > stop slave;
+    mysql > start slave;
+    mysql > reset slave;
+    ```
 
 ### Refs
 * [MySQL5.6 GTID 新特性实践](http://cenalulu.github.io/mysql/mysql-5-6-gtid-basic/)
