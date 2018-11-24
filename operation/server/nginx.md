@@ -24,6 +24,28 @@ Nginx 的组成:
         ```nginx
         error_log  logs/error.log  debug;
         ```
+        
+### 热部署
+即在不停止服务的基础上实现 Nginx 的版本升级. 步骤如下:
+1. 下载新的源码并编译(不要安装).
+2. 备份正在运行的 sbin/nginx 文件, 然后使用新编译的文件覆盖它.
+3. 给正在运行的 Nginx 的 master 进程发送热部署信号: `kill -USR2 <master-pid>`. 这样, Nginx 就会使用新的 sbin/nginx 文件启动一个新的 master 进程. 注意, 原 master 进程并不会自动退出, 此时会有二个 master 进程在运行. 但老的 master 进程已经不再监听端口, 即不再接受新的请求了.
+4. 给旧的 master 进程发送关闭 work 进程的信号: `kill -WINCH <old-master-pid>`.
+5. 保留二个 master 进程同时运行一段时间. 如果新版本有问题, 可以通过给旧的 master 进程发送 `reload` 信号使其重新接收请求.
+
+    
+## CLI
+Nginx 只有短命令参数(`-`), 没有长命令参数(`--`).
+`nginx -t` 可以用来测试配置文件是否有语法错误.
+Nginx 操作运行中进程的方法一般是给进程发送信号. 可通过 `kill` 命令或 `nginx -s` 命令来实现. 
+`nginx -s` 可接收的参数有:
+* stop: 立即停止服务(`kill -9`).
+* quit: 发送退出信号, 由 Nginx 自行退出(`kill`).
+* reload: 重载配置文件.
+* reopen: 重新开始记录所有日志文件.
+
+```shell
+```
     
 ## 配置
 语法: 
@@ -58,7 +80,10 @@ http 配置包括以下指令块:
 * upstream
 
 ### log 配置
-日志文件名的配置支持使用变量, 以时间变量进行配置即可实现日志的自动分隔.
+日志文件名的配置支持使用变量, 以时间变量进行配置即可实现日志的自动切隔.
+手动更新日志文件:
+1. 将日志文件重命名(`mv access.log old.log`), 注意要使用 `mv` 命令而不是 `cp`. **在 Linux 文件系统中, 改名并不会影响已经打开的文件的写入操作, 因其文件句柄 inode 没有改变**, 这样就不会出现丢日志现象了.
+2. 给 nginx 发送 reopen 信号(`nginx -s reopen` 或 `kill -USR1 <nginx-pid>`).
 
 
 ## OpenResty
