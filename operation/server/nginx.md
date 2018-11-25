@@ -78,11 +78,37 @@ http 配置包括以下指令块:
 * location
 * upstream
 
+#### 指令
+* `root` 和 `alias` 指令都可以指定目录和访问路径的映射关系. 他们的主要区别在于是否会使用配置路径中的匹配部分.
+* `autoindex` 可打开目录和文件的浏览功能.
+* `limit_*` 相关指令可实现限速功能.
+* gzip
+
+    ```nginx
+    # Gzip Settings
+    gzip on;
+    # 如果存在对应的 .gz 后缀的文件则直接返回
+    gzip_static on;
+    # 小于这个值的文件不压缩
+    gzip_min_length 1k;
+    gzip_buffers 4 16k;
+    # 压缩比, 1-9
+    gzip_comp_level 2;
+    # 文本类型文件的的压缩比会比较高
+    gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php;
+    ```
+
+
+#### Refs
+* [Module ngx_http_core_module](http://nginx.org/en/docs/http/ngx_http_core_module.html)
+
 ### log 配置
 日志文件名的配置支持使用变量, 以时间变量进行配置即可实现日志的自动切隔.
 手动更新日志文件:
 1. 将日志文件重命名(`mv access.log old.log`), 注意要使用 `mv` 命令而不是 `cp`. **在 Linux 文件系统中, 改名并不会影响已经打开的文件的写入操作, 因其文件句柄 inode 没有改变**, 这样就不会出现丢日志现象了.
 2. 给 nginx 发送 reopen 信号(`nginx -s reopen` 或 `kill -USR1 <nginx-pid>`).
+
+日志格式通过 `log_format` 指令设置, 可为其指定名称以便于引用.
 
 
 ## OpenResty
