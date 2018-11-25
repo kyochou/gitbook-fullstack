@@ -31,8 +31,7 @@ Nginx 的组成:
 2. 备份正在运行的 sbin/nginx 文件, 然后使用新编译的文件覆盖它.
 3. 给正在运行的 Nginx 的 master 进程发送热部署信号: `kill -USR2 <master-pid>`. 这样, Nginx 就会使用新的 sbin/nginx 文件启动一个新的 master 进程. 注意, 原 master 进程并不会自动退出, 此时会有二个 master 进程在运行. 但老的 master 进程已经不再监听端口, 即不再接受新的请求了.
 4. 给旧的 master 进程发送关闭 work 进程的信号: `kill -WINCH <old-master-pid>`.
-5. 保留二个 master 进程同时运行一段时间. 如果新版本有问题, 可以通过给旧的 master 进程发送 `reload` 信号使其重新接收请求.
-
+5. 保留二个 master 进程同时运行一段时间. 如果新版本没有问题, 可执行 `kill -QUIT <old-master-pid>` 将旧的 master 进程杀掉; 如果新版本有问题, 则重新执行一遍上述流程, 将新的 sbin/nginx 替换成旧的.
     
 ## CLI
 Nginx 只有短命令参数(`-`), 没有长命令参数(`--`).
