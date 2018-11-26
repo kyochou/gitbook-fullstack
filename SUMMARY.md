@@ -27,6 +27,8 @@
         * [JumpServer](operation/security/jumpserver.md)
     * [OS](operation/os/summary.md)
         * [Linux](operation/os/linux/summary.md)
+            * [AliYun](operation/os/linux/aliyun.md)
+            * [Device](operation/os/linux/device.md)
             * [CLI](operation/os/linux/cli.md)
             * [Manage](operation/os/linux/manage.md)
         * [MacOS](operation/os/macos/summary.md)
