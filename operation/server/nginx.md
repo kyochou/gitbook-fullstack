@@ -97,10 +97,12 @@ http 配置包括以下指令块:
     # 文本类型文件的的压缩比会比较高
     gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php;
     ```
+    
+* 给 `listen` 指令加 IP 前缀可以限制请求的来源.
+* `upstream` 指令结合 `proxy_pass` 指令可以将请求转发给上游服务(反向代理).
+    * `proxy_set_header` 指令用于设置向上游服务发送的请求头.
+    * `proxy_cache` 系列指令可以将上游服务的返回信息缓存在本地.
 
-
-#### Refs
-* [Module ngx_http_core_module](http://nginx.org/en/docs/http/ngx_http_core_module.html)
 
 ### log 配置
 日志文件名的配置支持使用变量, 以时间变量进行配置即可实现日志的自动切隔.
@@ -116,5 +118,6 @@ http 配置包括以下指令块:
 
 
 ## Refs
+* [nginx documentation](http://nginx.org/en/docs/)
 * [Nginx 核心知识 100 讲](https://time.geekbang.org/course/detail/138-65084)
 * [geektime-geekbang/geektime-nginx](https://github.com/geektime-geekbang/geektime-nginx)
