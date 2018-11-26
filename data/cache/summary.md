@@ -3,8 +3,10 @@
 ### CLI
 
 ```shell
-$ # 删除所有的 key
-$ redis-cli FLUSHALL
+# 删除所有的 key
+redis-cli FLUSHALL
+# 显示所有值
+LRANGE key 0 -1
 ```
 
 ### FAQs
