@@ -116,6 +116,8 @@ http 配置包括以下指令块:
 ## OpenResty
 
 
+## Tools
+[goaccess](https://github.com/allinurl/goaccess/): 实时的 Web 日志分析工具. 可在命令行中显示.
 
 ## Refs
 * [nginx documentation](http://nginx.org/en/docs/)
