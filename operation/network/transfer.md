@@ -15,9 +15,5 @@
 * 主动推送. 是否需要服务器进行主动推送.
 * 有状态. 是否需要维持客户端信息的状态.
 
-## HTTPS
-### TLS
-传输层安全性协议(Transport Layer Security, TLS)及其前身安全套接层(Secure Sockets Layer, SSL)是一种安全协议, 目的是为互联网通信提供安全及数据完整性保障.
-
 #### Refs
 * [跨进程通信，到底用长连接还是短连接](https://mp.weixin.qq.com/s/b4JqYx4ZhcTyazU_IEhQyQ)

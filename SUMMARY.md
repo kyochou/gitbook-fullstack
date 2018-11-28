@@ -40,6 +40,7 @@
             * [多系统](operation/os/windows/multi-system.md)
     * [Git](operation/git.md) 
     * [Network](operation/network/summary.md)
+        * [HTTP](operation/network/http.md)
         * [Tunnels](operation/network/tunnel.md)
         * [Proxy](operation/network/proxy.md)
         * [TCP/UDP](operation/network/tcp-udp.md)
