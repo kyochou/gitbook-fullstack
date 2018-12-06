@@ -29,6 +29,7 @@
         * [JumpServer](operation/security/jumpserver.md)
     * [OS](operation/os/summary.md)
         * [Linux](operation/os/linux/summary.md)
+            * [CentOS](operation/os/linux/centos.md)
             * [Crontab](operation/os/linux/crontab.md)
             * [Device](operation/os/linux/device.md)
             * [CLI](operation/os/linux/cli.md)
