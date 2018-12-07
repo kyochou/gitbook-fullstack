@@ -17,3 +17,6 @@
 
 #### Refs
 * [跨进程通信，到底用长连接还是短连接](https://mp.weixin.qq.com/s/b4JqYx4ZhcTyazU_IEhQyQ)
+
+## 序列化
+序列化用于实现一种 "可以让数据在结构形态和扁平形态之间互相转换" 的方式.
