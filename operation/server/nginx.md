@@ -8,6 +8,19 @@ Nginx 的组成:
 
 版本: 与 Linux 内核版本一样, 偶数结尾的版本表示稳定版.
 
+## 架构
+### 进程模型
+虽然 Nginx 有单进程和多进程两个启动方式, 但在生产环境中, 一般都是使用多进程模式.
+多进程(相比多线程)具有更健壮的高可靠性和高可用性.
+Nginx 的进程中, Master Process 为主进程, Work 进程和 Cache 进程都是它的子进程. 各进程之间通过共享内存进行通信.
+Nginx 期望每个 Work 进程可以占用一个固定的逻辑处理器(绑定在一起), 以提高处理效率.
+
+### 信号
+Work 进程也可以接收信号, 但我们一般只是给 Master 进程发送信号即可.
+Linux 系统规定, 当子进程终止时, 会向父进程发送 CHLD 信号.
+TERM, INI 信号表示立刻停止进程, QUIT 信号表示让进程自已退出, 允许其在退出前执行一些操作.
+
+![Nginx 进程管理](https://files-kyo.oss-cn-hongkong.aliyuncs.com/Fvtp_YA5-DNryqv8MedBU8wCgai8.png)
 
 ## 源码
 * 将源码中 `contrib/vim/` 目录下的文件复制到 `~/.vim/` 目录下, 可以使文件 nginx.conf 中的关键字高亮显示(只能高亮显示这一个配置文件).
