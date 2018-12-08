@@ -114,6 +114,10 @@ http 配置包括以下指令块:
 
 
 ## OpenResty
+### FAQs
+* Mac 编译 OpenResty 常见错误:
+
+    参考: [MAC 重装各种的痛点](http://homeway.me/2015/07/10/rebuild-osx-environment/)
 
 
 ## Tools
