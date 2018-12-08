@@ -22,7 +22,7 @@ TERM, INI 信号表示立刻停止进程, QUIT 信号表示让进程自已退出
 
 ![Nginx 进程管理](https://files-kyo.oss-cn-hongkong.aliyuncs.com/Fvtp_YA5-DNryqv8MedBU8wCgai8.png)
 
-## 源码
+### 源码
 * 将源码中 `contrib/vim/` 目录下的文件复制到 `~/.vim/` 目录下, 可以使文件 nginx.conf 中的关键字高亮显示(只能高亮显示这一个配置文件).
 
     ```shell
@@ -58,6 +58,9 @@ Nginx 操作运行中进程的方法一般是给进程发送信号. 可通过 `k
 
 ```shell
 ```
+
+### 重载配置文件流程
+
     
 ## 配置
 语法: 
