@@ -43,10 +43,16 @@ TERM, INI 信号表示立刻停止进程, QUIT 信号表示让进程自已退出
 1. 下载新的源码并编译(不要安装).
 2. 备份正在运行的 sbin/nginx 文件, 然后使用新编译的文件覆盖它.
 3. 给正在运行的 Nginx 的 master 进程发送热部署信号: `kill -USR2 <master-pid>`. 这样, Nginx 就会使用新的 sbin/nginx 文件启动一个新的 master 进程. 注意, 原 master 进程并不会自动退出, 此时会有二个 master 进程在运行. 但老的 master 进程已经不再监听端口, 即不再接受新的请求了.
-4. 给旧的 master 进程发送关闭 work 进程的信号: `kill -WINCH <old-master-pid>`.
-5. 保留二个 master 进程同时运行一段时间. 如果新版本没有问题, 可执行 `kill -QUIT <old-master-pid>` 将旧的 master 进程杀掉; 如果新版本有问题, 则向旧的 Master 发送 HUP 信号, 向新的 Maseter 发送 QUIT 信号.
+
+    老的 Master 进程会为其 PID 文件后缀改为 `oldbin`, 然后使用新的  sbin/nginx 文件启动新 Master 进程.
+
+1. 给旧的 master 进程发送关闭 work 进程的信号: `kill -WINCH <old-master-pid>`.
+2. 保留二个 master 进程同时运行一段时间. 如果新版本没有问题, 可执行 `kill -QUIT <old-master-pid>` 将旧的 master 进程杀掉; 如果新版本有问题, 则向旧的 Master 发送 HUP 信号(reload), 向新的 Maseter 发送 QUIT 信号.
+
+![热升级流程](https://files-kyo.oss-cn-hongkong.aliyuncs.com/FjARsDjOsMf2RuXwBw9EsXz0y_SQ.png)
+
     
-## CLI
+### CLI
 Nginx 只有短命令参数(`-`), 没有长命令参数(`--`).
 `nginx -t` 可以用来测试配置文件是否有语法错误.
 Nginx 操作运行中进程的方法一般是给进程发送信号. 可通过 `kill` 命令或 `nginx -s` 命令来实现. 
@@ -56,9 +62,6 @@ Nginx 操作运行中进程的方法一般是给进程发送信号. 可通过 `k
 * reload: 重载配置文件.
 * reopen: 重新开始记录所有日志文件.
 
-```shell
-```
-
 ### 重载配置文件流程(reload)
 1. 向 Master 进程发送 HUP 信号(reload 命令)
 2. Master 进程校验配置语法是否正确
@@ -67,12 +70,18 @@ Nginx 操作运行中进程的方法一般是给进程发送信号. 可通过 `k
     在 Linux 中, 子进程会继承父进程的所有的已打开的端口.
     即使不再监听端口, 已经建立的连接仍会正确返回.
     
-1. Master 进程用新配置启动新的 Work 子进程
-2. Master 进程向老 Work 子进程发送 QUIT 信号
-3. 老 Work 进程关闭监听句柄, 处理完当前连接后结束进程
+1. Master 进程用新配置启动新的 Work 子进程.
+2. Master 进程向老 Work 子进程发送 QUIT 信号.
+3. 老 Work 进程关闭监听句柄, 处理完当前连接后结束进程.
 
 ![reload 流程](https://files-kyo.oss-cn-hongkong.aliyuncs.com/FslMhLGFwWOdycdQ5APuRKykDVIa.png)
 
+### Nginx 优雅停止的流程
+1. 在配置中设定 `worker_shutdown_timeout` 的值用于控制 Work 进程的最大关闭时间(可选).
+2. 进程关闭监听句柄.
+3. 关闭空闲连接.
+4. 在循环中等待全部连接的关闭.
+5. 退出进程(Work 全部关闭或 `worker_shutdown_timeout` 到期).
     
 ## 配置
 语法: 
