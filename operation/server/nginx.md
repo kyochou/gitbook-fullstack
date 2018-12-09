@@ -14,6 +14,13 @@ core module 用于定义一些共用的代码.
 [模块分类](https://files-kyo.oss-cn-hongkong.aliyuncs.com/Fsyv8R6OmAMyaVG1daTw7uwhdB4V.png)
 [模块结构](https://files-kyo.oss-cn-hongkong.aliyuncs.com/FjN0S0KGglfq8_zIgTHUgj5QEhOD.png)
 
+#### 动态模块
+动态模块可以使我们在升级 Nginx 时减少编译环节.
+Linux 中文件后缀为 `.a` 的为静态模块, 后缀为 `.so` 的为动态模块.
+编译时(`configure`)添加如 `--with-http_realip_module=dynamic` 形式的参数可以将模块编译为动态模块.
+在配置文件中使用 `load_module` 指令开启动态模块.
+
+
 ### Pool
 #### 连接池
 #### 内存池
@@ -29,6 +36,12 @@ Linux 中所有的系统调用都需要做用户态与内核态间的切换. Ngi
 多进程(相比多线程)具有更健壮的高可靠性和高可用性.
 Nginx 的进程中, Master Process 为主进程, Work 进程和 Cache 进程都是它的子进程. 各进程之间通过共享内存进行通信.
 Nginx 期望每个 Work 进程可以占用一个固定的逻辑处理器(绑定在一起), 以提高处理效率.
+
+#### 通讯
+Nginx 进程间通讯的方式有: 信号, 共享内存, 锁, Slab 内存管理器.
+共享内存是 Nginx 跨 Work 进程通信的最有效手段.
+ngx_slab_stat 模块可以统计 Slab 内存管理器的内存使用情况.
+
 
 ### 信号
 Work 进程也可以接收信号, 但我们一般只是给 Master 进程发送信号即可.
