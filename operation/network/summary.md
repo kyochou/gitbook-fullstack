@@ -36,3 +36,8 @@ $ brew install netcat
     
 #### 参考
 * [10 个例子教你学会 ncat (nc) 命令](https://linux.cn/article-9190-1.html)
+
+
+## 网络模型
+
+![TCP 流与报文](https://files-kyo.oss-cn-hongkong.aliyuncs.com/FqHQj_TybNiDuLzSb3bJx-DFaQsY.png)
