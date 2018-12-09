@@ -10,7 +10,14 @@ Nginx 的组成:
 
 ## 架构
 ### 模块
+core module 用于定义一些共用的代码.
+[模块分类](https://files-kyo.oss-cn-hongkong.aliyuncs.com/Fsyv8R6OmAMyaVG1daTw7uwhdB4V.png)
+[模块结构](https://files-kyo.oss-cn-hongkong.aliyuncs.com/FjN0S0KGglfq8_zIgTHUgj5QEhOD.png)
 
+### Pool
+#### 连接池
+#### 内存池
+通过使用内存池, 可减少内存碎片的数量.
 
 ### 事件
 Nginx 的事件驱动框架使用了 ET(边沿) 模式的 Epoll, 以实现更高的性能. 
@@ -45,6 +52,14 @@ TERM, INI 信号表示立刻停止进程, QUIT 信号表示让进程自已退出
         ```nginx
         error_log  logs/error.log  debug;
         ```
+        
+* 查看编译到 Nginx 中的模块:
+
+    在 `configure` 命令执行后, 查看 `objs/ngx_modules.c` 文件. 里面有模块相关的设置.
+    
+* 通过源码查看模块支持的指令:
+
+    在源码文件中(如 `src/http/modules/ngx_http_gzip_filter_module.c`), 查找类型为 `ngx_command_t` 的结构体, 在其内有模块相关指令的定义.    
         
 ### 热部署
 即在不停止服务的基础上实现 Nginx 的版本升级. 步骤如下:
