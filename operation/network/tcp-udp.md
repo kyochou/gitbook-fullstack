@@ -12,3 +12,8 @@ src_ip, src_port, dest_ip, dest_port, protocol_type
 #### 参考
 * [理解端口复用（四元组）](https://blog.csdn.net/dlf1769/article/details/78786775)
 * [突破 netty 单机最大连接数](https://www.jianshu.com/p/490e2981545c)
+
+## TCP
+
+## UDP
+因 UDP 的 "send-and-forget" 特性, 除非在服务端明确给出回应(可使用 nc 命令起一个 server), 否则无法测试一个 UDP 端口是否已打开.
