@@ -76,3 +76,14 @@
 ## Sites
 * [http://www.innomysql.com/](http://www.innomysql.com/)
 
+
+## Tools
+* [mycli](https://www.mycli.net/)
+
+    ```shell
+    # centos 7.4
+    sudo yum install python-pip python-devel
+    sudo pip install backports.csv tabulate terminaltables
+    sudo pip  --upgrade --force-reinstall  configobj    
+    sudo pip install mycli
+    ```
