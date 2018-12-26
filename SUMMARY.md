@@ -8,6 +8,7 @@
     * [模块化](design/module.md)
     * [ID](design/ID.md)
     * [Cache](design/cache.md)
+    * [Review](design/review.md)
 * [数据](data/summary.md)
     * [缓存](data/cache/summary.md)
     * [存储](data/store/summary.md)
