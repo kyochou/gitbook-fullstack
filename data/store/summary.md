@@ -12,3 +12,6 @@ CSV 全称 Comma Separated Values 或 Character Separated Values.
 ### Migration
 #### dbmate
 [dbmate](https://github.com/amacneil/dbmate): A lightweight, framework-agnostic database migration tool.
+
+1. 需要修改数据库结构时, 不要直接修改数据库, 使用 `dbmate new` 命令生成一个新的迁移文件, 在其内添加更新和回滚语句.
+2. 
