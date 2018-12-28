@@ -21,6 +21,16 @@ Linux 文件的访问者有三种身份:
     ```
     
     可通过命令 `chmod a+s file` 设置此标志.
+    此标志位在 SELinux 中默认是不起作用的, 通过 `visudo` 将要执行的命令和用户添加到 sudo 列表中, 然后在执行命令前添加 `sudo` 前缀, 也可实现同等的效果:
+    ```ini
+    # visudo
+    username  ALL=(ALL) NOPASSWD: /path/to/sciprt.sh
+    ```
+    
+    ```shell
+    # with user username
+    sudo /path/to/sciprt.sh
+    ```
     
 * t: 此权限会占据 other 用户的执行标志位. 用于设置一个目录可被所有人写入, 但只能删除自己创建的文件. 通过命令 `chmod a+t dir` 来设置此标志.
 
