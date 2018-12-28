@@ -42,6 +42,7 @@
             * [CLI](operation/os/linux/cli.md)
             * [ZSH](operation/os/linux/zsh.md)
             * [Manage](operation/os/linux/manage.md)
+            * [File](operation/os/linux/file.md)
         * [MacOS](operation/os/macos/summary.md)
             * [VSCode](operation/os/macos/vscode.md)
             * [Software](operation/os/macos/software.md)
