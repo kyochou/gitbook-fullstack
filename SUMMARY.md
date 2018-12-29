@@ -23,6 +23,7 @@
     * [Server](operation/server/summary.md)
         * [Nginx](operation/server/nginx.md)
     * [构建](operation/build/summary.md)
+        * [Gitlab](operation/build/gitlab.md)
         * [Pip](operation/build/pip.md)
         * [Maven](operation/build/maven.md)
         * [Gradle](operation/build/gradle.md)
