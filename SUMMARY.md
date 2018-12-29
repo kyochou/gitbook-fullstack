@@ -46,6 +46,7 @@
         * [MacOS](operation/os/macos/summary.md)
             * [VSCode](operation/os/macos/vscode.md)
             * [Software](operation/os/macos/software.md)
+            * [System](operation/os/macos/system.md)
         * [Windows](operation/os/windows/summary.md)
             * [多系统](operation/os/windows/multi-system.md)
     * [版本控制](operation/version-control/summary.md)
