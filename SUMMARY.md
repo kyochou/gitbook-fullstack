@@ -70,6 +70,7 @@
     * [PHP](backend/php/summary.md)
         * [Variable](backend/php/variable.md)
         * [Feather](backend/php/feather.md)
+        * [Install](backend/php/install.md)
     * [Node.js](backend/nodejs/summary.md)
 * [前端](frontend/summary.md)
     * [HTML](frontend/languages/html/summary.md)

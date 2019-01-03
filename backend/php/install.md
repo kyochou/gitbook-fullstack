@@ -14,7 +14,9 @@ brew install composer
 ```shell
 pecl install redis
 pecl install xdebug
-
+pecl install swoole
+    
+composer config -g repo.packagist composer https://packagist.laravel-china.org
 composer global require friendsofphp/php-cs-fixer
 ```
 
