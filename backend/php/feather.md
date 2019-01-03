@@ -16,4 +16,26 @@
 
 ## 7.2
 * 参数和返回值的类型声明允许使用 `object` 做为对象类型的统一表达
-* 
+* 允许重写抽象方法
+* 多组命名空间支持尾部逗号: `use Foo\Bar\{Foo,Bar,}`
+
+### Refs
+* [PHP7.2](http://www.webzhishi.com/php/php72-new-func.html)
+* [PHP 7.2 新功能介绍](https://laravel-china.org/topics/9814/introduction-of-new-functions-of-php-72)
+* [从 PHP 7.1.x 移植到 PHP 7.2.x](http://php.net/manual/zh/migration72.php)
+
+## 7.0
+* 组合比较符 `<=>`
+* `isset` 合并运算符:
+
+    ```php
+    $b = $a ?? $c;
+    // equals
+    $b = isset($a) ? $a : $c;
+    
+    $b = $a ?: $c;
+    // equals
+    $b = $a ? $a : $c;
+    ```
+
+* 命名空间按组导入: `use Foo\Bar{Foo,Bar}`
