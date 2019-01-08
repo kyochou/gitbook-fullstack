@@ -1,6 +1,11 @@
 # Network
 
-## CLIs
+## CLI
+
+### Speed
+
+使用 [sivel/speedtest-cli](https://github.com/sivel/speedtest-cli) 测试网络的上传和下载速度, 使用 [reorx/httpstat](https://github.com/reorx/httpstat) 测试网站的打开速度.
+
 ### nc(netcat)
 #### 安装
 
