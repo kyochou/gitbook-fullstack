@@ -1,6 +1,21 @@
 # Proxy
 
 ## CLI
+### Tools
+
+* [sshuttle/sshuttle](https://github.com/sshuttle/sshuttle)
+
+    基于 SSH 的 VPN 代理. 可快速使用远程主机代理本地的所有的网络流量.
+    
+    ```shell
+    sshuttle --dns -r username@sshserver 0/0
+    ```
+    
+* [snail007/goproxy](https://github.com/snail007/goproxy)
+
+    Proxy 是 golang 实现的高性能代理服务器, 支持正向代理, 反向代理, 透明代理, 内网穿透, TCP/UDP 端口映射, SSH 中转, TLS 加密传输, 协议转换, 防污染 DNS 代理.  
+
+
 ### FAQs
 * 如何在 `sudo` 命令中使用环境变量中的代理设置(HTTP_PROXY, HTTPS_PROXY, FTP_PROXY, etc..)
 
