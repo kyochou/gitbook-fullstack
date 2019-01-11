@@ -70,6 +70,7 @@
         * [包管理](backend/java/package-manage.md)
     * [PHP](backend/php/summary.md)
         * [Variable](backend/php/variable.md)
+        * [Types](backend/php/types.md)
         * [Feather](backend/php/feather.md)
         * [Install](backend/php/install.md)
     * [Node.js](backend/nodejs/summary.md)
