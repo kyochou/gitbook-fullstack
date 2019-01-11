@@ -37,6 +37,7 @@
             * [Thread](operation/os/base/thread.md)
             * [I/O](operation/os/base/io.md)
         * [Tools](operation/os/tools/summary.md)
+            * [CLI](operation/os/tools/cli.md)
         * [Linux](operation/os/linux/summary.md)
             * [CentOS](operation/os/linux/centos.md)
             * [Crontab](operation/os/linux/crontab.md)
