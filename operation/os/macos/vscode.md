@@ -1,6 +1,12 @@
 # Visual Studio Code
 
-## 设置
+## Settings
+
+* Creating your own snippets: `Code > Preferences > User Snippets`
+
+
+
+
 ### User Settings
 ```js
 {
