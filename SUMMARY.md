@@ -36,6 +36,7 @@
             * [IPC](operation/os/base/ipc.md)
             * [Thread](operation/os/base/thread.md)
             * [I/O](operation/os/base/io.md)
+            * [FS](operation/os/base/filesystem.md)
         * [Tools](operation/os/tools/summary.md)
             * [CLI](operation/os/tools/cli.md)
         * [Linux](operation/os/linux/summary.md)
