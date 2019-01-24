@@ -18,6 +18,8 @@
     * [传输](data/transfer/summary.md)
         * [gRPC](data/transfer/grpc.md)
 * [运维](operation/summary.md)
+    * [Automation](operation/automation/summary.md)
+        * [Ansible](operation/automation/ansible.md)
     * [日志](operation/log/summary.md)
     * [云计算](operation/cloud-computing/summary.md)
         * [AliYun](operation/cloud-computing/aliyun.md)
