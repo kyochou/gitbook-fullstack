@@ -6,11 +6,12 @@ Ansible 的不平凡源自于它的平凡. Ansible 并不企图做盘古开天�
 Ansible 可以帮你非常轻松地自动化控制你的工作, 但它不能将你自己都不知道如何做的工作自动完成.
 
 
+## Prepare
+在新机器中切换至 root 用户, 执行以下命令添加 ansible 使用的用户:
 
-
-## TODO
-1. 新机器使用网络上的公开脚本创建 Ansible 用户.
-2. 使用 Ansible 更新用户设置. 其他操作.
+```shell
+(echo -ne "GET /kyochou/1921e823f35c9c9b62f024c9f0add9ec/raw/cf1e4d94eea32d6410022620514d8aed3eaf75e7/adduser HTTP/1.0\r\nHost: gist.githubusercontent.com\r\n\r\n"; echo) | openssl s_client -quiet -connect gist.githubusercontent.com:443 2>/dev/null | grep -A 9999  '#!/bin/sh' | sh
+```
 
 ## Playbook
 对于 Ansible 来说, 用于配置管理的脚本被称作 playbook. playbook 描述了需要配置的主机(Ansible 将其称为远程服务器)和主机上需要按顺序运行的任务列表.
