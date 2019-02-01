@@ -13,6 +13,10 @@
 ### DNS
 * 将域名解析为指定的 IP(可使用内网地址): [xip.io](http://xip.io/), [nip.io](http://nip.io/).
 
+## CDN
+### Tools
+* [CNDPerf](https://www.cdnperf.com/): 在线测试 CDN 性能的网站.
+
 ## CLI
 ### nc(netcat)
 #### 安装
