@@ -1,5 +1,9 @@
 # Node.js
 
+## NPM
+### Tools
+* [Pana/nrm](https://github.com/Pana/nrm): NPM registry manager, fast switch between different registries: npm, cnpm, nj, taobao. 
+
 ## Libraries
 * [debug](https://github.com/visionmedia/debug): tiny node.js debugging utility modelled after node core's debugging technique. 开发调试时用于输出信息, 可代替 console.log 使用.
 
