@@ -19,3 +19,8 @@ CSV 全称 Comma Separated Values 或 Character Separated Values.
     1. 使用 `dbmate new` 重新创建一个迁移文件.
     2. 使用 `dbmate down` 命令回滚上次的迁移然后再修改此迁移文件.
 4. 提交到代码仓库中的迁移文件禁止修改(有可能别人已经执行过了). 
+
+```shell
+DATABASE_URL="mysql://root:root@127.0.0.1:3306/tinygame" dbmate new admin-user-role
+
+```
