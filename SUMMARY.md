@@ -65,6 +65,7 @@
         * [HTTP](operation/network/http.md)
         * [Tunnels](operation/network/tunnel.md)
         * [Proxy](operation/network/proxy.md)
+        * [Device](operation/network/device.md)
         * [TCP/UDP](operation/network/tcp-udp.md)
         * [Transfer](operation/network/transfer.md)
         * [SSH](operation/network/ssh.md)
