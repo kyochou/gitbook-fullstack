@@ -22,7 +22,7 @@ ControlPersist yes
 ## FAQs
 * SSH 无法登录, 卡在 `expecting SSH2_MSG_KEX_ECDH_REPLY`
 
-    修改网卡的 mtu 值为 1400 即可. 
+    修改网卡的 mtu 值为 1400(这个值是不确定的) 即可. 
     以太网的 MTU 默认是 1500, 而隧道的 MTU 值为 1400 左右, 比以太网的小. 因此, 以太网发出去的包就被拒绝了, 最终导致无法建立 SSH 连接.
     参考: [SSH 使用问题以及解决方案 (expecting SSH2_MSG_KEX_ECDH_REPLY)](https://github.com/johnnian/Blog/issues/44)
     
