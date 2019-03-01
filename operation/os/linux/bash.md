@@ -1,4 +1,9 @@
 # Bash
+## 变量
+### 定义
+* 指定默认值: `FOO=${VARIABLE:-default}  # If variable not set or null, use default.`
+* 指定默认值, 并赋予引用变量(同时为两个变量赋值): `FOO=${VARIABLE:=default}  # If variable not set or null, set it to default.`
+
 ## 参数
 
 * $0: 脚本文件名.
@@ -6,6 +11,9 @@
 * $#: 传递参数的个数.
 * $*: 传递给脚本的所有参数的字符串值.
 * $@: 传递给脚本的所有参数的数组值.
+
+### FAQs
+* 参数默认值: port=${1:-9000}
 
 ### 命令
 * shift \<n\>: 将参数数组(`$@`)左移 n 位. 默认值为 1. 
