@@ -30,11 +30,11 @@
 
     ```php
     $b = $a ?? $c;
-    // equals
+    // equals isset
     $b = isset($a) ? $a : $c;
     
     $b = $a ?: $c;
-    // equals
+    // equals  !empty
     $b = $a ? $a : $c;
     ```
 
