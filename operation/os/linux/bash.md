@@ -24,3 +24,13 @@
 * $$: 当前 shell 的进程 ID.
 * $_: 上一个命令的最后一个参数.
 * $!: 上一个进入后台运行的进程的 ID.
+
+## Script
+### FAQs
+* 使用带空格路径的变量
+
+```bash
+code='/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code'
+# 注意使用引号
+"$code"  --install-extension yzhang.markdown-all-in-one
+```
