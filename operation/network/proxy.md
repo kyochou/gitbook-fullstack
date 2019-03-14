@@ -15,6 +15,9 @@
 
     Proxy 是 golang 实现的高性能代理服务器, 支持正向代理, 反向代理, 透明代理, 内网穿透, TCP/UDP 端口映射, SSH 中转, TLS 加密传输, 协议转换, 防污染 DNS 代理.  
 
+* [avwo/whistle](https://github.com/avwo/whistle)
+
+    可拦截, 修改 `http(s)`, `websocket` 数据的代理工具. 使用时注意要安装 HTTPS 证书(不然无法正常拦截请求, 即使是 HTTP 协议).
 
 ### FAQs
 * 如何在 `sudo` 命令中使用环境变量中的代理设置(HTTP_PROXY, HTTPS_PROXY, FTP_PROXY, etc..)
