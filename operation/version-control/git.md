@@ -26,3 +26,6 @@ echo '*.png diff=exif' >> .gitattributes
 git config diff.exif.textconv exiftool
 ```
 
+
+## Tools
+* [joeblau/gitignore.io](https://github.com/joeblau/gitignore.io): Create useful .gitignore files for your project.
