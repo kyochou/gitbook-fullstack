@@ -1,8 +1,13 @@
 # CLI
+
+## Pipeline
+* `> /dev/null 2&>1`: 抛弃所有输出.
+
+
 ## Bash
 ### FAQs
 * 查看进程打开的文件(包括端口): `lsof -Pp <pid>`.
-* 查看端口被哪个程序占用: `lsof -Pi:<port>` 或 `netstat -aenp | grep <port>`.
+* 查看端口被哪个程序占用: `lsof -sTCP:LISTEN -Pi:<port>` 或 `netstat -aenp | grep <port>`.
 * 查看命令是否可存在: `command -v <cmd>`.
 * 使用脚本为命令设置环境变量:
     当我们在 Shell 中运行一个命令时, 该 Shell 就会 Fork 出一个新进程来执行命令. 也就是说, 新进程是子 Shell, 而之前的 Shell 是父 Shell. 在子 Shell 中设置的变量是无法传递到父 Shell 或其同级的 Shell 中的.
