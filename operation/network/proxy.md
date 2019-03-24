@@ -18,6 +18,8 @@
 * [avwo/whistle](https://github.com/avwo/whistle)
 
     可拦截, 修改 `http(s)`, `websocket` 数据的代理工具. 使用时注意要安装 HTTPS 证书(不然无法正常拦截请求, 即使是 HTTP 协议).
+    
+* [cyfdecyf/cow](https://github.com/cyfdecyf/cow): 可自动为不可访问地址使用代理访问. COW can automatically identify blocked sites and use parent proxies to access.    
 
 ### FAQs
 * 如何在 `sudo` 命令中使用环境变量中的代理设置(HTTP_PROXY, HTTPS_PROXY, FTP_PROXY, etc..)
