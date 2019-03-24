@@ -4,11 +4,13 @@
 * upgrade
 
     ```shell
-    $ brew update
-    $ brew upgrade
-    $ brew cleanup
-    $ brew prune
-    ```
+    brew update
+    # 不要随意执行 upgrade, 会将所有软件更新到最新版本
+    # brew upgrade
+    brew cleanup
+    brew prune
+    brew style # check&fix
+    ``` 
     
 ## proxy
 
