@@ -45,10 +45,10 @@ data 中定义的值固定的, 定义后就不会自动改变.
 计算属性(computed)可以根据其所依赖的响应式变量的变化而重新求值, 但它是基于它们的依赖进行缓存的. 计算属性只有在它的相关依赖发生改变时才会重新求值. 如果不希望有缓存, 请用 method 替代.
 更复杂的变化可以考虑 watched 属性.
 
-在修改 `associative array` 的 `key` 时不能直接使用原生方法. 需使用 `this.$set`, `this.$delete` 进行相关操作. 参考 [Mutation-Methods](https://vuejs.org/v2/guide/list.html#Mutation-Methods)
+请反复阅读 Vue 的 [数组更新检测](https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B). 明确了解什么时候应该使用 `this.$set`, `this.$delete` 进行相关操作.
 
 ### watch
-如果 gg`watch` 的对象需要在初始化时立即执行一次, 可将其 `immediate` 属性设置为 `true`.
+如果 `watch` 的对象需要在初始化时立即执行一次, 可将其 `immediate` 属性设置为 `true`.
 
 ## FAQs
 * 动态修改 DOM 属性
