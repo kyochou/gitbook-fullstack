@@ -24,7 +24,7 @@
     * [云计算](operation/cloud-computing/summary.md)
         * [AliYun](operation/cloud-computing/aliyun.md)
     * [Server](operation/server/summary.md)
-        * [Nginx](operation/server/nginx.md)
+        * [Nginx](operation/server/nginx/summary.md)
     * [构建](operation/build/summary.md)
         * [Gitlab](operation/build/gitlab.md)
         * [Pip](operation/build/pip.md)
