@@ -1,6 +1,33 @@
 # HTTP
 
-## server_name
+## HTTP 请求处理的 11 个阶段
+
+### POST_READ
+Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
+
+* realIP
+
+### REWRITE
+#### SERVER_REWRITE
+#### FIND_CONFIG
+#### REWRITE
+#### POST_REWRITE
+
+### ACCESS
+#### PREACCESS
+#### ACCESS
+此阶段主要用来控制是否有**权限**访问.
+#### POST_ACCESS
+
+### CONTENT
+#### PRECONTENT
+#### CONTENT
+####LOG
+
+
+
+## 指令
+### server_name
 `server_name` 值是与请求中的 `Host` 头部做匹配, 而不是 URL 中使用的域名.
 `server_name` 可使用的值有具体域名, 带 `*` 的泛域名和使用正则表达式(以 `~` 前缀开头)表示的域名值.
 `server_name` 指令后可以跟多个域名, 其中第一个为主域名.
@@ -26,7 +53,7 @@ listion 80 default;
 server_name "";
 ```
 
-### 值匹配顺序
+#### 值匹配顺序
 
 1. 精确域名匹配
 2. `*` 在前的泛域名
@@ -36,5 +63,5 @@ server_name "";
     如果配置中使用如 `include conf.d/*.conf` 这种形式加载多个文件, 其出现顺序是由 linux 中 [glob](http://man7.org/linux/man-pages/man7/glob.7.html) 的匹配规则决定的.
 6. default server
 
-## server_name_in_redirect
+### server_name_in_redirect
 指定重定向时使用哪个域名. 如果值为 `on` 则使用主域名, 为 `off` 则使用当前匹配的域名. 默认为 `off`.
