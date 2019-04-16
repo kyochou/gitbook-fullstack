@@ -74,6 +74,10 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 
 ### ACCESS
 #### PREACCESS
+* limit_conn 模块: 限制并发连接数.
+    生效范围为全部 worker 进程(基于共享内存). 限制的有效性取决于  key 的设计: 比如 `POST_READ` 阶段 realip 模块取到的真实 IP.
+
+* limit_req 模块: 限制每秒处理请求数.
 #### ACCESS
 此阶段主要用来控制是否有**权限**访问.
 #### POST_ACCESS
