@@ -2,10 +2,15 @@
 
 ## HTTP 请求处理的 11 个阶段
 
+Nginx 通过变量在模块间传递数据.
+
 ### POST_READ
 Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 
-* realIP
+* realip 模块
+
+    `X-Real-IP` 用于传递用户 IP.
+    `X-Forwarded-For` 用于传递代理 IP.
 
 ### REWRITE
 #### SERVER_REWRITE
