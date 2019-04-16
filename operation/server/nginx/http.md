@@ -13,6 +13,16 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
     `X-Forwarded-For` 用于传递代理 IP.
 
 ### REWRITE
+* return 指令. 可以帮助我们做重定向或直接返回.
+
+    ```nginx
+        return code [text];
+        return code URL;
+        return URL;
+    ```
+    return 码为 `444` 会直接使 Nginx 关闭连接, 客户端是收不到响应的.
+    
+    
 #### SERVER_REWRITE
 #### FIND_CONFIG
 #### REWRITE
@@ -70,3 +80,6 @@ server_name "";
 
 ### server_name_in_redirect
 指定重定向时使用哪个域名. 如果值为 `on` 则使用主域名, 为 `off` 则使用当前匹配的域名. 默认为 `off`.
+
+### error_page
+为指定的返回码定义行为.
