@@ -55,6 +55,20 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
       
 #### SERVER_REWRITE
 #### FIND_CONFIG
+* location 指令.
+    如果多个相同类别的规则都匹配则使用最长的匹配规则.
+    匹配规则:
+    * 前缀字符串
+        * 常规前缀匹配. 优先级最低, 低于正则.
+        * `=`: 精确匹配. 优先级最高.
+        * `^~` 匹配后不再进行正则匹配. 优先级高于正则匹配.
+    * 正则匹配. 按配置中出现的顺序依次匹配.
+    * `@` 用于内部跳转的命名 location. 
+
+    [location 匹配优先级](https://files-kyo.oss-cn-hongkong.aliyuncs.com/FuC0A0UOrcQeIMC5UFerDfiSEROi.png).
+
+    
+* merge_slashes 指令: 是否将多个 `/` 合并为一个. 默认为 `on`.    
 #### REWRITE
 #### POST_REWRITE
 
