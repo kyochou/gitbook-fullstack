@@ -3,6 +3,7 @@
 ## HTTP 请求处理的 11 个阶段
 
 Nginx 通过变量在模块间传递数据.
+同一阶段不同模块的执行顺序是与 `ngx_modules.c` 文件中模块的定义(`ngx_module_names`)顺序相反的.
 
 ### POST_READ
 Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
