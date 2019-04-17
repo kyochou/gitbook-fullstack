@@ -3,7 +3,7 @@
 ## HTTP 请求处理的 11 个阶段
 
 Nginx 通过变量在模块间传递数据.
-同一阶段不同模块的执行顺序是与 `ngx_modules.c` 文件中模块的定义(`ngx_module_names`)顺序相反的.
+同一阶段不同模块的执行顺序是与 `ngx_modules.c` 文件中模块的定义(`ngx_module_names` 变量)顺序相反的. 与其在配置文件中出现的次序无关.
 
 ### POST_READ
 Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
@@ -82,6 +82,14 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
     生效范围为全部 work 进程(基于共享内存). 使用 leaky bucket 算法实现.
 #### ACCESS
 此阶段主要用来控制是否有**权限**访问.
+
+* access 模块: 用于控制 IP 的访问权限. 提供了 `allow` 和 `deny`  指令.
+* auth_basic 模块: 用于进行 HTTP Basic Authutication 协议认证. 提供了 `auth_basic` 和 `auth_basic_user_file` 指令.
+* auth_request 模块: 
+      向上游服务转发请求, 若上游服务返回的响应码是 2xx, 则继续执行, 若上游服务返回的是 401 或 403, 则将响应返回给客户端.
+    其实现是收到请求后, 生成子请求, 通过反向代理技术把请求传递给上游服务.
+    提供的指令有 `auth_request`, `auth_request_set`.
+    
 #### POST_ACCESS
 
 ### CONTENT
