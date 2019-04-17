@@ -186,13 +186,6 @@ http 配置包括以下指令块:
 日志格式通过 `log_format` 指令设置, 可为其指定名称以便于引用.
 
 
-## OpenResty
-### FAQs
-* Mac 编译 OpenResty 常见错误:
-
-    参考: [MAC 重装各种的痛点](http://homeway.me/2015/07/10/rebuild-osx-environment/)
-
-
 ## Tools
 [goaccess](https://github.com/allinurl/goaccess/): 实时的 Web 日志分析工具. 可在命令行中显示.
 

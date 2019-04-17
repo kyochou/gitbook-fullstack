@@ -71,6 +71,7 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
     
 * merge_slashes 指令: 是否将多个 `/` 合并为一个. 默认为 `on`.    
 #### REWRITE
+* if 指令.
 #### POST_REWRITE
 
 ### ACCESS
@@ -83,6 +84,10 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 #### ACCESS
 此阶段主要用来控制是否有**权限**访问.
 
+* satisfy 指令
+    当值为 `all` 时, 必须所有 ACCESS 中的模块全部通过时, 才可以继续访问.
+    当值为 `any` 时, 只要任一个 ACCESS 中的模块通过后, 就可以继续访问了.
+
 * access 模块: 用于控制 IP 的访问权限. 提供了 `allow` 和 `deny`  指令.
 * auth_basic 模块: 用于进行 HTTP Basic Authutication 协议认证. 提供了 `auth_basic` 和 `auth_basic_user_file` 指令.
 * auth_request 模块: 
@@ -94,7 +99,12 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 
 ### CONTENT
 #### PRECONTENT
+* try_files 指令: 依次试图访问多个 url 对应的文件(由 root 或 alias 指令指定), 当文件存在时直接返回文件内容, 如果所有文件都不存在, 则按最后一个 URL 的结果或者 code 返回.
+* mirror 指令: 处理请求时, 生成子请求访问其他服务, 对子请求的返回值不做处理.
+
 #### CONTENT
+* root 指令: 将 URL 映射为文件路径, 并返回其内容. 此指令会将 `location` 指令所匹配的路径添加到其值后查找文件.
+* alias 指令: 将 URL 映射为文件路径, 并返回其内容. 此指令会忽略 `location` 匹配的路径, 把剩余部分添加到其值后查找文件.
 ####LOG
 
 
