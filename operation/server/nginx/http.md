@@ -116,6 +116,7 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 
 #### POSTCONTENT
 * ngx_http_sub_filter_module 模块: 用于将响应中指定的字符串替换成新的字符串. 通过 `--with-http_sub_module` 启用. 
+* ngx_http_addition_filter_module 模块: 用于在响应前或响应后增加内容. 增加内容的方式是通过新增子请求的响应完成. 通过 `--with-http_addition_module` 启用.
 #### LOG
 ##### access 
 * log_format 指令: 定义日志格式.
