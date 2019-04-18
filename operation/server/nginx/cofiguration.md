@@ -6,6 +6,10 @@
 变量的提供(定义)模块定义变量名和解析出变量的方法(在 `preconfiguration` 中定义新变量).
 变量的使用模块(config 文件)根据变量的值进行相应处理. 变量的值是其指定方法的返回值, 是处于变化状态的.
 
+### 指令
+* variables_hash_bucket_size
+* variables_hash_max_size
+
 
 ## Directives
 * 值指令: 用于存储配置项的值. 可以被覆盖.
