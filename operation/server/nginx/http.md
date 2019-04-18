@@ -114,10 +114,13 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 * auto_index 指令: 如果 URL 匹配目录时, 尝试返回目录中的文件列表. 相关指令有 `autoindex_exact_size`, `autoindex_format`, `autoindex_localtime`. 注意, `index` 指令是先于 `auto_index` 执行的. 可以将 `index` 的值设为一个不存在的文件从而防止其执行.
 * concat 模块: 可以把多个文件的内容合并到一个 HTTP 响应中返回.
 
+#### POSTCONTENT
+* ngx_http_sub_filter_module 模块: 用于将响应中指定的字符串替换成新的字符串. 通过 `--with-http_sub_module` 启用. 
 #### LOG
 ##### access 
 * log_format 指令: 定义日志格式.
-* access_log 指令: 定义日志路径.
+* access_log 指令: 定义日志路径. 路径中可包含变量. 支持缓存, 压缩功能.
+* open_log_file_cache 指令: 控制日志缓存功能.
 ##### error
 * log_not_found 指令: 值为 `off` 时不显示文件找不到的错误.
 
