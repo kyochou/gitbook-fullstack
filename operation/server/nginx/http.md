@@ -110,6 +110,8 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 * 变量 `realpath_root`: 将 `document_root` 中的软链接等转换成真实路径后的值.
 * types 指令: 指定返回文件时文件后缀名与返回的 Respone Header 中 `content-type` 值的对应关系.
 * Nginx 的 static 模块在进行 `root/alias` 匹配时, 如果发现访问的目标是目录, 而请求 URL 并没有以 `/` 结尾时, 会返回一个到此目录的 301 重定向. 这个返回结果可以使用指令 `server_name_in_redirect`, `port_in_redirect`, `absolute_redirect` 来控制.
+* index 指令: 指定做为 index 文件的名称.
+* 
 
 #### LOG
 * log_not_found 指令: 值为 `off` 时不显示文件找不到的错误.
