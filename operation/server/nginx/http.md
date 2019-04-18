@@ -111,9 +111,14 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 * types 指令: 指定返回文件时文件后缀名与返回的 Respone Header 中 `content-type` 值的对应关系.
 * Nginx 的 static 模块在进行 `root/alias` 匹配时, 如果发现访问的目标是目录, 而请求 URL 并没有以 `/` 结尾时, 会返回一个到此目录的 301 重定向. 这个返回结果可以使用指令 `server_name_in_redirect`, `port_in_redirect`, `absolute_redirect` 来控制.
 * index 指令: 指定做为 index 文件的名称.
-* 
+* auto_index 指令: 如果 URL 匹配目录时, 尝试返回目录中的文件列表. 相关指令有 `autoindex_exact_size`, `autoindex_format`, `autoindex_localtime`. 注意, `index` 指令是先于 `auto_index` 执行的. 可以将 `index` 的值设为一个不存在的文件从而防止其执行.
+* concat 模块: 可以把多个文件的内容合并到一个 HTTP 响应中返回.
 
 #### LOG
+##### access 
+* log_format 指令: 定义日志格式.
+* access_log 指令: 定义日志路径.
+##### error
 * log_not_found 指令: 值为 `off` 时不显示文件找不到的错误.
 
 
