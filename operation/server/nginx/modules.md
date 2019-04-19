@@ -1,5 +1,15 @@
 # Modules
 
+## Variable
+### http_map_module
+场景: 基于已有变量, 使用类似 `switch` 的语法创建新变量.
+
+### http_split_clients_module
+场景: 基于已有变量, 基于特定百分比算法生成指定的多个变量中的一个. 可用于 AB 测试等功能中.
+
+### http_geo_module
+场景: 基于 IP 地址生成新的变量.
+
 ## Request
 ### http_referer_module
 目的: 拒绝非正常的网站访问我们站点的资源.
@@ -15,10 +25,28 @@
 
 ### http_secure_link_module
 目的: 实现请求资源的验证.
+
+#### 验证链接的正确性
 思路:
-1. 应用服务器生成带有用户信息(IP 地址)和过期时间的链接, 返回给客户端. 
+1. 应用服务器使用链接地址和密匙生成带有 hash 值的链接(`/prefix/hash/link`), 返回给客户端. 
 2. 客户端访问此链接, Nginx 对此链接的合法性进行判断.
 
 指令:
-* secure_link
-* secure_link_expires
+* secure_link_secret: 生成加密链接时使用的密匙.
+
+变量:
+* secure_link: 验证通过返回链接地址, 否则返回空.
+
+
+#### 验证用户信息和过期时间
+思路:
+1. 应用服务器生成带有用户信息(如 IP 地址)和过期时间的链接, 返回给客户端. 
+2. 客户端访问此链接, Nginx 对此链接的合法性进行判断.
+
+指令:
+* secure_link: 定义验证需要的参数值.
+* secure_link_md5: 定义加密链接的生成规则.
+
+变量:
+* secure_link: 值为空表示验证不通过, 为 0 表示 URL 过期, 为 1 表示验证通过.
+* secure_link_expires: 过期时间.
