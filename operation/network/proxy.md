@@ -1,7 +1,6 @@
 # Proxy
 
-## CLI
-### Tools
+## Tools
 
 * [sshuttle/sshuttle](https://github.com/sshuttle/sshuttle)
 
@@ -20,14 +19,18 @@
     可拦截, 修改 `http(s)`, `websocket` 数据的代理工具. 使用时注意要安装 HTTPS 证书(不然无法正常拦截请求, 即使是 HTTP 协议).
     
 * [cyfdecyf/cow](https://github.com/cyfdecyf/cow): 可自动为不可访问地址使用代理访问. COW can automatically identify blocked sites and use parent proxies to access.    
+* 在线 IP 地址代理:
+    * [全网代理IP](http://www.goubanjia.com/)
 
-### FAQs
+
+
+## FAQs
 * 如何在 `sudo` 命令中使用环境变量中的代理设置(HTTP_PROXY, HTTPS_PROXY, FTP_PROXY, etc..)
 
     关键点是要将当前用户的环境变量代入到 `sudo` 环境中, 可通过 `visudo` 命令将要保留的环境变量添加到 `/etc/sudoers` 文件中:
     
     ```shell
-    Defaults        env_keep += "http_proxy https_proxy ftp_proxy"
+    Defaults  env_keep += "http_proxy https_proxy ftp_proxy"
     ```
     
     参考 ['sudo gem install ...' behind a proxy](http://jacob.stanley.io/2010/10/27/sudo-gem-install-behind-a-proxy/)

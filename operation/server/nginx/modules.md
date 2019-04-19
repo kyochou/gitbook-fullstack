@@ -8,7 +8,10 @@
 场景: 基于已有变量, 基于特定百分比算法生成指定的多个变量中的一个. 可用于 AB 测试等功能中.
 
 ### http_geo_module
-场景: 基于 IP 地址生成新的变量.
+场景: 基于 IP 地址创建新的变量.
+
+### http_geoip_module
+场景: 基于 IP 地址自动生成地理位置相关的新变量.
 
 ## Request
 ### http_referer_module
