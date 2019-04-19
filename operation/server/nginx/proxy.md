@@ -13,6 +13,7 @@
 
 #### Hash 算法
 通过指定关键字作为 hash key, 基于 hash 算法映射到特定的上游服务器中.
+通过添加参数 `consistent` 实现一致性 Hash 算法. 从而避免 server 发生变动时 Hash 算法映射的结果大幅变动.
 基于 http_upstream_hash_module, 使用 `hash` 指令开启.
 
 #### IP Hash 算法
