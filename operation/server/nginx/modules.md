@@ -1,4 +1,6 @@
 # Modules
+在 `ngx_modules.c` 中, 模块是使用单链表存储的. 所以其初始化顺序是自上而下, 而执行顺序则是自下而上.
+
 
 ## Variable
 ### http_map_module

@@ -1,5 +1,9 @@
 # Proxy
 ## upstream
+### http_upstream_zone 模块
+负载均衡算法默认只在当前 worker 进程中生效. 此模块通过使用共享内存使负载均衡策略对所有 worker 进程生效.
+使用指令 `zone` 开启.
+
 ### 负载均衡
 
 #### 加权 Round-Robin 算法
@@ -14,13 +18,15 @@
 #### Hash 算法
 通过指定关键字作为 hash key, 基于 hash 算法映射到特定的上游服务器中.
 通过添加参数 `consistent` 实现一致性 Hash 算法. 从而避免 server 发生变动时 Hash 算法映射的结果大幅变动.
-基于 http_upstream_hash_module, 使用 `hash` 指令开启.
+基于 http_upstream_hash 模块, 使用 `hash` 指令开启.
 
 #### IP Hash 算法
 以客户端的 IP 地址作为 hash 算法的关键字, 映射到特定的上游服务器中.
 基于 http_upstream_ip_hash 模块, 使用 `ip_hash` 指令开启.
 
-
+#### 优先选择连接数最少服务算法
+从所有上游服务器中, 找出当前并发连接数最少的一个, 将请求转发到它. 如果有多个相同最少连接数的服务器, 则对它们使用 round-robin 算法.
+基于 http_upstream_least_conn 模块, 使用 `least_conn` 指令开启.
 
 ### 指令
 
