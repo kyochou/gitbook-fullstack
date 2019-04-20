@@ -39,6 +39,31 @@
 * proxy_ignore_client_abort.
 * proxy_send_timeout: 向上游服务发送 HTTP 请求的超时时间. 默认为 60s.
 
+#### 控制接收上游响应的相关指令
+* proxy_buffer_size: 定义可接收的最大头部长度. 超出会在 `error.log` 中输出 `upstream sent too big header` 日志.
+* proxy_buffers
+* proxy_buffering
+* proxy_max_temp_file_size
+* proxy_temp_file_write_size
+* proxy_temp_path
+* proxy_busy_buffers_size
+* proxy_read_timeout
+* proxy_limit_rate
+* proxy_store_access
+* proxy_store
+* proxy_ignore_headers: 定义可忽略的上游返回的响应头部.
+* proxy_hide_header: 定义不向客户端转发的响应头部.
+* proxy_pass_header: 定义向客户端转发的响应头部. 优先级高于 `proxy_hide_header`.
+* proxy_cookie_domian
+* proxy_cookie_path
+* proxy_redirect: 修改返回的 Location 头部.
+
+#### 上游返回失败时的处理
+* proxy_next_upstream: 定义当上游服务返回指定状态时, 使用下一个服务重试. 必须是在没有向客户端发送任何内容时才可用. 当上游服务不可用后, 在 `fail_timeout` 秒内都不会再次访问, 之后继续原策略. `fail_timeout` 默认为 10s.
+* proxy_next_upstream_timeout
+* proxy_next_upstream_tries
+* proxy_intercept_errors: 当上游返回的 HTTP 状态码大于等于 300 时, 按 `error_page` 指令处理.
+
 ## Upstream
 ### Variables
  * upstream_addr: 上游服务器的地址.
