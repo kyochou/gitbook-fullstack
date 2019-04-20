@@ -7,8 +7,37 @@
 对上游服务使用 http/https 协议进行反向代理.
 使用 `proxy_pass` 指令开启.
 参数 URL 规则:
+* 必须以 `http://` 或 `https://` 开头; 接下来可以是域名, IP, unix socket 或 upstream 名称; 最后是可选的 URI.
+* 当 URL 中不携带 URI 时, Nginx 将客户端请求的 URL 直接转发给上游; 携带 URI, 则会将当前 location 匹配上的值使用 URI 替换.
 
 
+#### 控制客户端请求的指令
+* client_body_buffer_size
+* client_body_in_single_buffer
+* client_max_body_size: 最大请求体长度限制. 仅对请求头部中含有 Conent-Length 有效, 超出最大长度后, 返回 413 错误.
+* client_body_temp_path
+* client_body_in_file_only
+* client_body_timeout: 读取请求体的超时时间, 默认为 60s, 超时则返回 408 错误.
+
+
+#### 控制传递到上游服务数据的指令
+* proxy_method
+* proxy_http_version
+* proxy_set_header: 若 header 的值为空, 这个 header 不会向上游服务发送.
+* proxy_pass_request_hreaders
+* proxy_pass_request_body
+* proxy_set_body
+* proxy_request_buffering: 控制向上游服务转发请求时是边接收边转发还是接收完一次性转发.
+
+#### 控制向上游服务建立连接的指令
+* proxy_connect_timeout: 默认 60s, 超时后向客户端返回 502.
+* proxy_next_upstream: 上游返回指定结果时的处理. 可用于请求的重试.
+* proxy_socket_keepalive: 启用 TCP keepalive.
+* keepalive: 启用 HTTP keepalive.
+* keepalive_requests: 一条 HTTP keepalive 上复用的请求数.
+* proxy_bind: 修改 TCP 连接中的 Source IP 地址.
+* proxy_ignore_client_abort.
+* proxy_send_timeout: 向上游服务发送 HTTP 请求的超时时间. 默认为 60s.
 
 ## Upstream
 ### Variables
