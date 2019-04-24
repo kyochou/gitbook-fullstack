@@ -1,4 +1,8 @@
-# Openresty
+# OpenResty
+OpenResty 是什么? 被扩展的 Nginx, 可以直接在配置文件中执行 Lua 代码, 处理业务逻辑, 访问缓存和数据库等.
+OpenResty 可以理解为集成了很多模块的定制加强版 Nginx.
+OpenResty 应用开发过程, 主要就是与 OpenResty 添加的 Nginx 模块, 以及各种 Lua 的 Package 打交道的过程.
+
 ## 架构
 * Nginx
 * Nginx 官方模块
