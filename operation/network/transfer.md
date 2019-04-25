@@ -20,3 +20,13 @@
 
 ## 序列化
 序列化用于实现一种 "可以让数据在结构形态和扁平形态之间互相转换" 的方式.
+
+## MTU
+Maximum Transmission Unit, 最大传输单元. 是指一种通信协议的某一层上面所能通过的最大数据包大小(以字节为单位). 这个值通常与通信接口有关.
+可在路由器上查看当前连接的 MTU 值. `IEEE 802.3/802.2`(宽带拔号)的 MTU 值为 1492.
+使用 `ping` 命令可找出指定地址可使用的最佳 MTU 值: `ping -g 1390 -G 1600 -c 2 -h 1 -D <IP/Host>`, 得出的可用最大值加上 28(包头大小)即为最佳的 MTU 值. 本机的 MTU 应当设置为目标地址的最佳 MTU 和路由 MTU 中较小的值.
+通过 `tracepath` 命令可查看 MTU 值和路由过程.
+
+### 参考
+* [SSH使用问题以及解决方案(expecting SSH2_MSG_KEX_ECDH_REPLY)](https://github.com/johnnian/Blog/issues/44)
+* [以太网MTU和TCP MSS PPPoE连接的调整概念](https://www.cisco.com/c/zh_cn/support/docs/ip/transmission-control-protocol-tcp/200932-Ethernet-MTU-and-TCP-MSS-Adjustment-Conc.pdf)
