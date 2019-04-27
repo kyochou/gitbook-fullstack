@@ -80,5 +80,65 @@ end
 ```
 
 ## 函数
+由于函数定义本质上就是变量赋值, 而变量的定义总是应放置在变量使用之前, 所以函数的定义也需要放置在函数调用之前.
+
+由于函数定义等价于变量赋值, 可以直接把函数名替换为变量或 table 的 key: 
+```lua
+local tbl = {}
+
+function tbl.func()
+    ...
+end
+-- 等价于
+tbl.func = function()
+    ...
+end    
+    
+```
+
+### 参数
+
+Lua 函数的参数大部分是按值传递的. `table` 类型参数为引用传递.
+在调用函数时, 若形参个数与实参个数不同时, Lua 会自动调整. 多余的自动忽略, 少的会被初始化为 `nil`.
+
+使用 `...` 可定义变长参数:
+
+```lua
+local function func(...)
+    print(...)
+    local args = {...}
+    print(args[1])
+end
+    
+```
+
+为 Lua 函数只指定一个参数时, 此参数可做为 `table` 类型解析, 从而实现具名参数的效果:
+
+```lua
+local function func(tbl)
+    print(tbl.width, tbl.length)
+end
+func({width = 10, length = 5})
+```
+
+### 返回值
 一般情况下, `return` 只能作为函数的最后一行语句. 但如果 `return` 行后只有一行语句, 这行语句会被提升到和 `return` 同一行执行并返回.
 可使用 `do return end` 写法在其后添加多条语句, 但不会被执行.
+
+
+
+## Table
+与其他语言不同的是, Lua 中表的索引是自 1 开始.
+
+```lua
+local tbl = {
+    -- 索引为字符串
+    web = 'www.google.com',
+    ['city'] = 'hefei',
+    -- 相当于 [1] = 123
+    123,
+    -- 指定索引的值
+    [10] = 456,
+}
+
+```
