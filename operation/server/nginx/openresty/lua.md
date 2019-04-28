@@ -8,7 +8,7 @@ LuaJIT 利用即时编译技术把 Lua 代码编译成本地机器码后交由 C
 * nil: 表示 "无效值". 一个变量的初始值为 `nil`, 将 `nil` 赋予一个变量就等同于删除它.
 * boolean: Lua 中的 `nil` 和 `false` 为假, 其它值均为真.
 * number: 表示实数. 可以使用数学函数 `math.floor`, `math.ceil` 进行取整.
-* string: Lua 中有三种表示字符串的形式, 双引号, 单引号和长括号`[[]]`(相当于 `HEREDOC`). Lua 中的字符串是不可改变的值, 也不能通过下标来访问字符串的某个字符.
+* string: Lua 中有三种表示字符串的形式, 双引号, 单引号和长括号`[[]]`(相当于 `HEREDOC`). Lua 中的字符串是不可改变的值, 也不能通过下标来访问字符串的某个字符. 
 * table: 关联数组. 索引可以是除了 `nil` 以外的任意类型的值. 使用 `{}` 定义.
 * function: 具名函数的定义本质上是匿名函数对变量的赋值.
 
@@ -17,6 +17,7 @@ LuaJIT 利用即时编译技术把 Lua 代码编译成本地机器码后交由 C
 * `~=`: 不等于.
 * `==`: 等于. 在进行相等判断时, 对于 table, userdate 和函数, Lua 是作引用比较的.
 * 字符串连接: `..` 操作符或使用 `string.format`. 如果有很多连接操作, 推荐使用 `table.concat` 函数.
+* `#`: 取字符串或表的长度. `#str, #table`.
 
 
 ### 逻辑运算
@@ -147,6 +148,31 @@ print(2, (init())) -- 2, 1
 一般情况下, `return` 只能作为函数的最后一行语句. 但如果 `return` 行后只有一行语句, 这行语句会被提升到和 `return` 同一行执行并返回.
 可使用 `do return end` 写法在其后添加多条语句, 但不会被执行.
 
+## 模块
+通过 `require` 函数引用模块文件. 模块文件中通过 `return` 语句声明需要导出的变量.
+
+## String 库
+可 Lua5.1 中, String 库可以直接作为 string 类型的方法使用:
+```lua
+local str = 'string'
+-- 下面两个使用方法等价
+print(str:upper(), string.upper(str))
+```
+
+Lua 字符串总是由字节构成. Lua 核心并不尝试理解具体的字符集编码.
+
+* string.byte(s[, start[, end]]): 返回字符所对应的 ASCII 码. start 默认为 1, j 默认为 start. 使用此函数进行字符串相关的扫描和分析是最为高效的.
+* string.char(...): 接收不定参数个整数(0-255), 默认为 0. 返回这些整数对应的 ASCII 码字符组成的字符串. 
+* string.uppser(s), string.lower(s).
+* string.len(s): 此函数不推荐使用. 应当总是使用 `#` 运算符来获取 Lua 字符串长度.
+* string.find(s, p[, init[, plain]])
+* string.format(formatstring, ...)
+* string.match(s, p[, init])
+* string.gmatch(s, p): 全局匹配. 此函数目前只能解释执行. 应尽量使用 `ngx.re.gmatch` 等操作.
+* string.rep(s, n): 返回字符串 s 的 n 次拷贝.
+* string.sub(s, i[, j]): 返回子串.
+* string.gsub(s, p, r[ ,n]): 字符串替换.
+* string.reverse(s): 返回反转字符串.
 
 
 ## Table
@@ -164,3 +190,19 @@ local tbl = {
 }
 
 ```
+
+Lua 内部实际采用哈希表和数组分别保存键值对, 普通值, 所以不推荐混合使用数字和字符串做为健值.
+不要在表中使用 `nil` 值. 如果一个元素要删除, 直接 `remove`, 不要用 `nil` 去替代.
+
+* table.getn: 获取长度. 使用 `#` 操作符取表的长度会有一定的不确定性.
+* table.concat: 将表中值合并为字符串.
+* table.insert
+* table.maxn: 返回表中最大索引编号.
+* table.remove
+* table.sort
+* table.new: 预分配表空间.
+* table.clear: 高效释放表空间.
+
+
+## 日期时间函数
+推荐使用 `ngx_lua` 模块提供的带缓存的时间接口. 如 `ngx.today`, `ngx.time` 等.
