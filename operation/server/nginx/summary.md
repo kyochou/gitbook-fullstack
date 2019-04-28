@@ -9,6 +9,8 @@ Nginx 的组成:
 版本: 与 Linux 内核版本一样, 偶数结尾的版本表示稳定版.
 
 ## 架构
+Nginx 为了减少系统上下文切换, 它的 worker 是用单进程单线程设计的. 事实证明这种做法运行效率很高.
+
 ### 模块
 core module 用于定义一些共用的代码.
 [模块分类](https://files-kyo.oss-cn-hongkong.aliyuncs.com/Fsyv8R6OmAMyaVG1daTw7uwhdB4V.png)
