@@ -17,7 +17,10 @@ OpenResty 应用开发过程, 主要就是与 OpenResty 添加的 Nginx 模块, 
     * `configure` 命令生成的 nginx 源码的中间文件位于 `build/nginx-<VERSION>` 目录下.
     * `build/nginx-<VERSION>/objs/ngx_modules.c` 文件中保存了模块相关的信息.
 
+## 共享
+在 OpenResty 体系中, 可通过共享内存的方式完成不同工作进程的数据共享; 通过 Lua 模块方式完成单个进程内不同请求的数据共享; 通过 `ngx.ctx` 变量完成同一请求中的数据共享.
+
+
 ### Refs
 * [Openresty Installation](https://openresty.org/en/installation.html)
 * [MAC 重装各种的痛点](http://homeway.me/2015/07/10/rebuild-osx-environment/)
-* 
