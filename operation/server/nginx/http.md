@@ -98,11 +98,16 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 #### POST_ACCESS
 
 ### CONTENT
+
 #### PRECONTENT
 * try_files 指令: 依次试图访问多个 url 对应的文件(由 root 或 alias 指令指定), 当文件存在时直接返回文件内容, 如果所有文件都不存在, 则按最后一个 URL 的结果或者 code 返回.
 * mirror 指令: 处理请求时, 生成子请求访问其他服务, 对子请求的返回值不做处理.
 
 #### CONTENT
+绝大多数 Nginx 模块在向 content 阶段注册配置指令时, 本质上是在当前的 location 配置块中注册所谓的 "内容处理程序(content handler)". **每个 location 只能有一个 "content handler". 因此, 当在 location 中同时使用多个模块的 content 阶段指令时, 只有其中一个模块能成功注册 "content handler"**.
+配置指令 `echo_before_body`, `echo_after_body` 可与其他 content 指令结合执行. 因这两个指令运行在 Nginx 的 "输出过滤器" 中, 不属于 Nginx 的 11 个运行阶段.
+
+
 * root 指令: 将 URL 映射为文件路径, 并返回其内容. 此指令会将 `location` 指令所匹配的路径添加到其值后查找文件.
 * alias 指令: 将 URL 映射为文件路径, 并返回其内容. 此指令会忽略 `location` 匹配的路径, 把剩余部分添加到其值后查找文件.
 * 变量 `request_filename`: 待访问文件的完整路径.
@@ -117,7 +122,7 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 #### POSTCONTENT
 * ngx_http_sub_filter_module 模块: 用于将响应中指定的字符串替换成新的字符串. 通过 `--with-http_sub_module` 启用. 
 * ngx_http_addition_filter_module 模块: 用于在响应前或响应后增加内容. 增加内容的方式是通过新增子请求的响应完成. 通过 `--with-http_addition_module` 启用.
-#### LOG
+### LOG
 ##### access 
 * log_format 指令: 定义日志格式.
 * access_log 指令: 定义日志路径. 路径中可包含变量. 支持缓存, 压缩功能.
