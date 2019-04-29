@@ -67,7 +67,7 @@ end
 ```
 
 Lua 没有提供 `continue` 关键字, 只可使用 `break` 跳出循环.
-
+`continue` 可使用 `goto` 和 `::label::` 配合实现. 
 ```lua
 while ... do
     ...

@@ -11,6 +11,23 @@ Nginx 的组成:
 ## 架构
 Nginx 为了减少系统上下文切换, 它的 worker 是用单进程单线程设计的. 事实证明这种做法运行效率很高.
 
+### 变量
+在 Nginx 配置中,变量只能存放一种类型的值, 就是字符串.
+
+```nginx
+set $h 'hello';
+set $w 'world';
+# 在变量定义中引用已存在的值, 称为 "变量插值(variable interpolation)".
+set $hw "$h ${w}";
+echo $hw;
+```
+
+并非所有的配置指令都支持 "变量插值". 取决于该指令的实现模块.
+**使用 `set` 指令创建变量并为其赋值. 需要注意的是, Nginx 变量的创建和赋值操作发生在不同的时间阶段. 创建只能发生在配置加载或者说 Nginx 启动的时候; 而赋值操作则只会发生在请求实际处理的时候**. 
+**Nginx 变量一旦创建, 其变量名的可见范围就是整个 Nginx 配置. 但每个请求都会单独维护各自的所有变量的独立副本, 彼此互不干扰. 即 Nginx 变量的生命周期是不可能跨越请求边界的**.
+一个请求在其处理过程中, 即使经历多个不同的 location 配置块, 它使用的还是同一套 Nginx 变量副本. `rewrite` 指令和 `echo_exec` 指令可以发起这种 "内部跳转".
+
+
 ### 模块
 core module 用于定义一些共用的代码.
 [模块分类](https://files-kyo.oss-cn-hongkong.aliyuncs.com/Fsyv8R6OmAMyaVG1daTw7uwhdB4V.png)
@@ -195,3 +212,4 @@ http 配置包括以下指令块:
 * [nginx documentation](http://nginx.org/en/docs/)
 * [Nginx 核心知识 100 讲](https://time.geekbang.org/course/detail/138-65084)
 * [geektime-geekbang/geektime-nginx](https://github.com/geektime-geekbang/geektime-nginx)
+* [openresty/nginx-tutorials](https://github.com/openresty/nginx-tutorials)

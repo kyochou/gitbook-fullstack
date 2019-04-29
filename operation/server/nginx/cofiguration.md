@@ -34,7 +34,7 @@
     * 如果前两者都取不到, 使用匹配上的 `server_name`.
 * http_头部名字: 返回指定的请求头的值. 特殊处理的头部有 `http_host`, `http_user_agent`, `http_referer`, `http_via`, `http_x_forwarded_for`, `http_cookie`. 
 * args, query_string: 全部 URL 参数.
-* arg_参数名: URL 中某个具体参数的值.
+* arg_参数名: URL 中某个具体参数的值. Nginx 会在匹配参数名之前, 自动把原始请求中的参数名调整为全部小写的形式.
 * is_args: 如果请求 URL 中有参数则返回 `?`, 否则返回空.
 * content_length: 请求头中 Content-Length 的值.
 * content_type: 请求头中 Content-Type 的值.
