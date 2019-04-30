@@ -5,7 +5,7 @@
 Nginx 通过变量在模块间传递数据.
 同一阶段不同模块的执行顺序是与 `ngx_modules.c` 文件中模块的定义(`ngx_module_names` 变量)顺序相反的. 与其在配置文件中出现的次序无关.
 
-### POST_READ
+### POST-READ
 Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 
 * realip 模块
@@ -54,8 +54,12 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
         * 检查是否为可执行文件: `-x` 或 `!-x`.
     
       
-#### SERVER_REWRITE
-#### FIND_CONFIG
+#### SERVER-REWRITE
+当 `ngx_rewrite` 模块的配置指令(`set`, `rewrite` 等)直接书写在 server 配置块中时, 基本上都是运行在 server-rewrite 阶段.
+
+#### FIND-CONFIG
+此阶段不接受模块注册处理程序, 而由 Nginx 核心完成 location 的匹配.
+
 * location 指令.
     如果多个相同类别的规则都匹配则使用最长的匹配规则.
     匹配规则:
@@ -69,10 +73,19 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
     [location 匹配优先级](https://files-kyo.oss-cn-hongkong.aliyuncs.com/FuC0A0UOrcQeIMC5UFerDfiSEROi.png).
 
     
-* merge_slashes 指令: 是否将多个 `/` 合并为一个. 默认为 `on`.    
+* merge_slashes 指令: 是否将多个 `/` 合并为一个. 默认为 `on`. 
+
+   
 #### REWRITE
+至此阶段, location 块中的配置才开始起作用.
+
 * if 指令.
-#### POST_REWRITE
+* rewrite: 指定 location 的 "内部跳转" 操作.
+
+
+#### POST-REWRITE
+此阶段不接受模块注册处理程序, 由 Nginx 核心完成 rewrite 阶段所要求的 "内部跳转" 操作.
+"内部跳转" 本质上其实就是把当前的请求处理阶段强行倒退到 find-config 阶段, 以便重新进行请求 URI 与 location 配置块的配对.
 
 ### ACCESS
 #### PREACCESS
@@ -95,12 +108,17 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
     其实现是收到请求后, 生成子请求, 通过反向代理技术把请求传递给上游服务.
     提供的指令有 `auth_request`, `auth_request_set`.
     
-#### POST_ACCESS
+#### POST-ACCESS
+此阶段不接受模块注册处理程序.
+主要用于配合 access 阶段实现 `satisfy` 指令的功能.
+`satisfy` 指令值有 `all` 和 `any`, 默认为 `all`, 即只有所有 access 阶段的模块都通过验证时才会进入到下一阶段.
 
 ### CONTENT
 
-#### PRECONTENT
-* try_files 指令: 依次试图访问多个 url 对应的文件(由 root 或 alias 指令指定), 当文件存在时直接返回文件内容, 如果所有文件都不存在, 则按最后一个 URL 的结果或者 code 返回.
+#### TRY-FILES
+此阶段用于实现标准配置指令 `try_files` 的功能, 不接受模块注册处理程序. 
+
+* try_files 指令: 依次试图访问多个 url 对应的文件系统对象(完整路径由 root 或 alias 指令指定, 注意此处不会进行 location 匹配), 当文件存在时直接返回文件内容, 如果所有文件都不存在, 则按最后一个 URL 进行 "内部跳转" 操作(匹配 location).
 * mirror 指令: 处理请求时, 生成子请求访问其他服务, 对子请求的返回值不做处理.
 
 #### CONTENT
@@ -109,8 +127,6 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 当一个 location 没有 "content handler" 时, 会使用那些把当前请求的 URI 映射到文件系统的静态资源服务模块. 依次是 `ngx_index` 模块, `ngx_autoindex` 模块, `ngx_static` 模块.
 `ngx_index` 和 `ngx_autoindex` 模块只会作用于那些以 `/` 结尾的请求, 而 `ngx_static` 模块则刚好相反, 会直接忽略那些 URI 以 `/` 结尾的请求.
 `ngx_index` 模块的 `index` 指令执行的实际是 "内部跳转". 即不是直接返回对应的文件, 而是会再做一次 location 匹配(原路径 + index 文件名), 然后由 `ngx_static` 模块处理.
-
-配置指令 `echo_before_body`, `echo_after_body` 可与其他 content 指令结合执行. 因这两个指令运行在 Nginx 的 "输出过滤器" 中, 不属于 Nginx 的 11 个运行阶段.
 
 
 * root 指令: 将 URL 映射为文件路径, 并返回其内容. 此指令会将 `location` 指令所匹配的路径添加到其值后查找文件.
@@ -126,7 +142,8 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 
 #### POSTCONTENT
 * ngx_http_sub_filter_module 模块: 用于将响应中指定的字符串替换成新的字符串. 通过 `--with-http_sub_module` 启用. 
-* ngx_http_addition_filter_module 模块: 用于在响应前或响应后增加内容. 增加内容的方式是通过新增子请求的响应完成. 通过 `--with-http_addition_module` 启用.
+* ngx_http_addition_filter_module 模块: 用于在响应前或响应后增加内容. 增加内容的方式是通过新增子请求的响应完成. 通过 `--with-http_addition_module` 启用. 相关指令有 `echo_before_body`, `echo_after_body`, `addition_types`.
+
 ### LOG
 ##### access 
 * log_format 指令: 定义日志格式.
