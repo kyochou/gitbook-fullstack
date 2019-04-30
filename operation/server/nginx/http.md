@@ -105,6 +105,11 @@ Nginx 读取完所有的请求头部之后, 没有做任何再加工前.
 
 #### CONTENT
 绝大多数 Nginx 模块在向 content 阶段注册配置指令时, 本质上是在当前的 location 配置块中注册所谓的 "内容处理程序(content handler)". **每个 location 只能有一个 "content handler". 因此, 当在 location 中同时使用多个模块的 content 阶段指令时, 只有其中一个模块能成功注册 "content handler"**.
+
+当一个 location 没有 "content handler" 时, 会使用那些把当前请求的 URI 映射到文件系统的静态资源服务模块. 依次是 `ngx_index` 模块, `ngx_autoindex` 模块, `ngx_static` 模块.
+`ngx_index` 和 `ngx_autoindex` 模块只会作用于那些以 `/` 结尾的请求, 而 `ngx_static` 模块则刚好相反, 会直接忽略那些 URI 以 `/` 结尾的请求.
+`ngx_index` 模块的 `index` 指令执行的实际是 "内部跳转". 即不是直接返回对应的文件, 而是会再做一次 location 匹配(原路径 + index 文件名), 然后由 `ngx_static` 模块处理.
+
 配置指令 `echo_before_body`, `echo_after_body` 可与其他 content 指令结合执行. 因这两个指令运行在 Nginx 的 "输出过滤器" 中, 不属于 Nginx 的 11 个运行阶段.
 
 
