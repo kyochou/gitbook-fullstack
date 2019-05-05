@@ -1,5 +1,17 @@
 # Software
 
+## Custom
+
+* 使应用程序不显示在 Dock, `CMD+Tab` 中
+    修改程序的 `Info.plist` 文件, 在 `dict` 下添加:
+    
+    ```xml
+        <key>LSUIElement</key>
+        <string>1</string>
+    ```
+    参考 [Is there a way to hide certain apps from the cmd+tab menu?](https://apple.stackexchange.com/questions/92004/is-there-a-way-to-hide-certain-apps-from-the-cmdtab-menu)
+    
+    
 ## Homebrew
 * upgrade
 
