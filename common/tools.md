@@ -8,4 +8,4 @@
 * [百度](https://cloud.baidu.com/product/ocr/webimage)
 
 ## Draw
-* [NVlabs/SPADE](https://github.com/NVlabs/SPADE): 可根据简笔画生成
+* [NVlabs/SPADE](https://github.com/NVlabs/SPADE): 可根据简笔画生成相似的实体图像.

@@ -219,3 +219,4 @@ http 配置包括以下指令块:
 * [Nginx 核心知识 100 讲](https://time.geekbang.org/course/detail/138-65084)
 * [geektime-geekbang/geektime-nginx](https://github.com/geektime-geekbang/geektime-nginx)
 * [openresty/nginx-tutorials](https://github.com/openresty/nginx-tutorials)
+* [trimstray/nginx-admins-handbook](https://github.com/trimstray/nginx-admins-handbook)
