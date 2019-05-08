@@ -117,6 +117,7 @@
 
     
 ### FAQs
+* [Nginx失败重试中的HTTP协议幂等问题](https://xxgblog.com/2019/04/19/nginx-non-idempotent/)
 * 对上游服务使用 `keepalive` 长连接:
     相关指令: `keepalive`, `keepalive_requests`, `keepalive_timeout`.
     
