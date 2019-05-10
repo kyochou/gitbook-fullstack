@@ -34,3 +34,6 @@
     ```
     
     参考 ['sudo gem install ...' behind a proxy](http://jacob.stanley.io/2010/10/27/sudo-gem-install-behind-a-proxy/)
+    
+## Refs
+* [yangchuansheng/love-gfw](https://github.com/yangchuansheng/love-gfw): gfw 综合解决方案.
