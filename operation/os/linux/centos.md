@@ -7,6 +7,8 @@
     
 * 查找 Yum 安装软件信息: `rpm -ql <name>`.    
 
+### Refs
+* [CentOS 上最佳的第三方仓库](https://linux.cn/article-8509-1.html)
 
 ## Resources
 * [server-world](https://www.server-world.info/en/): 常用服务的最新版本安装命令.
