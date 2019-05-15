@@ -14,11 +14,12 @@
 ```shell
 # 型号
 cat /proc/cpuinfo | grep 'model name' | sort | uniq
-# 物理 cpu 数量
+# 物理 cpu 颗数
 cat /proc/cpuinfo | grep 'physical id' | sort | uniq | wc -l
-# 逻辑 CPU 核数 =物理cpu数量 x cpu cores 这个规格值 x 2(如果支持并开启超线程)。
-
-
+# 单颗物理 cpu 内核数
+cat /proc/cpuinfo |grep "cores"|uniq|awk '{print $4}'
+# cpu 逻辑线程数 = 物理 cpu 颗数 * 单颗物理 cpu 内核数 * 2(如果支持并开启超线程)
+cat /proc/cpuinfo |grep "processor"|wc -l
 ```
 
 ### Refs
