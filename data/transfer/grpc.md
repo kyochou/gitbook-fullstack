@@ -25,9 +25,11 @@ gRPC 允许你定义四类服务方法:
     ```
 
 ### Golang
+
 ```shell
+# download protobuf at https://github.com/protocolbuffers/protobuf/releases
 # 安装 golang 代码生成插件 protoc-gen-go, 默认会被安装到 $GOPATH/bin 下
-glide install github.com/golang/protobuf
+go get -d -u github.com/golang/protobuf/protoc-gen-go
 # 生成 go 代码文件
 # PROTOPATH 为 proto 文件所在目录
 protoc --plugin=${GOPATH}/bin/protoc-gen-go --proto_path=${PROTOPATH} --go_out=plugins=grpc:${PROTOPATH} ${PROTOPATH}/*.proto
