@@ -15,7 +15,10 @@ brew install composer
 pecl install redis
 pecl install xdebug
 pecl install swoole
-    
+pecl install swoole
+# 指定具体版本: pecl install mcrypt-1.0.2
+pecl install mcrypt
+
 composer config -g repo.packagist composer https://packagist.laravel-china.org
 composer global require friendsofphp/php-cs-fixer
 ```
