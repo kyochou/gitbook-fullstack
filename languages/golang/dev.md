@@ -12,6 +12,37 @@ go get -u github.com/golang/lint/golint
 
 
 ### Debug
+使用工具 [go-delve/delve](https://github.com/go-delve/delve).
+启动调试服务(供远程 Debug 使用): `dlv attach $PID --headless --api-version=2 --log --listen=:12340`
+
+#### VSCode
+
+```json
+// launch.json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Local",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${fileDirname}",
+      "env": {},
+      "args": []
+    },
+    {
+      "name": "Remote",
+      "type": "go",
+      "request": "attach",
+      "mode": "remote",
+      "port": 12340,
+      "host": "192.168.198.254",
+    }
+  ]
+}
+
+```
 
 ## Code Gen
 * [fatih/gomodifytags](https://github.com/fatih/gomodifytags): 根据结构体生成 tags 注释代码.
