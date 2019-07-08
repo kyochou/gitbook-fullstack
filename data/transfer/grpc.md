@@ -17,12 +17,13 @@ gRPC 允许你定义四类服务方法:
 ## Usage
 ### 安装相关工具
     
-    ```shell
-    $ # 代码生成
-    $ brew install protobuf
-    $ # CLI 客户端
-    $ brew install grpc
-    ```
+```shell
+# 代码生成
+brew install protobuf
+# CLI 客户端
+# brew install grpc
+brew install grpcurl
+```
 
 ### Golang
 
@@ -34,6 +35,9 @@ go get -d -u github.com/golang/protobuf/protoc-gen-go
 # PROTOPATH 为 proto 文件所在目录
 protoc --plugin=${GOPATH}/bin/protoc-gen-go --proto_path=${PROTOPATH} --go_out=plugins=grpc:${PROTOPATH} ${PROTOPATH}/*.proto
 ```
+
+#### Tools
+* [grpc-ecosystem/go-grpc-middleware](https://github.com/grpc-ecosystem/go-grpc-middleware): Golang gRPC Middlewares: interceptor chaining, auth, logging, retries and more.
 
 ### Refs
 * [golang 网络框架之 grpc](http://www.hatlonely.com/2018/02/03/golang-%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6%E4%B9%8B-grpc/)
