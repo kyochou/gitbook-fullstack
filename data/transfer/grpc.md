@@ -1,5 +1,5 @@
 # gRPC
-## 概述
+## What is
 gRPC 是一个高性能, 开源和通用的 RPC 框架, 面向移动和 HTTP/2 设计.
 gRPC 帮你解决了不同语言及环境间通信的复杂性.
 在 gRPC 里客户端应用可以像调用本地对象一样直接调用另一台不同机器上服务端应用的方法, 可以更容易地创建分布式应用和服务.
@@ -7,18 +7,26 @@ gRPC 帮你解决了不同语言及环境间通信的复杂性.
 
 我们使用 protocol buffers 接口定义语言来定义服务方法, 用 protocol buffer 来定义参数和返回类型. 客户端和服务端均使用服务定义生成的接口代码.
 
-## 服务定义
+### 服务定义
 gRPC 允许你定义四类服务方法:
 * 单向 RPC: 即客户端发送一个请求给服务端, 从服务端获取一个应答, 就像一次普通的函数调用.
 * 服务端流式 RPC: 即客户端发送一个请求给服务端, 可获取一个数据流用来读取一系列消息. 客户端从返回的数据流里一直读取直到没有更多消息为止.
 * 客户端流式 RPC: 即客户端用提供的一个数据流写入并发送一系列消息给服务端. 一旦客户端完成消息写入, 就等待服务端读取这些消息并返回应答.
 * 双向流式 RPC: 即两边都可以分别通过一个读写数据流来发送一系列消息. 这两个数据流操作是相互独立的, 所以客户端和服务端能按其希望的任意顺序读写.
 
-## 插件机制
+### 插件机制
 gRPC 提供了可插拔的插件机制, 或者说是拦截器机制, 以对每一次 RPC 请求进行拦截.
 基于此可方便的实现如身份验证, 负载均衡, 健康检查等功能.
 
-## gRPC生态体系
+### gRPC生态体系
+* grpc-opentracing: 查看完整的链路调用环节.
+* grpc-promethus: 对 gRPC 服务进行监控, 并将监控数据存储到 prometheus 中. 统计的指标包括: 发起了多少个请求, 接收到了多少个响应, 响应延迟等.
+* grpc-gateway: 对于 gRPC 不支持的语言, 可使用 grpc-gateway 进行反向代理, 将 Restful JSON API 请求转换为 gRPC 请求.
+* nginx, haproxy 等也提供了对 gRPC 的支持.
+
+### Refs
+* [漫谈gRPC](https://mp.weixin.qq.com/s/ah9gdutZueCxbqjrWVhiQg)
+
 
 ## Usage
 ### Tools
@@ -67,6 +75,7 @@ protoc --plugin=${GOPATH}/bin/protoc-gen-go --proto_path=${PROTOPATH} --go_out=p
 * [grpc-ecosystem/go-grpc-middleware](https://github.com/grpc-ecosystem/go-grpc-middleware): Golang gRPC Middlewares: interceptor chaining, auth, logging, retries and more.
 
 ### Refs
+* [从实践到原理，带你参透 gRPC](https://github.com/EDDYCJY/blog/blob/master/golang/gRPC/2019-06-28-talking-grpc.md)
 * [golang 网络框架之 grpc](http://www.hatlonely.com/2018/02/03/golang-%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6%E4%B9%8B-grpc/)
 * [grpc-go/examples](https://github.com/grpc/grpc-go/tree/master/examples/)
     
