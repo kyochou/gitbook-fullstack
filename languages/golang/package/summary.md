@@ -7,3 +7,6 @@
 export GO111MODULE=on
 export GOPROXY=https://goproxy.io
 ```
+
+## Projects
+* [hackstoic/golang-open-source-projects](https://github.com/hackstoic/golang-open-source-projects): 为互联网 IT 人打造的中文版 awesome-go.
