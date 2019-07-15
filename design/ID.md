@@ -17,6 +17,7 @@
 
 
 * [Meituan-Dianping/Leaf](https://github.com/Meituan-Dianping/Leaf): 美团开源的, 基于现有 ID 生成策略改进的分布式 ID 生成服务.
+* [baidu/uid-generator](https://github.com/baidu/uid-generator): 百度基于 Snowflake 的 ID 生成器.
 
 ### Golang
 * [rs/xid](https://github.com/rs/xid): 基于 MongoID(ObjectID) 算法, 使用更多的元字符数生成更少位数的唯一 ID.
