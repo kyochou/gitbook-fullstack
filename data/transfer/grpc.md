@@ -78,6 +78,7 @@ protoc --plugin=${GOPATH}/bin/protoc-gen-go --proto_path=${PROTOPATH} --go_out=p
 * [从实践到原理，带你参透 gRPC](https://github.com/EDDYCJY/blog/blob/master/golang/gRPC/2019-06-28-talking-grpc.md)
 * [golang 网络框架之 grpc](http://www.hatlonely.com/2018/02/03/golang-%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6%E4%B9%8B-grpc/)
 * [grpc-go/examples](https://github.com/grpc/grpc-go/tree/master/examples/)
+* [Writing gRPC Interceptors in Go](https://medium.com/@shijuvar/writing-grpc-interceptors-in-go-bf3e7671fe48)
     
 ## Java
 1. 使用 springboot 做为基础框架, 安装 [grpc-spring-boot-starter](https://github.com/LogNet/grpc-spring-boot-starter).
