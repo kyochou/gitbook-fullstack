@@ -2,9 +2,11 @@
 
 ## Tools
 ### Lint
+使用 [mgechev/revive](https://github.com/mgechev/revive#comment-annotations) 代替 golint.
+
 ```shell
 # lint tool
-go get -u github.com/golang/lint/golint
+go get -u github.com/mgechev/revive
 ```
 
 ### Dump
