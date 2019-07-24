@@ -1,5 +1,8 @@
 # Develop
 
+## 命名
+一般的, Go 中接口的命名以 `er` 为后缀, 如 `Reader`, `Writer`.
+
 ## Tools
 ### Lint
 使用 [mgechev/revive](https://github.com/mgechev/revive#comment-annotations) 代替 golint.
