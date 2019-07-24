@@ -14,4 +14,24 @@ Go 中 `string` 是内置类型, 同时它与普通的 `slice` 类型有着相�
 * 分割为数组: `Fields`, `FieldsFunc`, `Split`, `SplitAfter`, `SplitN`, `SplitAfterN`.
 * 数组合并为字符串: `Join`.
 * 重复: `Repeat`.
-* 
+* 替换: `Replace`, `type Replacer`.
+* Reader 类型.
+
+## bytes
+该包定义了一些操作 `[]byte` 的便利操作. 其实现的功能与 `strings` 包类似.
+
+## strconv
+进制的取值为 `2~36`.
+`fmt.Sprintf` 也可实现类型转换, 但性能比较差.
+
+* 字符串转换为整型: `ParseInt`, `ParseUint`, `Atoi`.
+* 整型转为字符串: `FormatUint`, `FormatInt`, `Itoa`.
+* 布尔值: `ParseBool`, `FormatBool`, `AppdendBool`.
+* 浮点数: `ParseFloat`, `FormatFloat`, `AppendFloat`.
+* Quote 函数: 返回使用双引号括起来后的字符串.
+
+## regexp
+
+参考 [StefanSchroeder/Golang-Regex-Tutorial](https://github.com/StefanSchroeder/Golang-Regex-Tutorial).
+
+## unicode
