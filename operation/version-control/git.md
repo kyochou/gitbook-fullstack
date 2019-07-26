@@ -28,5 +28,5 @@ git config diff.exif.textconv exiftool
 
 
 ## Tools
-* [joeblau/gitignore.io](https://github.com/joeblau/gitignore.io): Create useful .gitignore files for your project.
+* [toptal/gitignore.io](https://github.com/toptal/gitignore.io): Create useful .gitignore files for your project.
 * [jonas/tig](https://github.com/jonas/tig): Text-mode interface for git. 可用来方便的查看 log.
