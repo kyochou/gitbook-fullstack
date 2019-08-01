@@ -4,7 +4,7 @@
 ```nginx
 server
 {
-    location / {
+    location ~ / {
         # 跨域
         add_header Access-Control-Allow-Origin *;
         if ($request_method = OPTIONS) {
