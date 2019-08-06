@@ -1,9 +1,11 @@
-# Array
+# Line
+
+## Array
 数组是一个由固定长度的特定类型组成的序列.
 类型 `[n]T` 表示拥有 n 个 T 类型的值的数组.
 如果一个数组的元素类型是可以相互比较的, 那么这个数组也是可比较的.
 
-## Definition
+### Definition
 
 ```go
 // 一般定义
@@ -32,7 +34,7 @@ r := []int{1, 2, 9: -1}
 ```
 
 
-## FAQs
+### FAQs
 * 注意, 如果数据初始化时长度不是常量, 需使用 make 函数创建切片而不是使用数组:
 
     ```go
@@ -43,24 +45,10 @@ r := []int{1, 2, 9: -1}
     
     ```
     
-## container/heap
-包 heap 为所有实现了 `heap.Interface` 的类型提供堆操作.
-一个堆即一棵有序的树. 这棵树的每个节点的值都比它的子节点的值要小(大), 而整棵树最小(大)的值位于树根部, 也即索引 0 的位置.
-堆是实现优先队列的一种常见方法.
+    
+## container/list
+list 包实现了一个双链表(doubly linked list).
 
-### heap.Interface
+## container/ring
+环的尾部就是头部. 所以环的每个元素实际上可以代表其自身.
 
-```go
-type Interface interface {
-    sort.Interface
-    Push(x interface{}) // add x as element len().
-    Pop() interface{} // remove and return element len() - 1.
-}
-```
-
-### 操作
-* `Init(h Interface)`: 在执行任何堆操作之前, 必须对堆 h 进行初始化.
-* `Push(h Interface, x interface{})`: 将值 x 推入到堆 h 中.
-* `Pop(h Interface)`: 自堆 h 中移除堆顶元素(根结点)并返回. 此操作会保证堆顶为排序后的元素.
-* `Fix(h Interface, i int)`: 在索引 i 上的元素的值发生变化后, 重新修复堆 h 的有序性.
-* `Remove(h Interface, i int) interface{}`: 移除堆 h 中索引为 i 的元素并返回.
