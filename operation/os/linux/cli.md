@@ -3,6 +3,12 @@
 ## Pipeline
 * `> /dev/null 2&>1`: 抛弃所有输出.
 
+### xargs
+一些 cli 程序不能接受标准输入作为参数, 只能直接在命令行输入参数, 这导致无法用管道命令传递参数. `xargs` 命令的作用, 就是将标准输入转为命令行参数.
+
+#### Refs
+* [xargs 命令教程](http://www.ruanyifeng.com/blog/2019/08/xargs-tutorial.html)
+
 
 ## Bash
 ### FAQs
