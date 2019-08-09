@@ -13,6 +13,7 @@
     fs.file-max = 1024000
     # 修改后使用 sysctl -p /etc/sysctl.conf 重启服务
     ```
+    
 * 进程最大打开文件数. 使用命令 `ulimit -n` 查看; 使用命令 `ulimit -n 1024000` 临时修改; 或修改配置文件永远生效.
 
     ```conf
