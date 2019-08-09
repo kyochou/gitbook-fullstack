@@ -25,4 +25,4 @@
 * [sony/sonyflake](https://github.com/sony/sonyflake): Snowflake 的 Golang 实现.
 
 ### Refs
-* [Human Readable IDs](https://h13g.com/read?id=28)
+* [Human Readable IDs](https://h13g.com/read?id=28)NM
