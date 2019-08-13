@@ -33,6 +33,10 @@
     
 * 查看运行中的进程限制: `cat /proc/<pid>/limits`.
 
+#### FAQs
+* 进程运行过程中被 kill 掉
+    一个可能的原因是, 进程被 Linux 的 `OOM killer` 杀掉. 可以执行 `dmesg | less` 命令通过搜索进程 ID 查看详细原因.
+
 ### Refs
 * [Increase the number of open files for jobs managed by supervisord](https://ma.ttias.be/increase-the-number-of-open-files-for-jobs-managed-by-supervisord/)
     
