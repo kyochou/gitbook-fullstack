@@ -17,8 +17,13 @@
 WAL 技术的全称是 Write-Ahead Logging, 它的关键点就是先写日志, 再写磁盘.
 具体来说, 当有一条记录需要更新的时候, InnoDB 引擎就会先把记录写到 redolog 里面, 并更新内存, 这个时候更新就算完成了. 同时, InnoDB 引擎会在适当的时候, 将这个操作记录更新到磁盘里面, 这个更新往往是在系统比较空闲的时候做.
 有了 redolog, InnoDB 就可以保证即使数据库发生异常重启, 之前提交的记录都不会丢失, 这个能力称为 crash-safe.
+`innodb_flush_log_at_trx_commit` 这个参数设置成 1 的时候, 表示每次事务的 redolog 都直接持久化到磁盘. 这样可以保证 MySQL 异常重启之后数据不丢失. 
 
 #### 归档日志 binlog
+redolog 是物理日志, 记录的是 "在某个数据页上做了什么修改"; binlog 是逻辑日志, 记录的是这个语句的原始逻辑(SQL).
+redolog 是循环写的, 空间固定会用完; binlog 是可以追加写入的, 并不会发生覆盖的情况.
+动态添加 Slave 库的常见做法就是用全量备份加上应用 binlog 来实现的.
+`sync_binlog` 参数设置为 1 时, 表示每次事务的 binlog 都持久化到磁盘. 这样可以保证 MySQL 异常重启之后 binlog 不丢失.
 
 ## Usage
 * 数据导出/导入
