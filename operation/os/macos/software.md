@@ -12,21 +12,6 @@
     参考 [Is there a way to hide certain apps from the cmd+tab menu?](https://apple.stackexchange.com/questions/92004/is-there-a-way-to-hide-certain-apps-from-the-cmdtab-menu)
     
     
-## homebrew
-* upgrade
-
-    ```shell
-    brew update
-    # 不要随意执行 upgrade, 会将所有软件更新到最新版本
-    # brew upgrade
-    brew cleanup
-    brew prune
-    brew style # check&fix
-    ``` 
-    
-* 只安装不检查以提高速度: `HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_AUTO_UPDATE=1 brew install`.    
-    
-    
 ## window
 * [HazeOver](https://hazeover.com/): 为失去焦点的应该添加蒙版以和当前应用区分. Automatically highlights the front window by fading out all the background windows.
     
