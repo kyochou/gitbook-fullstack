@@ -1,6 +1,11 @@
 # 测试
 我们可以为 Go 程序编写三类测试, 即: 单元测试(test, 也称为功能测试), 基准测试(benchmark, 也称性能测试), 以及示例测试(example).
-`go test` 是一个按照一定的约定和组织的测试代码的驱动程序. 在包目录内(源码相同目录下), 以 `_test.go` 为后缀名的文件(被测试的代码文件名加上后缀 "_test")并不是 `go build` 构建包的一部分, 它们是 `go test` 测试的一部分.
+`go test` 是一个按照一定的约定和组织的测试代码的驱动程序. 在包目录内(源码相同目录下), 以 `_test.go` 为后缀名的文件(被测试的代码文件名加上后缀 "_test", 使用和被测试文件相同的包名)并不是 `go build` 构建包的一部分, 它们是 `go test` 测试的一部分.
+测试用例有四种形式:
+* `TestXxx(t *testing.T)`: 单元测试用例.
+* `BenchmarkXxx(b *testing.B)`: 压力测试用例.
+* `ExampleXxx()`: 测试控制台输出.
+* `TestMain(m *testing.M)`: 测试 Main 函数.
 
 ## testing.T
 默认情况下, 单元测试成功时, 它们打印的信息不会输出, 可以通过加 `-v` 选项输出这些信息. 但对于基准测试, 它们总会被输出.
@@ -34,6 +39,20 @@ BenchmarkMakeWithPool-8(1)         20000000(2)                65.9 ns/op(3)     
 
 ## 示例测试
 对于示例测试, 其名称必须以 Example 为前缀, 对函数参数没有要求.
+Example 需要在最后用注释的方式确认控制台输出和预期的是否一致.
+
+```go
+func ExampleFunc() {
+	fmt.Println(31.2)
+	// Output:
+	// 31.1
+}
+```    
 
 ## Tools
 * [smartystreets/goconvey](https://github.com/smartystreets/goconvey): Go testing in the browser. Integrates with `go test`. Write behavioral tests in Go.
+
+
+## Refs
+* [polaris1119/The-Golang-Standard-Library-by-Example](https://github.com/polaris1119/The-Golang-Standard-Library-by-Example/blob/master/chapter09/09.0.md)
+* [GO 中如何进行单元测试](http://blog.studygolang.com/2017/10/how-to-test-with-go/)
