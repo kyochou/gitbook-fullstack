@@ -2,9 +2,15 @@
 
 ## Override
 ### MySQL 的逻辑架构图
-![MySQL 的逻辑架构图](https://static001.geekbang.org/resource/image/0d/d9/0d2070e8f84c4801adbfa03bda1f98d9.png)
+[MySQL 的逻辑架构图](https://static001.geekbang.org/resource/image/0d/d9/0d2070e8f84c4801adbfa03bda1f98d9.png)
 
 ### 连接器
+使用 `show processlist` 命令可以查看当前连接服务器的客户端信息.
+建立连接的过程通常是比较复杂的. 对于需要经常操作数据库的程序而言, 应该尽量使用长连接. 
+长连接会持续占用系统内存. 在 MySQL5.7 中, 可以在每次执行一个比较大的操作后, 通过执行 `mysql_reset_connection` 来重新初始化连接资源. 这个过程不需要重连和重新做权限验证, 但是会将连接恢复到刚刚创建完时的状态.
+
+### 优化器
+优化器是在表里面有多个索引的时候, 决定使用哪个索引; 或者在一个语句有多表关联(join)的时候, 决定各个表的连接顺序.
 
 
 
