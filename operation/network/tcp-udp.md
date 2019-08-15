@@ -17,3 +17,4 @@ src_ip, src_port, dest_ip, dest_port, protocol_type
 
 ## UDP
 因 UDP 的 "send-and-forget" 特性, 除非在服务端明确给出回应(可使用 nc 命令起一个 server), 否则无法测试一个 UDP 端口是否已打开.
+udp 本身特点决定了它非常适合如日志, 监控等数据收集类场景, 即在不影响程序性能的基础上提升程序的可监测性(Measurability).
