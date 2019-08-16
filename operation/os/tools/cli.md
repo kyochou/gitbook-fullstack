@@ -4,7 +4,7 @@
 * [dvorka/hstr](https://github.com/dvorka/hstr): 搜索命令历史. Bash and zsh shell history suggest box.
 
 ## FS
-* [sharkdp/fd](https://github.com/sharkdp/fd): 查找文件. A simple, fast and user-friendly alternative to 'find'.
+* [sharkdp/fd](https://github.com/sharkdp/fd): 查找文件. A simple, fast and user-friendly alternative to 'find'. Install on CentOS: [How to install fd on CentOS](https://enting.org/how-to-install-fd-on-centos/).
 * [junegunn/fzf](https://github.com/junegunn/fzf): 查找文件(模糊). A command-line fuzzy finder.
 
 ## Device
