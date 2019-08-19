@@ -1,5 +1,14 @@
 # Develop
 
+## 最佳实践
+* 减少内存(如 `[]byte`)的分配, 尽量去复用它们.
+    有两种方式进行复用:
+    * `sync.Pool`
+    * `slice = slice[:0]`
+
+### Refs
+* [fasthttp中运用哪些go优化技巧？](https://mp.weixin.qq.com/s/7zNw3nEWozArJLFVmTjn0A)    
+
 ## 命名
 一般的, Go 中接口的命名以 `er` 为后缀, 如 `Reader`, `Writer`.
 
