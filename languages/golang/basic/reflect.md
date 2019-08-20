@@ -37,3 +37,6 @@ func main() {
 	fmt.Printf("%#v, %#v\n", s, refPointer.Interface())
 }
 ```
+
+## Refs
+* [mitchellh/mapstructure](https://github.com/mitchellh/mapstructure): Go library for decoding generic map values into native Go structures.
