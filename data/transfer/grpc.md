@@ -71,6 +71,9 @@ go get -d -u github.com/golang/protobuf/protoc-gen-go
 protoc --plugin=${GOPATH}/bin/protoc-gen-go --proto_path=${PROTOPATH} --go_out=plugins=grpc:${PROTOPATH} ${PROTOPATH}/*.proto
 ```
 
+### FAQs
+* 使用 `option go_package` 指定生成代码的包路径. 参考 [How to generate right Import paths #257](https://github.com/gogo/protobuf/issues/257).
+
 ### Tools
 * [grpc-ecosystem/go-grpc-middleware](https://github.com/grpc-ecosystem/go-grpc-middleware): Golang gRPC Middlewares: interceptor chaining, auth, logging, retries and more.
 * [grpc-ecosystem/grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway): gRPC to JSON proxy generator following the gRPC HTTP spec.
