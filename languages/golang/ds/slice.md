@@ -44,4 +44,13 @@ slice = append(slice, val1, val2) // 可同时添加多个元素
 // 添加
 slice = append(slice, val) // 需重新赋值
 slice = append(slice, val1, val2) // 可同时添加多个元素
+
+// 数组指针
+var ap *[]int
+arr := []int{1, 2, 3}
+ap = &arr
+fmt.Printf("%#v\n", ap)
+*ap = (*ap)[1:len(*ap)] // 注意括号的使用
+fmt.Printf("%#v\n", ap)
+fmt.Printf("%#v\n", arr)
 ```
