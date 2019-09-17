@@ -15,6 +15,9 @@ ControlPersist yes
 
 ```
 
+## SSH Keys
+* 将 OPENSSH 格式的私钥转换为 RAS 格式: [How-to : Convert OpenSSH private keys to RSA PEM](https://federicofr.wordpress.com/2019/01/02/how-to-convert-openssh-private-keys-to-rsa-pem/).
+
 ## SSHD
 ### sshd_config
 DNS 反向解析用来屏蔽非法的 IP 访问请求. 如果不需要验证请求的 IP, 可在 `sshd_config` 文件中通过将 `UseDNS` 属性设置为 `no` 来关闭此功能, 以加快连接速度.
