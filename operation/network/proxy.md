@@ -2,6 +2,8 @@
 
 ## Tools
 
+* [txthinking/brook](https://github.com/txthinking/brook): Brook is a cross-platform(Linux/MacOS/Windows/Android/iOS) proxy/vpn software.
+
 * [sshuttle/sshuttle](https://github.com/sshuttle/sshuttle)
 
     基于 SSH 的 VPN 代理. 可快速使用远程主机代理本地的所有的网络流量.
