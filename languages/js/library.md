@@ -1,5 +1,8 @@
 # Library
 
+## Global
+* [yanhaijing/jslib-base](https://github.com/yanhaijing/jslib-base): A modern JavaScript|Typescript library scaffolding, modularity, purity & extras.
+
 ## Date
 * [iamkun/dayjs](https://github.com/iamkun/dayjs): Day.js 2KB immutable date library alternative to Moment.js with the same modern API.
 
