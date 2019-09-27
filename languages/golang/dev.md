@@ -9,6 +9,31 @@
 ### Refs
 * [fasthttp中运用哪些go优化技巧？](https://mp.weixin.qq.com/s/7zNw3nEWozArJLFVmTjn0A)    
 
+
+## Go module
+* 设置代理:
+
+    ```shell
+    # 默认开启全局代理 
+    export GOPROXY=https://goproxy.cn,direct
+    # 指定不使代理的地址
+    export GOPRIVATE=.gitlab.com
+    ```
+    
+* 使用本地目录代替远程库:
+
+    ```go
+    // go.mod
+    require (
+    	github.com/lonng/nano v0.0.0 // 版本指定为 v0.0.0
+    )
+    // 使用 replace 指定本地路径
+    replace github.com/lonng/nano => /Users/kyo/go/src/github.com/lonng/nano
+    ```
+    
+### Refs
+[Go module 再回顾](https://colobu.com/2019/09/23/review-go-module-again/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)    
+
 ## 命名
 一般的, Go 中接口的命名以 `er` 为后缀, 如 `Reader`, `Writer`.
 
