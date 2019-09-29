@@ -32,7 +32,9 @@
     ```
     
 ### Refs
-[Go module 再回顾](https://colobu.com/2019/09/23/review-go-module-again/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)    
+* [Go module 再回顾](https://colobu.com/2019/09/23/review-go-module-again)
+* [goproxy/goproxy.cn](https://github.com/goproxy/goproxy.cn)
+    
 
 ## 命名
 一般的, Go 中接口的命名以 `er` 为后缀, 如 `Reader`, `Writer`.
