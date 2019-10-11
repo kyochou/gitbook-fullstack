@@ -21,7 +21,14 @@ TCP 连接的维护并不是一个耗资源的事情, 只是占用一个句柄�
 * 你的应用提供多个用户相互交流吗?
 * 你的应用是展示服务器端经常变动的数据吗?
 
+## 数据帧
+WebSocket 客户端, 服务端通信的最小单位是帧(frame), 由 1 个或多个帧组成一条完整的消息(message):
+1. 发送端: 将消息切割成多个帧, 并发送给服务端.
+2. 接收端: 接收消息帧, 并将关联的帧重新组装成完整的消息.
+
+
 
 ## Refs
 * [WebSocket](https://zh.wikipedia.org/wiki/WebSocket)
 * [WebSocket 教程](http://www.ruanyifeng.com/blog/2017/05/websocket.html)
+* [WebSocket协议：5分钟从入门到精通](https://www.cnblogs.com/chyingp/p/websocket-deep-in.html)
