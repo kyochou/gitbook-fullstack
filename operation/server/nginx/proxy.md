@@ -2,6 +2,10 @@
 
 [HTTP 反向代理流程](https://files-kyo.oss-cn-hongkong.aliyuncs.com/Fvvj3j83vwW4MTs87xHg2SEm9m6U.png)
 
+## Directives
+### proxy_pass
+如果其 `url` 参数以 `/` 结尾, 则表示绝对根路径; 如果没有 `/`, 则表示相对路径, 会把匹配的路径部分也代理走.
+
 ## HTTP
 ### http_proxy 模块
 对上游服务使用 http/https 协议进行反向代理.
