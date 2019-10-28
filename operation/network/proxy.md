@@ -2,6 +2,8 @@
 
 ## Tools
 
+* [yrutschle/sslh](https://github.com/yrutschle/sslh): Applicative Protocol Multiplexer (e.g. share SSH and HTTPS on the same port). 端口复用软件. 参考: [公网端口不够用，用这款神器轻松搞定它！](https://mp.weixin.qq.com/s?__biz=MzI3MTI2NzkxMA==&mid=2247489038&idx=1&sn=c9856cedabf74ccbffbca451f03fe05a)
+
 * [txthinking/brook](https://github.com/txthinking/brook): Brook is a cross-platform(Linux/MacOS/Windows/Android/iOS) proxy/vpn software.
 
 * [sshuttle/sshuttle](https://github.com/sshuttle/sshuttle)
