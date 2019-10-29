@@ -10,3 +10,13 @@ Go 语言中没有深拷贝. 所有值都是浅拷贝传递. 引用类型会拷�
 
 ### Refs
 * [GoDoc的使用](https://www.jianshu.com/p/b91c4400d4b2)
+
+
+## Package
+
+```go
+import `lib/math` // 使用 math 前缀调用包中的公开元素. 如 `math.Sin`.
+import . `lib/math` // 可以不使用包名而直接调用包中的公开元素. 如 `Sin`.
+import _ `lib/math` // 不能调用包中定义的元素, 但会执行包的 `init` 方法.
+
+```
