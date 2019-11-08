@@ -24,6 +24,7 @@ import _ `lib/math` // 不能调用包中定义的元素, 但会执行包的 `in
 ## Modules
 ### Refs
 * [何处安放我们的 Go 代码](https://liujiacai.net/blog/2019/10/24/go-modules/)
+* [如何写出优雅的 Golang 代码](https://draveness.me/golang-101.html)
 
 
 ## Error
