@@ -20,3 +20,8 @@ import . `lib/math` // 可以不使用包名而直接调用包中的公开元素
 import _ `lib/math` // 不能调用包中定义的元素, 但会执行包的 `init` 方法.
 
 ```
+
+## Error
+
+### Refs
+* [Go 1.13中的错误处理](https://tonybai.com/2019/10/18/errors-handling-in-go-1-13/)
