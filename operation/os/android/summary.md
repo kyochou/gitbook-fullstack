@@ -15,3 +15,6 @@
 
 参考:
 * [如何直接从 Google Play 下载 APK 文件？](https://www.zhihu.com/question/20232626)
+
+## Tools
+* [Genymobile/scrcpy](https://github.com/Genymobile/scrcpy): Display and control your Android device.
