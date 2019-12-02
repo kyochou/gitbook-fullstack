@@ -40,7 +40,7 @@ brew install protobuf
 brew install grpcurl
 ```
 
-### grpc_cli
+#### grpc_cli
     
 ```shell
 $ # 显示所有可用服务
@@ -50,7 +50,7 @@ $ grpc_cli call <IP>:<PORT> grpc.health.v1.Health.Check 'service:"<Your-Service>
 ```
 
 
-### grpcurl
+#### grpcurl
 [fullstorydev/grpcurl](https://github.com/fullstorydev/grpcurl)
 
 ```shell
@@ -59,6 +59,9 @@ grpcurl -v -plaintext -proto api/proto/rpc/rpc.proto  34.92.222.179:61011 list
 # request method
 grpcurl -v -plaintext -proto api/proto/rpc/rpc.proto  34.92.222.179:61011 rpc.Center/RegisterGame
 ```
+
+#### evans
+[ktr0731/evans](https://github.com/ktr0731/evans): more expressive universal gRPC client .
 
 ## Golang
 
