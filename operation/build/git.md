@@ -3,12 +3,13 @@
 ## Tools
 ### CLI
 * [o2sh/onefetch](https://github.com/o2sh/onefetch): Git repository summary on your terminal.
+* [arzzen/git-quick-stats](https://github.com/arzzen/git-quick-stats): Git quick statistics is a simple and efficient way to access various statistics in git repository. 
+
 
 ## GitHub
 
 ### Tools
 * [gissue/gissue.github.io](https://github.com/gissue/gissue.github.io/): For downloading GitHub issues as markdown in ZIP file.
-
 
 
 ## Gitlab
