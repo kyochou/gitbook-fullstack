@@ -19,6 +19,7 @@ gRPC 提供了可插拔的插件机制, 或者说是拦截器机制, 以对每�
 基于此可方便的实现如身份验证, 负载均衡, 健康检查等功能.
 
 ### gRPC生态体系
+* [grpc-ecosystem/awesome-grpc](https://github.com/grpc-ecosystem/awesome-grpc): A curated list of useful resources for gRPC.
 * grpc-opentracing: 查看完整的链路调用环节.
 * grpc-promethus: 对 gRPC 服务进行监控, 并将监控数据存储到 prometheus 中. 统计的指标包括: 发起了多少个请求, 接收到了多少个响应, 响应延迟等.
 * grpc-gateway: 对于 gRPC 不支持的语言, 可使用 grpc-gateway 进行反向代理, 将 Restful JSON API 请求转换为 gRPC 请求.
@@ -80,6 +81,7 @@ protoc --plugin=${GOPATH}/bin/protoc-gen-go --proto_path=${PROTOPATH} --go_out=p
 ### Tools
 * [grpc-ecosystem/go-grpc-middleware](https://github.com/grpc-ecosystem/go-grpc-middleware): Golang gRPC Middlewares: interceptor chaining, auth, logging, retries and more.
 * [grpc-ecosystem/grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway): gRPC to JSON proxy generator following the gRPC HTTP spec.
+* [gogo/protobuf](https://github.com/gogo/protobuf): Protocol Buffers for Go with Gadgets.
 
 ### Refs
 * [从实践到原理，带你参透 gRPC](https://github.com/EDDYCJY/blog/blob/master/golang/gRPC/2019-06-28-talking-grpc.md)
