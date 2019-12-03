@@ -1,4 +1,7 @@
 # Transfer
+## Note
+序列化(serialization, marshalling)的过程是指将数据结构或者对象的状态转换成可以
+
 ## Process
 两个进程之间如果要通信, 很显然必须要建立一个连接, 通过它来相互传输数据. 
 
