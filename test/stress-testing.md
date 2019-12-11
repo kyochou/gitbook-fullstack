@@ -18,16 +18,16 @@
 
     ```ini
     # vi /etc/security/limits.conf
-    # open files
+    # open files, nofile 是每个进程可以打开的文件数限制.
     * hard nofile 1024000
     * soft nofile 1024000
-    # max user processes 
+    # max user processes, nproc 是每个用户可以创建的进程数限制.
     * soft nproc 1024000
     * hard nproc 1024000
     
     ```
     
-* 修改 `max user processes`. `/etc/security/limits.d/` 里面配置会覆盖 `/etc/security/limits.conf的配置，也就是说limits.d目录下的配置文件优先级更高。
+* 修改 `max user processes`. 注意, `/etc/security/limits.d/` 里面的配置会覆盖 `/etc/security/limits.conf` 的配置.
 
     ```ini
     # vim /etc/security/limits.d/20-nproc.conf
@@ -51,6 +51,7 @@
 
 ### Refs
 * [Increase the number of open files for jobs managed by supervisord](https://ma.ttias.be/increase-the-number-of-open-files-for-jobs-managed-by-supervisord/)
+* [突破操作系统limit的限制](https://mp.weixin.qq.com/s/JFTUWBJmWeRp-IMYJIND5A)
     
 ### Tools
 * [ideawu/c1000k](https://github.com/ideawu/c1000k): A tool to test if you OS supports 1 million connections(c1000k).
