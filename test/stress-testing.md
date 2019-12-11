@@ -18,10 +18,22 @@
 
     ```ini
     # vi /etc/security/limits.conf
+    # open files
     * hard nofile 1024000
     * soft nofile 1024000
+    # max user processes 
+    * soft nproc 1024000
+    * hard nproc 1024000
     
     ```
+    
+* 修改 `max user processes`. `/etc/security/limits.d/` 里面配置会覆盖 `/etc/security/limits.conf的配置，也就是说limits.d目录下的配置文件优先级更高。
+
+    ```ini
+    # vim /etc/security/limits.d/20-nproc.conf
+    *          soft    nproc     1024000
+
+    ```    
     
 * 如果使用了 supervisor, 需要设置 supervisord 的 `minfs` 属性:
 
