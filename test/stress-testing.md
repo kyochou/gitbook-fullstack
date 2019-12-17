@@ -11,6 +11,8 @@
     fs.nr_open = 1024000
     # 全局最大可打开文件数
     fs.file-max = 1024000
+    # 全连接队列最大长度
+    net.core.somaxconn = 65535
     # 修改后使用 sysctl -p /etc/sysctl.conf 重启服务
     ```
     
