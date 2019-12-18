@@ -1,5 +1,7 @@
 # Network
 
+SOCKS 是一种网络传输协议, 主要用于客户端与外网服务器之间通讯的中间传递. SOCKS 是 "SOCKetS" 的缩写. 当防火墙后的客户端要访问外部的服务器时, 就跟 SOCKS 代理服务器连接. 这个代理服务器控制客户端访问外网的资格, 允许的话, 就将客户端的请求发往外部的服务器.
+
 ## Tools
 ### Capture
 * [40t/go-sniffer](https://github.com/40t/go-sniffer): Sniffing and parsing mysql,redis,http,mongodb etc protocol. 

@@ -18,3 +18,6 @@ TCP 建立连接时要经过 3 次握手. 在客户端向服务器发起连接�
 当 Socket 处于连接状态(Established)时, Recv-Q 表示 Socket 缓冲还没有被应用程序取走的字节数(即接收队列长度), 而 Send-Q 表示还没有被远端主机确认的字节数(即发送队列长度).
 当 Socket 处于监听状态(Listening)时, Recv-Q 表示 `syn_backlog` 的当前值, 而 Send-Q 表示最大的 `syn_backlog` 值.
 
+## Refs
+* [TCP连接状态图解析](https://blog.csdn.net/kimylrong/article/details/50933169)
+* [TCP 有限状态机](https://jaminzhang.github.io/network/TCP-Finite-State-Machine/)
