@@ -1,5 +1,9 @@
 # Socket
 
+## Linux 内核参数
+TCP 建立连接时要经过 3 次握手, 在客户端向服务器发起连接时,
+
+
 `netstat` 和 `ss` 命令的输出类似, 都展示了套接字的状态(State), 接收队列(Recv-Q), 发送队列(Send-Q), 本地地址, 远端地址, 进程 PID 和进程名称等).
 当 Socket 处于连接状态(Established)时, Recv-Q 表示 Socket 缓冲还没有被应用程序取走的字节数(即接收队列长度), 而 Send-Q 表示还没有被远端主机确认的字节数(即发送队列长度).
 当 Socket 处于监听状态(Listening)时, Recv-Q 表示 syn_backlog 的当前值, 而 Send-Q 表示最大的 syn_backlog 值.
