@@ -14,20 +14,24 @@
     # 全局最大可打开文件数
     fs.file-max = 1024000
     # iptables 会使用 nf_conntrack 模块跟踪连接
-    net.nf_conntrack_max = 1024000
+    # net.nf_conntrack_max = 1024000
     
     # 网络设置
     net.ipv4.ip_forward=1
-    net.ipv4.tcp_mem='131072  262144  524288'
-    net.ipv4.tcp_rmem='8760  256960  4088000'
-    net.ipv4.tcp_wmem='8760  256960  4088000'
+    net.ipv4.tcp_mem=131072  262144  524288
+    net.ipv4.tcp_rmem=8760  256960  4088000
+    net.ipv4.tcp_wmem=8760  256960  4088000
     net.core.rmem_max=16384
     net.core.wmem_max=16384
     # 全连接队列最大长度
     net.core.somaxconn = 2048
-    net.ipv4.tcp_max_syn_backlog=2048
-    net.ipv4.tcp_tw_recycle=1
-    net.ipv4.tcp_tw_reuse=1
+    net.ipv4.tcp_max_syn_backlog = 2048
+    net.core.netdev_max_backlog = 2048
+    net.ipv4.tcp_timestamps = 1
+    # 开启 TCP 连接中 TIME-WAIT 状态的 sockets 的快速回收
+    net.ipv4.tcp_tw_recycle = 1
+    # 减少处于 FIN-WAIT-2 连接状态的时间, 使系统可以处理更多的连接
+    net.ipv4.tcp_tw_reuse = 1
     # sysctl -w /proc/sys/net/core/netdev_max_backlog=2048
     ```
     
