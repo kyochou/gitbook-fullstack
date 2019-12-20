@@ -6,14 +6,29 @@
 * 全局最大打开文件数. 使用命令 `cat /proc/sys/fs/file-nr | perl -F'\s+' -lane 'print $F[2]'` 查看.
     
     ```ini
-    # vi /etc/sysctl.conf
+    ## vi /etc/sysctl.conf
+    ## 修改后使用 sysctl -p /etc/sysctl.conf 重启服务
+    
     # 进程最大可打开文件数
     fs.nr_open = 1024000
     # 全局最大可打开文件数
     fs.file-max = 1024000
+    # iptables 会使用 nf_conntrack 模块跟踪连接
+    net.nf_conntrack_max = 1024000
+    
+    # 网络设置
+    net.ipv4.ip_forward=1
+    net.ipv4.tcp_mem='131072  262144  524288'
+    net.ipv4.tcp_rmem='8760  256960  4088000'
+    net.ipv4.tcp_wmem='8760  256960  4088000'
+    net.core.rmem_max=16384
+    net.core.wmem_max=16384
     # 全连接队列最大长度
-    net.core.somaxconn = 65535
-    # 修改后使用 sysctl -p /etc/sysctl.conf 重启服务
+    net.core.somaxconn = 2048
+    net.ipv4.tcp_max_syn_backlog=2048
+    net.ipv4.tcp_tw_recycle=1
+    net.ipv4.tcp_tw_reuse=1
+    # sysctl -w /proc/sys/net/core/netdev_max_backlog=2048
     ```
     
 * 进程最大打开文件数. 使用命令 `ulimit -n` 查看; 使用命令 `ulimit -n 1024000` 临时修改; 或修改配置文件永远生效.

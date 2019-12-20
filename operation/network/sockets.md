@@ -21,3 +21,4 @@ TCP 建立连接时要经过 3 次握手. 在客户端向服务器发起连接�
 ## Refs
 * [TCP连接状态图解析](https://blog.csdn.net/kimylrong/article/details/50933169)
 * [TCP 有限状态机](https://jaminzhang.github.io/network/TCP-Finite-State-Machine/)
+* [TCP 三次握手原理，你真的理解吗？](https://mp.weixin.qq.com/s/yH3PzGEFopbpA-jw4MythQ)
