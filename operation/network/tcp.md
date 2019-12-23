@@ -2,6 +2,12 @@
 ## Options
 ### TCP_KEEPALIVE
 `TCP_KEEPALIVE` 发送包含空的(或很小)的包体负载的 TCP 报文给对端, 并且对端会回复 keepalive ACK 确认包. 它有三个主要参数:
+* Idle time(空闲时间, `net.ipv4.tcp_keepalive_time`): 接收一个包后, 等待多长时间发出一个 ping 包.
+* Retry interval(重试间隔时间, `net.ipv4.tcp_keepalive_intvl`): 如果发送了一个 ping, 但是没有收到对端回复的 `ACK`, 在重试间隔时间之后重新发送 ping.
+* Ping amount(重试次数, `net.ipv4.tcp_keepalive_probes`): 重试多少次后, 我们认为这个连接不存活了.
+
+#### Refs
+* [Go语言中如何开启 TCP keepalive？](https://mp.weixin.qq.com/s?__biz=MzAxMTA4Njc0OQ==&mid=2651437623&idx=1&sn=0f4f3df727efff1a8edc50ffd37d42e5)
 
 
 ### TCP_QUICKACK
