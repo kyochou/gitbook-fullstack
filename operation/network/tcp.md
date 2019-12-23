@@ -7,4 +7,4 @@ Nagle 算法所对应的 TCP socket 选项是 `TCP_NODELAY`. 开启 `TCP_NODELAY
 在 Go 语言中, `TCP_NODELAY` 默认是开启的, 可通过 `func (c *TCPConn) SetNoDelay(noDelay bool) error` 方法控制它.
 
 ### Refs
-* 
+* [Go 语言使用 TCP_NODELAY 控制发包流量](https://mp.weixin.qq.com/s?__biz=MzAxMTA4Njc0OQ==&mid=2651438085&idx=2&sn=290d6b7a6cbbe7877adc738c13eca6ea)
