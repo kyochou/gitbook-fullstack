@@ -57,6 +57,8 @@ func ExampleFunc() {
 
 #### Refs
 * [golang metrics 的基本使用](https://zhuanlan.zhihu.com/p/30441529)
+* [go 服务监控指标(metric)上报open-falcon](https://juejin.im/post/5ae1b1a7518825672f199435)
+* [使用Metrics监控应用程序的性能](https://www.cnblogs.com/yangecnu/p/Using-Metrics-to-Profiling-WebService-Performance.html)
 
 
 ## Refs
