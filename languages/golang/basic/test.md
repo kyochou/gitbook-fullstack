@@ -52,8 +52,10 @@ func ExampleFunc() {
 ## Tools
 * [smartystreets/goconvey](https://github.com/smartystreets/goconvey): Go testing in the browser. Integrates with `go test`. Write behavioral tests in Go.
 
-### go-metrics
-[rcrowley/go-metrics](https://github.com/rcrowley/go-metrics) 用来为某个事件做监控, 统计.
+### metrics
+* [rcrowley/go-metrics](https://github.com/rcrowley/go-metrics): 用来为某个事件做监控, 统计.
+* [armon/go-metrics](https://github.com/armon/go-metrics): A Golang library for exporting performance and runtime metrics to external metrics systems (i.e. statsite, statsd).
+
 
 #### Refs
 * [golang metrics 的基本使用](https://zhuanlan.zhihu.com/p/30441529)
