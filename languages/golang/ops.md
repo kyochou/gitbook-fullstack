@@ -24,9 +24,19 @@ Profiling 一般译成画像. 在计算机性能调试领域里, Profiling 就�
 
 做 Profiling 的第一步就是怎么获取应用程序的运行情况数据. Go 提供了 `runtime/pprof` 和 `net/http/pprof` 两个库.
 
+#### net/http/pprof
+它们都支持名为 debug 的 URL 参数. 默认为 0, 此时返回的采样数据是不可人为解读的函数地址列表; 为 1 时, 会将函数地址转换为函数名; 对 goroutine 来说, 还支持值 2, 此时将以 `unrecovered panic` 的格式打印堆栈, 可读性更高. 
+
 #### go tool pprof
 
 通过命令 `go tool pprof $HOST/debug/pprof/profile`, 可默认进行 30s 的 CPU Profiling，得到一个分析用的 profile 文件`
+
+
+#### go test 
+通常用 `net/http/pprof` 或 `runtime/pprof` 对应用进行整体分析, 找出热点后, 再用 `go test` 进行基准测试, 进一步确定热点加以优化并对比测试.
+
+#### Refs
+* [go pprof 性能分析](https://juejin.im/entry/5ac9cf3a518825556534c76e)
 
 ### Tools
 * [divan/expvarmon](https://github.com/divan/expvarmon): TermUI based monitor for Go apps using expvars (/debug/vars). Quickest way to monitor your Go app(s).
