@@ -8,3 +8,11 @@
     # 使用 Env 模块和正则转义 \Q$variable\E
     name=kyo perl -MEnv -i'' -pe's/joe/\Q$name\E/g' filename
     ```
+    
+    
+* trim array:
+
+    ```
+    // trim both
+    @F=grep(s/^\s+|\s+$//g, @F)
+    ``` 
