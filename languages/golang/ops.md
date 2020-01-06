@@ -29,14 +29,22 @@ Profiling 一般译成画像. 在计算机性能调试领域里, Profiling 就�
 
 #### go tool pprof
 
-通过命令 `go tool pprof $HOST/debug/pprof/profile`, 可默认进行 30s 的 CPU Profiling，得到一个分析用的 profile 文件`
+通过命令 `go tool pprof $HOST/debug/pprof/profile`, 可默认进行 30s 的 CPU Profiling，得到一个分析用的 profile 文件.
 
+##### top
+top 输出列如下:
+* flat: 函数运行耗时;
+* flat%: 函数运行所占程序 CPU 总时间的比例;
+* sum%: 函数累积使用 CPU 总比例;
+* cum: 当前函数加上它之上的调用运行总耗时;
+* cum%: 当前函数加上它之上的调用运行耗时比例;
 
 #### go test 
 通常用 `net/http/pprof` 或 `runtime/pprof` 对应用进行整体分析, 找出热点后, 再用 `go test` 进行基准测试, 进一步确定热点加以优化并对比测试.
 
 #### Refs
 * [go pprof 性能分析](https://juejin.im/entry/5ac9cf3a518825556534c76e)
+* [Go 大杀器之性能剖析 PProf](https://book.eddycjy.com/golang/tools/go-tool-pprof.html)
 
 ### Tools
 * [divan/expvarmon](https://github.com/divan/expvarmon): TermUI based monitor for Go apps using expvars (/debug/vars). Quickest way to monitor your Go app(s).
