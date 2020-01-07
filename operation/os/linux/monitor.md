@@ -33,6 +33,7 @@ Grafana 与 Prometheus 是一对多的关系. 即可以在一个 Grafana 应用�
 ### Refs
 * [Prometheus 集成 Node Exporter](https://juejin.im/post/5d54bc80f265da03a6531063)
 * [研究监控系统之prometheus](https://jeremyxu2010.github.io/2018/08/%E7%A0%94%E7%A9%B6%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E4%B9%8Bprometheus/)
+* [prometheus 入门与思考](http://tech.dianwoda.com/2018/08/15/prometheus-ru-men-yu-si-kao/)
 
 ## Tools
 * [netdata/netdata](https://github.com/netdata/netdata): Real-time performance monitoring.
