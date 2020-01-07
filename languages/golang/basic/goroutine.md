@@ -6,8 +6,8 @@
 ## Sync
 
 ## Context
-`Context` 的主要作用就是在不同的 goroutine 之间同步请求特定的数据, 取消信号以及处理请求的截止日期.
 控制并发有两种经典的方式, 一种是 `sync.WaitGroup`, 另一种就是 `Context`.
+`Context` 的主要作用是在多个 Goroutine 或者模块之间同步取消信号或者截止日期, 用于减少对资源的消耗和长时间占用, 避免资源浪费. 传值功能比较常见的场景是传递请求对应的认证令牌或 ID 信息.
 有这样一种场景, 一个网络请求 Request, 每个 Request 都需要开启一个 goroutine 做一些事情, 这些 goroutine 又可能会开启其他的 goroutine. 所以我们需要一种可以跟踪 goroutine 的方案, 才可以达到控制他们的目的, 这就是 Go 语言为我们提供的 `Context`, 它就是 goroutine 的上下文.
 
 ```go
@@ -48,5 +48,6 @@ Context 的使用原则:
 
 ## Refs
 * [来，控制一下 goroutine 的并发数量](https://github.com/EDDYCJY/blog/blob/master/talk/control-goroutine.md)
+* [大神是如何学习 Go 之并发编程与 Context](https://mp.weixin.qq.com/s/fRb4G74LW-es87jxWkiByw)
 
 
