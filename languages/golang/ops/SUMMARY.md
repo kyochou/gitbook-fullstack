@@ -24,6 +24,7 @@
 
 #### Go trace
 * [深入浅出 Go trace](https://www.itcodemonkey.com/article/5419.html)
+* [Go 大杀器之跟踪剖析 trace](https://github.com/eddycjy/blog/blob/master/tools/go-tool-trace.md)
 
 ### Refs
 * [Go服务监控](https://www.cnblogs.com/52fhy/p/11828448.html)
