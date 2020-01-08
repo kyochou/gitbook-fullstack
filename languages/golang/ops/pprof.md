@@ -32,3 +32,4 @@ top 输出列如下:
 ## Refs
 * [go pprof 性能分析](https://juejin.im/entry/5ac9cf3a518825556534c76e)
 * [Go 大杀器之性能剖析 PProf](https://book.eddycjy.com/golang/tools/go-tool-pprof.html)
+* [一文读懂 Go profiling 和性能优化](https://mp.weixin.qq.com/s/nqOXcetOLQN09IFjOz4PtQ)
