@@ -1,5 +1,8 @@
 # Ops
 
+## Practice
+我们在发布一个 Go 应用时, 默认都会启用两个 http handler: 一个是 pprof, 方便线上动态追踪问题; 另一个是 prometheus 的 metrics, 这样就可以通过 grafana 准实时的监控当前 runtime 信息, 及时预警.
+
 ## FAQs
 * 运行 `go build` 命令时, 使用 `ldflags` 选项可以修改代码中变量的值. 参考: [Go 编程: 写一个通用的项目版本信息包](https://www.gitdig.com/go-build-version/).
 
