@@ -26,6 +26,8 @@ top 输出列如下:
 
 ## go test 
 通常用 `net/http/pprof` 或 `runtime/pprof` 对应用进行整体分析, 找出热点后, 再用 `go test` 进行基准测试, 进一步确定热点加以优化并对比测试.
+在进行 Benchmark 测试时可通过命令行参数生成指定的 Profiling 数据文件.
+
 
 ## Refs
 * [go pprof 性能分析](https://juejin.im/entry/5ac9cf3a518825556534c76e)
