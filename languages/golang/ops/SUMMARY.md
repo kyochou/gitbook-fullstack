@@ -22,6 +22,12 @@
 
 #### [PProf](pprof.md)
 
+#### GODEBUG
+环境变量 GODEBUG 可以控制运行时的程序调试变量. 多个参数以逗号分隔, 格式为 `name=val`.
+
+* [用 GODEBUG 看调度跟踪](https://github.com/eddycjy/blog/blob/master/tools/godebug-sched.md)
+* [用 GODEBUG 看 GC](https://github.com/eddycjy/blog/blob/master/tools/godebug-gc.md)
+
 #### Go trace
 * [深入浅出 Go trace](https://www.itcodemonkey.com/article/5419.html)
 * [Go 大杀器之跟踪剖析 trace](https://github.com/eddycjy/blog/blob/master/tools/go-tool-trace.md)
