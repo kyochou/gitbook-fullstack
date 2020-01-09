@@ -5,7 +5,8 @@
 自旋(Spinnig)是在多线程同步的过程中使用的一种机制, 当前的进程在进入自旋的过程中会一直保持 CPU 的占用, 持续检查某个条件是否为真. 在多核 CPU 上, 自旋的优点是避免了 Goroutine 的切换. 所以如果使用恰当会对性能带来非常大的增益.
 
 
-## Mutex(互斥锁)
+## sync
+### Mutex(互斥锁)
 sync 包的 Mutex 类型支持 Lock 和 Unlock 操作. 用来保证他们之间的代码同一时间只有一个 goroutine 能访问.
 我们总应该保证, 对于每一个锁定操作, 都要有且只有一个对应的解锁操作.
 惯例来说, 被 Mutex 所保护的变量的声明应紧随 Mutex 的声明之后.
@@ -13,7 +14,7 @@ sync 包的 Mutex 类型支持 Lock 和 Unlock 操作. 用来保证他们之间�
 `sync.Mutex` 类型是一个结构体, 属于值类型中的一种. 因此, 当你使用 `sync.Mutex` 时, 确保 `sync.Mutex` 和其保护的变量没有被导出(也不要在函数间传递或赋值给其他变量).
 饥饿模式的主要功能是保证互斥锁获取的 "公平性(Fairness)".
 
-## RWMutex(读写互斥锁)
+### RWMutex(读写互斥锁)
 `sync.RWMutex` 锁允许多个只读操作并行执行(`RLock`, `RUnlock`, 但写操作会完全互斥. 这种锁叫做 "多读单写" 锁.
 相比于互斥锁(`sync.Mutex`), 读写锁可以实现更加细腻的访问控制.
 对于某个受到读写锁保护的共享资源, 多个写操作不能同时进行, 写操作和读操作也不能同时进行, 但多个读操作却可以同时进行.
@@ -29,3 +30,21 @@ sync.Once 可以保证其保护的代码可以安全的仅执行一次. 一般�
 只要传入某个 Do 方法的参数函数没有结束执行, 任何之后调用该方法的 goroutine 就都会被阻塞. 只有在这个参数函数执行结束以后, 那些 goroutine 才会逐一被唤醒.
 
 ### Cond
+`sync.Cond` 并不是用来保护临界区和共享资源的, 它是用于协调想要访问共享资源的那些线程的. 当共享资源的状态发生变化时, 它可以被用来通知被互斥锁阻塞的线程.
+`sync.Cond` 的最大优势就是在效率方面的提升. 当共享资源的状态不满足条件的时候, 想操作它的线程再也不用循环往复地(`for{}` 循环)做检查了, 只要等待通知就好了.
+`sync.Cond` 提供了三个方法: 等待通知(wait), 单发通知(signal)和广播通知(broadcast).
+我们需要利用 `sync.NewCond` 函数创建 `sync.Cond` 的指针值. 这个函数需要一个 `sync.Locker` 类型的参数值.
+利用 `sync.Cond` 可以实现单向的通知, 而双向的通知则需要两个条件变量.
+在包裹 `sync.Cond.Wait` 方法时, 明确检查是否应该使用 `for` 语句.
+`sync.Cond.Signal` 方法和 `sync.Cond.Broadcast` 方法都是被用来发送通知的, 不同的是, 前者的通知只会唤醒一个因此而等待的 goroutine, 而后者的通知却会唤醒所有为此等待的 goroutine. 
+`sync.Cond.Wait` 方法总会把当前的 goroutine 添加到通知队列的队尾, 而 `sync.Cond.Signal` 方法总会从通知队列的队首开始查找可被唤醒的 goroutine.
+如果你确定只有一个 goroutine 在等待通知, 或者只需要唤醒任意一个 goroutine 就可以满足要求, 那么使用 `sync.Cond.Signal` 方法就好了. 否则, 使用 `sync.Cond.Broadcast` 方法总没错.
+与 `Wait` 方法不同, `Signal` 和 `Broadcast` 方法并不需要在互斥锁的保护下执行. 
+
+### Map
+与单纯使用原生 map 和互斥锁的方案相比, 使用 `sync.Map` 可以显著地减少锁的争用. `sync.Map` 本身虽然也用到了锁, 但是, 它其实在尽可能地避免使用锁.
+
+## x/sync
+
+
+"golang.org/x/sync/errgroup"
