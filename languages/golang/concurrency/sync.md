@@ -45,6 +45,25 @@ sync.Once 可以保证其保护的代码可以安全的仅执行一次. 一般�
 与单纯使用原生 map 和互斥锁的方案相比, 使用 `sync.Map` 可以显著地减少锁的争用. `sync.Map` 本身虽然也用到了锁, 但是, 它其实在尽可能地避免使用锁.
 
 ## x/sync
+### errgroup
+`errgroup.Group` 为我们提供了多任务并行处理功能(对 `sync.WaitGroup` 的封装), 如果有任务发生错误则返回第一个发生的错误. 需要注意的是, 即使有错误发生, `errgroup.Group` 还是会等待所有任务都执行结束后才返回(`Wait`).
+
+### semaphore(信号量)
+`semaphore` 会保证持有的计数器在 0 到初始化的权重(数量)之间. 每次获取资源时都会将 `semaphore` 中的计数器减去对应的数值, 在释放时重新加回来, 当遇到计数器大于信号量大小时就会进入休眠等待其他进程释放信号. 常常会在控制访问资源的进程数量时用到.
+`semaphore` 包对外提供了四个方法:
+* `NewWeighted`: 创建新的信号量;
+* `Acquire`: 获取指定权重的资源, 如果当前没有 "空闲资源", 就会陷入休眠等待;
+* `TryAcquire`: 获取指定权重的资源, 但是如果当前没有 "空闲资源", 就会直接返回 `false`;
+* `Release`: 释放指定权重的资源. 资源释放后会按 FIFO 的顺序唤醒等待信号量的 Goroutine.
+
+### singleflight
+`singleflight` 能够在一个服务中抑制对下游的多次重复请求. 它的主要作用就是对同一个 `key` 最终只会进行一次函数调用.
+`singleflight.Group` 提供了以下接口:
+* `Do` 和 `DoChan` 一个用于同步阻塞调用传入的函数, 一个用于异步调用传入的参数并通过 Channel 接收函数的返回值. 一旦调用的函数返回了错误, 所有在等待的 Goroutine 也都会接收到同样的错误;
+* `Forget` 方法可以通知 `singleflight` 在持有的映射表中删除某个键, 接下来对该键的调用就会直接执行方法而不是返回缓存的值.
 
 
-"golang.org/x/sync/errgroup"
+## Refs
+* [同步原语与锁](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-sync-primitives/)
+
+
