@@ -41,6 +41,7 @@ Channels 也可以用于将多个 goroutine 链接在一起, 一个 channel 的�
 一个已关闭的 channel, 对其执行发送操作将导致 panic 异常;  对其执行接收操作依然可以接收到之前已经成功发送的数据, 如果 channel 中已经没有数据, 后续的接收操作将不再阻塞, 并立即返回一个零值的数据. 
 channel 并不需要显式关闭, 只有当需要告诉 goroutine 所有数据都发送完毕时才需要显式关闭.
 channel 只能由发送方关闭. 不要在接收端关闭 channel.
+一个 Channel 有多个接收者时, close Channel 会唤醒所有接收者.
 
 ```go
 
@@ -87,3 +88,7 @@ select {
     // ...
 }
 ```
+
+## Refs
+* [Go语言channel备忘录](https://pengrl.com/p/23102/)
+* [Go语言的有缓冲channel和无缓冲channel](https://pengrl.com/p/21027/)
