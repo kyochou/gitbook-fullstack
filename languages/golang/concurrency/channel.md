@@ -17,6 +17,7 @@ go 语言的 range 循环可以直接在 channel 上迭代. 当 channel 被关�
 
 和垃圾变量不同, 泄漏的 goroutines (发送了 chan 而没有被接收)并不会被自动回收, 因此确保每个不再需要的 goroutine 能正常退出是重要的. 特别在使用不带缓存的 channels 时尤要注意.
 对 channels 的读写是并发安全的.
+**空结构体类型变量不占内存空间, 当我们仅仅把通道当作传递某种简单信号的介质时, 用 struct{} 作为其元素类型是再好不过了**.
 
 ## 不带缓存的 channels
 一个基于无缓存的 channel 的发送/接收操作都会导致当前 goroutine 的阻塞, 直到另一个 goroutine 执行了接收/发送操作. 也就是说基于无缓存 channel 的发送和接收操作将导致两个 goroutine 做一次同步操作. 因为这个原因, 无缓存的 channels 也被称为同步 channels.
