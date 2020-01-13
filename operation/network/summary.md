@@ -59,4 +59,6 @@ $ brew install netcat
 
 ## 网络模型
 
-![TCP 流与报文](https://files-kyo.oss-cn-hongkong.aliyuncs.com/FqHQj_TybNiDuLzSb3bJx-DFaQsY.png)
+![TCP 流与报文](http://files-kyo.oss-cn-hongkong.aliyuncs.com/FqHQj_TybNiDuLzSb3bJx-DFaQsY.png)
+
+![OSI 模型与 TCP/IP 模型对照](http://files-kyo.oss-cn-hongkong.aliyuncs.com/FimmYldrt6FXovwmltalWnYVIHuE.png)
