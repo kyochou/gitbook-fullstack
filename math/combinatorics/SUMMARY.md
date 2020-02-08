@@ -13,5 +13,12 @@
 将 n 个事物按顺序进行排列称为置换(substitution).
 注意, 0 的阶乘不是 0, 而被定义为 1. 这是数学里的规定.
 
-## 排列组合
+### 排列
+从 n 个不同元素中取出 m(1<=m<=n) 个不同的元素, 按照一定的顺序排成一列, 这个过程就叫排列(Permutation). 当 m=n 时, 称为全排列(All Permutation).
+如果选择出的这 m 个元素可以有重复, 则称为重复排列(Permutation with Repetition), 否则就是不重复排列(Permutation without Repetition).
+对于 n 个元素的全排列, 所有可能的排列数量是 `n!` 个.
+对于自 n 个元素里取出 m(0<=m<=n) 个元素的可重复全排列数量为 `n^m` 个; 不重复排列数量为 `n!/(n-m)!` 个.
+
+### 组合
+组合(Combination)
 
