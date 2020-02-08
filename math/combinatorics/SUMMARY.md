@@ -13,7 +13,7 @@
 从 n 个不同元素中取出 m(1<=m<=n) 个不同的元素, 按照一定的顺序排成一列, 这个过程就叫排列(Permutation). 当 m=n 时, 称为全排列(All Permutation)或置换(substitution).
 如果选择出的这 m 个元素可以有重复, 则称为重复排列(Permutation with Repetition), 否则就是不重复排列(Permutation without Repetition).
 对于 n 个元素的全排列, 所有可能的排列数量是 $n!$ 个.
-对于自 n 个元素里取出 m(0<=m<=n) 个元素的可重复排列数量为 $n^m$ 个; 不重复排列数量为 $P_n^m = n(n-1)(n-2)...(n-m+1)$ 即 $P_n^m = \frac{n!}{(n-m)!}$ 个.
+对于自 n 个元素里取出 m(1<=m<=n) 个元素的可重复排列数量为 $n^m$ 个; 不重复排列数量为 $P_n^m = n(n-1)(n-2)...(n-m+1)$ 即 $P_n^m = \frac{n!}{(n-m)!}$ 个.
 
 ### 组合
 组合(Combination)是指, 从 n 个不同元素中取出 m(0<=m<=n) 个元素所组成的集合. 组合与排列类似, 只是不考虑元素的先后顺序. 
