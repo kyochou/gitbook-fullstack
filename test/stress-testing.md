@@ -25,8 +25,12 @@
     net.core.wmem_max=16384
     # 全连接队列最大长度
     net.core.somaxconn = 2048
+    # SYN_RCVD 状态连接的最大个数
     net.ipv4.tcp_max_syn_backlog = 2048
+    # 接收自网卡, 但未被内核协议栈处理的报文队列长度
     net.core.netdev_max_backlog = 2048
+    # 超出处理能力时, 对新来的 SYN 直接回包 RST, 丢弃连接
+    net.ipv4.tcp_abort_on_overflow = 1
     net.ipv4.tcp_timestamps = 1
     # 开启 TCP 连接中 TIME-WAIT 状态的 sockets 的快速回收
     net.ipv4.tcp_tw_recycle = 1
