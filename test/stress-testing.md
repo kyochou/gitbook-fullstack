@@ -26,11 +26,12 @@
     #net.core.netdev_max_backlog = 2048
     # 超出处理能力时, 对新来的 SYN 直接回包 RST, 丢弃连接
     net.ipv4.tcp_abort_on_overflow = 1
-    #net.ipv4.tcp_timestamps = 1
     # 开启 TCP 连接中 TIME-WAIT 状态的 sockets 的快速回收
     #net.ipv4.tcp_tw_recycle = 1
-    # 减少处于 FIN-WAIT-2 连接状态的时间, 使系统可以处理更多的连接
+    # 开启后, 作为客户端时新连接可以使用仍然处于 TIME-WAIT 状态的端口.
     net.ipv4.tcp_tw_reuse = 1
+    # 开启后, 操作系统可以拒绝迟到的报文(与 `tcp_tw_reuse` 配合使用)
+    net.ipv4.tcp_timestamps = 1
     # sysctl -w /proc/sys/net/core/netdev_max_backlog=2048
     ```
     
