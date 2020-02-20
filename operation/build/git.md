@@ -1,5 +1,15 @@
 # Git
 
+## FQAs
+* 设置保存用户信息
+
+    ```shell
+    git config --global credential.helper store
+    ```
+    [How to save username and password in git?](https://stackoverflow.com/questions/35942754/how-to-save-username-and-password-in-git)
+
+
+
 ## Tools
 ### CLI
 * [o2sh/onefetch](https://github.com/o2sh/onefetch): Git repository summary on your terminal.
