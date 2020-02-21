@@ -1,6 +1,7 @@
 # Proxy
 
 ## Tools
+* [inlets/inlets](https://github.com/inlets/inlets): Expose your local endpoints to the Internet or to another network, traversing firewalls and NAT.
 * [hmgle/graftcp](https://github.com/hmgle/graftcp): graftcp 可以把任何指定程序(应用程序, 脚本, shell 等)的 TCP 连接重定向到 SOCKS5 或 HTTP 代理. 
 * [yrutschle/sslh](https://github.com/yrutschle/sslh): Applicative Protocol Multiplexer (e.g. share SSH and HTTPS on the same port). 端口复用软件. 参考: [公网端口不够用，用这款神器轻松搞定它！](https://mp.weixin.qq.com/s?__biz=MzI3MTI2NzkxMA==&mid=2247489038&idx=1&sn=c9856cedabf74ccbffbca451f03fe05a)
 
