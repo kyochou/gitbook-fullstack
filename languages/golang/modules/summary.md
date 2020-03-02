@@ -1,4 +1,4 @@
-# Framework
+# Modules
 
 ## Configs
 * [Go configuration with fangs](https://github.com/spf13/viper)
