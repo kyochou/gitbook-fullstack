@@ -29,7 +29,7 @@ git config diff.exif.textconv exiftool
 ## Github
 ### FAQs
 * [如何同步 Github fork 出来的分支](https://jinlong.github.io/2015/10/12/syncing-a-fork/)
-
+* [签名你的每个 Git Commit](https://sexywp.com/sign-your-every-git-commit.htm)
 
 ## Tools
 * [toptal/gitignore.io](https://github.com/toptal/gitignore.io): Create useful .gitignore files for your project.

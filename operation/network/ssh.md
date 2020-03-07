@@ -22,6 +22,21 @@ ControlPersist yes
 ### sshd_config
 DNS 反向解析用来屏蔽非法的 IP 访问请求. 如果不需要验证请求的 IP, 可在 `sshd_config` 文件中通过将 `UseDNS` 属性设置为 `no` 来关闭此功能, 以加快连接速度.
 
+```properties
+# 开启公钥验证
+PubkeyAuthentication yes
+# 不允许 root 帐号登录
+PermitRootLogin no
+# 不允许使用密码验证登录
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+# 修改默认端口
+Port 10022
+## 优化性能
+UseDNS no
+GSSAPIAuthentication no
+```
+
 ### Refs
 * [利用 ControlPersist 特性自动登陆 SSH 服务器](https://www.hi-linux.com/posts/39001.html)
 
