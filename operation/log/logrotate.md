@@ -4,12 +4,12 @@ Logrotate 是一个日志文件管理工具. 用来对日志文件进行轮转, 
 
 ## Supervisor
 ### supervisor 配置
-/etc/supervisor/supervisord.conf:
+/etc/supervisor/conf.d/app.conf:
 
 ```ini
-[supervisord]
-logfile_maxbytes=0
-logfile_backups=0
+[program:app]
+redirect_stderr=true
+stdout_logfile_maxbytes=0
 ```
 
 ### logrotate 配置
