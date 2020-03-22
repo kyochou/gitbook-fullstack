@@ -20,6 +20,10 @@
 ## network
 * [Little Snitch](https://www.obdev.at/products/littlesnitch/index.html): 防火墙.
 
+
+## fs
+* [syncthing/syncthing](https://github.com/syncthing/syncthing): Open Source Continuous File Synchronization.  
+
 ### proxy
 
 * 使用 SSH 服务器做为 socks5 代理: `/usr/bin/ssh -N -f -D 19997 kjprod`.
