@@ -22,7 +22,7 @@ sudo chown -R root:root /home/kyo/etc/logrotate.supervisor
 /home/kyo/etc/logrotate.supervisor:
 ```ini
 /var/log/supervisor/*.log {
-  rotate 3
+  rotate 168
   copytruncate
   compress
   delaycompress
