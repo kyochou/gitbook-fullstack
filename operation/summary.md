@@ -9,6 +9,9 @@
 * [node-semver](https://github.com/npm/node-semver)
 
 
+## 故障处理
+### Refs
+* [如何应对在线故障](https://www.rowkey.me/blog/2018/11/22/online-debug/)
 
 ## Release
  各种 "部署/发布" 方式:
