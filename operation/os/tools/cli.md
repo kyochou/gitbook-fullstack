@@ -15,3 +15,7 @@
 
 * [antonmedv/fx](https://github.com/antonmedv/fx): Command-line tool and terminal JSON viewer.
 
+
+
+## live
+* [chubin/wttr.in](https://github.com/chubin/wttr.in): The right way to check the weather.   
