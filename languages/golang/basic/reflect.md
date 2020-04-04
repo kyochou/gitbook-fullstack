@@ -1,7 +1,7 @@
 # Reflect
 
-运行时反射是程序在运行期间检查其自身结构的一种方式. `reflect` 包实现了运行时的反射能力. `reflect.TypeOf` 能获取类型信息, `reflect.ValueOf` 能获取数据的运行时表示. 如果我们知道了一个变量的类型和值, 就意味着知道了这个变量的全部信息.      
-反射包中的所有方法基本都是围绕着 `Type` 和 `Value` 这两个类型设计的. 我们通过 `reflect.TypeOf` 和 `reflect.ValueOf` 可以将一个普通的变量转换成 `reflect`  包中提供的 `Type` 和 `Value`, 随后就可以使用反射包中的方法对它们进行复杂的操作了.      
+运行时反射是程序在运行期间检查其自身结构的一种方式. `reflect` 包实现了运行时的反射能力. `reflect.TypeOf` 能获取类型信息, `reflect.ValueOf` 能获取数据的运行时表示. `reflect` 包中的所有方法基本都是围绕着 `Type` 和 `Value` 这两个类型设计的.如果我们知道了一个变量的类型和值, 就意味着知道了这个变量的全部信息.      
+   
 要通过反射修改一个变量的值需要:
 1. 调用 `reflect.ValueOf` 函数获取变量指针;  
 2. 调用 `reflect.Value.Elem` 方法获取指针指向的变量;   
@@ -31,7 +31,16 @@ if v.Kind() != reflect.Func {
 
 `reflect.Value.Call` 方法是运行时调用方法的入口.   
 
+
+完整实例: 
+
 ```go
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
 
 type (
 	user struct {
@@ -49,10 +58,10 @@ func main() {
 
 	s := user{}
 
-	// 创建新的类型实例
-	ref := reflect.New(reflect.TypeOf(s))
-	ref.Elem().FieldByName(`ID`).SetUint(1)
-	ref.Elem().FieldByName(`Info`).Set(reflect.ValueOf(userinfo{
+		// 创建新的类型实例
+	ref := reflect.Indirect(reflect.New(reflect.TypeOf(s)))
+	ref.FieldByName(`ID`).SetUint(1)
+	ref.FieldByName(`Info`).Set(reflect.ValueOf(userinfo{
 		Name: `kyo`,
 		Age:  18,
 	}))
@@ -69,5 +78,10 @@ func main() {
 }
 ```
 
-## Refs
+## Tools
+
 * [mitchellh/mapstructure](https://github.com/mitchellh/mapstructure): Go library for decoding generic map values into native Go structures.
+
+
+## Refs
+* [Go 语言设计与实现 - 反射](https://draveness.me/golang/docs/part2-foundation/ch04-basic/golang-reflect/)
