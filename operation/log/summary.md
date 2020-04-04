@@ -4,6 +4,9 @@
 * 问题定位;
 * 行为分析;
 
+
+Trace 级别的日志只应该在开发环境中开启.   
+
 ## Level
 * Fatal
     发生致命错误, 程序需要中断执行.
@@ -24,6 +27,10 @@
     
 * Trace(Verbose)
     用来帮助开发调试的更加具体的信息, 此级别在生产环境不应该开启.
+    
+    
+    
+    
 
 ### Refs
 [日志的 5 个级别](http://www.infoq.com/cn/articles/five-levels-of-logging)
