@@ -78,6 +78,31 @@ func main() {
 }
 ```
 
+## 反射的应用
+### 判断未知对象是否实现了具体接口
+通常情况下, 判断未知对象是否实现具体接口很简单, 直接通过 `变量名.(接口名)` 类型验证的方式就可以判断. 但也有例外, 即框架代码实现中检查调用代码的情况. 因为框架代码先实现(并不知道接口名), 调用代码后实现, 也就无法在框架代码中通过简单的类型验证的方式进行验证.   
+
+```go
+// 目标接口定义
+type Foo interface {
+    Bar(int)
+}
+
+// 通过对 nil 值的强制转换声明接口的空值
+dst := (*Foo)(nil)
+
+// 验证未知变量 src 是否实现了 Foo 接口
+dstTypeEl := reflect.TypeOf(dst).Elem()
+srcType := reflect.TypeOf(src)
+if !srcType.Implements(dstTypeEl) {
+    return false
+}
+
+```    
+
+### 结构体字段属性标签
+
+
 ## Tools
 
 * [mitchellh/mapstructure](https://github.com/mitchellh/mapstructure): Go library for decoding generic map values into native Go structures.
