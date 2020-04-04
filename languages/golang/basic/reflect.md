@@ -1,5 +1,9 @@
 # Reflect
 
+运行时反射是程序在运行期间检查其自身结构的一种方式. `reflect` 包实现了运行时的反射能力. `reflect.TypeOf` 能获取类型信息, `reflect.ValueOf` 能获取数据的运行时表示.   
+反射包中的所有方法基本都是围绕着 `Type` 和 `Value` 这两个类型设计的. 我们通过 `reflect.TypeOf` 和 `reflect.ValueOf` 可以将一个普通的变量转换成 `reflect`  包中提供的 `Type` 和 `Value`, 随后就可以使用反射包中的方法对它们进行复杂的操作了.      
+
+
 ```go
 
 type (
