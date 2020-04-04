@@ -79,6 +79,8 @@ func main() {
 ```
 
 ## 反射的应用
+**反射的最佳应用场景是程序的启动阶段, 实现一些类型检查, 注册等前置工作, 既不影响程序性能同时又增加了代码的可读性**.   
+
 ### 判断未知对象是否实现了具体接口
 通常情况下, 判断未知对象是否实现具体接口很简单, 直接通过 `变量名.(接口名)` 类型验证的方式就可以判断. 但也有例外, 即框架代码实现中检查调用代码的情况. 因为框架代码先实现(并不知道接口名), 调用代码后实现, 也就无法在框架代码中通过简单的类型验证的方式进行验证.   
 
@@ -101,6 +103,7 @@ if !srcType.Implements(dstTypeEl) {
 ```    
 
 ### 结构体字段属性标签
+### 函数适配
 
 
 ## Tools
@@ -110,3 +113,4 @@ if !srcType.Implements(dstTypeEl) {
 
 ## Refs
 * [Go 语言设计与实现 - 反射](https://draveness.me/golang/docs/part2-foundation/ch04-basic/golang-reflect/)
+* [Go 编程：图解反射](https://www.gitdig.com/go-reflect/)
