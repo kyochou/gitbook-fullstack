@@ -1,6 +1,32 @@
 # Redis
 
+Redis 是基于 key/value 存储的单线程内存数据库.   
+
 ## Usage
+### List
+#### Stack
+* lpush + lpop   
+* rpush + rpop   
+
+#### Queue
+* lpush + rpop    
+* rpush + lpop    
+
+#### Capped List(定长列表)   
+* lpush/rpush + ltrim    
+
+#### Message Queue
+* lpush + brpop   
+* rpush + blpop    
+
+### Set(无序集合)
+* 交集: sinter set1 set2 ...   
+* 差集: sdiff set1 set2 ...   
+* 并集: sunion set1 set2 ...    
+
+### ZSet(有序集合)   
+
+
 ### HyperLogLog
 基数计数(cardinality counting)通常用来统计一个集合中不重复的元素个数. 例如统计某个网站的 UV, 或者用户搜索网站的关键词数量. 数据分析, 网络监控及数据库优化等领域都会涉及到基数计数的需求.    
 HyperLogLog 是一种实现了基数计数的算法. 可以利用极小的内存空间完成独立总数的统计, 但其会有一定的误差率(0.81%). 其适用于以下场景:
