@@ -98,6 +98,8 @@ TERM, INI 信号表示立刻停止进程, QUIT 信号表示让进程自已退出
 * 通过源码查看模块支持的指令:
 
     在源码文件中(如 `src/http/modules/ngx_http_gzip_filter_module.c`), 查找类型为 `ngx_command_t` 的结构体, 在其内有模块相关指令的定义.    
+    
+* `make && make install`    
         
 ### 热部署
 即在不停止服务的基础上实现 Nginx 的版本升级. 步骤如下:
