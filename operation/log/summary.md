@@ -33,4 +33,5 @@ Trace 级别的日志只应该在开发环境中开启.
     
 
 ### Refs
-[日志的 5 个级别](http://www.infoq.com/cn/articles/five-levels-of-logging)
+* [日志的 5 个级别](http://www.infoq.com/cn/articles/five-levels-of-logging)
+* [日志收集的“DNA”](https://mp.weixin.qq.com/s/ySJudWmuQfKRFY2snKIs1w)
