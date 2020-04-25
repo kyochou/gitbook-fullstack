@@ -6,6 +6,16 @@
     * `sync.Pool`
     * `slice = slice[:0]`
 
+* 使用大写的 `Domain` 定义接口, 使用小写的 `domain` 定义具体实现(结构体), 使用 `NewDomain` 函数生成实例.   
+
+    ```go
+    type Service interface {}
+    type service struct {}
+    func NewService() (Service, error) {
+        return &service{}, nil
+    }
+    ```    
+
 ### Refs
 * [fasthttp中运用哪些go优化技巧？](https://mp.weixin.qq.com/s/7zNw3nEWozArJLFVmTjn0A)    
 
@@ -94,3 +104,4 @@ go get -u github.com/mgechev/revive
 
 ### Refs
 * [Go 终极指南：编写一个 Go 工具](https://www.jianshu.com/p/20b533c5c3f9?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
+* [如何写出优雅的 Go 语言代码](https://draveness.me/golang-101/)
