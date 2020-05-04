@@ -16,6 +16,9 @@
 * [HazeOver](https://hazeover.com/): 为失去焦点的应该添加蒙版以和当前应用区分. Automatically highlights the front window by fading out all the background windows.
 * [QSpace](https://apps.apple.com/cn/app/id1469774098): 多视图文件管理(与 TotalFinder 有类似).
 * [Magnet](https://magnet.crowdcafe.com/): Organize Your Workspace. 调整窗口大小的分屏软件. 功能与 Spectacle 类似.
+
+### Status Bar
+* [Mortennn/Dozer](https://github.com/Mortennn/Dozer): Hide status bar icons on macOS.
     
 ## network
 * [Little Snitch](https://www.obdev.at/products/littlesnitch/index.html): 防火墙.
