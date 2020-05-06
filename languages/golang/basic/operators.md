@@ -30,9 +30,14 @@ arr := [...]int{1,2,4}
 
 由于 `map` 的 `key` 是使用 `==` 来判等的, 所以所有不可比较的类型都不能做为 `map` 的 `key`.   
 
+`reflect.DeepEqual` 提供了递归比较的功能.   
+`go-cmp` 是 Google 开源的比较库, 它提供了丰富的比较选项.   
+
+
 ### Refs
 * [深入理解Go之==](https://darjun.github.io/2019/08/20/golang-equal/)   
+* [Go 每日一库之 go-cmp](https://darjun.github.io/2020/03/20/godailylib/go-cmp/)
 
 
 ## Refs
-* [Go 编程：那些隐晦的操作符](https://www.gitdig.com/go-operators/)
+* [Go 编程：那些隐晦的操作符](https://www.gitdig.com/go-operators/)  
