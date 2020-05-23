@@ -46,10 +46,3 @@ if name, exists := ages0[`kyo`]; exists {
     // ...
 } 
 ```
-
-## sync.Map
-`sync.Map` 在读多写少时性能会比较好.
-
-### Refs
-* [Go 1.9 sync.Map揭秘](https://colobu.com/2017/07/11/dive-into-sync-Map/)
-* [orcaman/concurrent-map](https://github.com/orcaman/concurrent-map/blob/master/README-zh.md)
