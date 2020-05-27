@@ -4,6 +4,17 @@
 ### Refs
 * [关于手机App的Https抓包](https://blog.huoding.com/2019/05/31/741)
 
+## 测速
+### iperf3
+Iperf3 是一个网络性能测试工具. 可以测试最大 TCP 和 UDP 带宽性能.   
+```shell
+# install
+sudo yum install iperf3
+# server
+iperf3 -s
+# client
+iperf3 -c <IP>
+```
 
 ## Wireshark
 ### 过滤器
