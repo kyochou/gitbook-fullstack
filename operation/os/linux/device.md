@@ -11,6 +11,13 @@
 为保持一致性, 不管使用何种方式安装的软件, 统一将日志放在 `/var/log` 目录, 数据放在 `/var/lib` 目录. 即**将 /var  目录单独挂载**, 以便于扩展.
 
 
+块设备 IO 性能测试:   
+```shell
+sudo name="fio-`date "+%s"`" fio --name="$name" --filename="./$name" --rw=randread --refill_buffers --bs=4k --size=1G -runtime=10 -direct=1 -iodepth=128 -ioengine=libaio && rm -f "./$name"
+```
+
+
+
 ## CPU
 
 ```shell
