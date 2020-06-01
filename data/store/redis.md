@@ -34,6 +34,12 @@ HyperLogLog 是一种实现了基数计数的算法. 可以利用极小的内存
 * 统计对象数据量大, 可以容忍一定误差率, 毕竟 HyperLogLog 在内存的占用量上有很大的优势.   
 * 可以和 Bitmaps 配合使用, 小数据量计数使用 Bitmaps, 大数据量使用 HyperLogLog 计数.  
 
+### 事务
+Redis 通过 `MULTI`, `DISCARD`, `EXEC`, `WATCH` 四个命令来实现事务功能.  
+
+#### Refs
+* [Redis 设计与实现 事务](https://redisbook.readthedocs.io/en/latest/feature/transaction.html)
+
 ## FAQs
 * 使用正则删除 key:  
     
