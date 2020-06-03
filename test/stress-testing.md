@@ -14,29 +14,14 @@
     # 全局最大可打开文件数
     fs.file-max = 1024000
     # iptables 会使用 nf_conntrack 模块跟踪连接
-    # net.nf_conntrack_max = 1024000
+    net.nf_conntrack_max = 1024000
+    # 可使用的端口范围
+    net.ipv4.ip_local_port_range = 1024 65000
+    # TCP栈内存
+    net.ipv4.tcp_mem = 786432 2097152 3145728
+    net.ipv4.tcp_rmem = 4096 4096 16777216
+    net.ipv4.tcp_wmem = 4096 4096 16777216
     
-    # 网络设置
-    net.ipv4.ip_forward=1
-    # 全连接队列最大长度
-    #net.core.somaxconn = 2048
-    # SYN_RCVD 状态连接的最大个数
-    #net.ipv4.tcp_max_syn_backlog = 2048
-    # 接收自网卡, 但未被内核协议栈处理的报文队列长度
-    #net.core.netdev_max_backlog = 2048
-    # 超出处理能力时, 对新来的 SYN 直接回包 RST, 丢弃连接
-    net.ipv4.tcp_abort_on_overflow = 1
-    
-    ## time-wait 优化
-    # 开启后, 作为客户端时新连接可以使用仍然处于 TIME-WAIT 状态的端口.
-    net.ipv4.tcp_tw_reuse = 1
-    # 开启后, 操作系统可以拒绝迟到的报文(与 `tcp_tw_reuse` 配合使用)
-    net.ipv4.tcp_timestamps = 1
-    # 开启后, 同时作为客户端和服务器都可以使用 TIME-WAIT 状态的端口. 不安全, 无法避免报文延迟, 重复等问题给新连接千万混乱.
-    # net.ipv4.tcp_tw_recycle = 1
-    # 设置 time_wait 状态连接的最大数量, 超出后直接关闭连接
-    # net.ipv4.tcp_max_tw_buckets = 262144
-    # sysctl -w /proc/sys/net/core/netdev_max_backlog=2048
     ```
     
 * 进程最大打开文件数. 使用命令 `ulimit -n` 查看; 使用命令 `ulimit -n 1024000` 临时修改; 或修改配置文件永远生效.
@@ -73,10 +58,41 @@
 #### FAQs
 * 进程运行过程中被 kill 掉
     一个可能的原因是, 进程被 Linux 的 `OOM killer` 杀掉. 可以执行 `dmesg | less` 命令通过搜索进程 ID 查看详细原因.
+    
+    
+#### /etc/sysctl.conf
+
+其他参数含义, 一般不需要开启:  
+
+```ini
+# 网络设置
+net.ipv4.ip_forward=1
+# 全连接队列最大长度
+#net.core.somaxconn = 2048
+# SYN_RCVD 状态连接的最大个数
+#net.ipv4.tcp_max_syn_backlog = 2048
+# 接收自网卡, 但未被内核协议栈处理的报文队列长度
+#net.core.netdev_max_backlog = 2048
+# 超出处理能力时, 对新来的 SYN 直接回包 RST, 丢弃连接
+net.ipv4.tcp_abort_on_overflow = 1
+    
+## time-wait 优化
+# 开启后, 作为客户端时新连接可以使用仍然处于 TIME-WAIT 状态的端口.
+net.ipv4.tcp_tw_reuse = 1
+# 开启后, 操作系统可以拒绝迟到的报文(与 `tcp_tw_reuse` 配合使用)
+net.ipv4.tcp_timestamps = 1
+# 开启后, 同时作为客户端和服务器都可以使用 TIME-WAIT 状态的端口. 不安全, 无法避免报文延迟, 重复等问题给新连接千万混乱.
+# net.ipv4.tcp_tw_recycle = 1
+# 设置 time_wait 状态连接的最大数量, 超出后直接关闭连接
+# net.ipv4.tcp_max_tw_buckets = 262144
+# sysctl -w /proc/sys/net/core/netdev_max_backlog=2048
+```
 
 ### Refs
 * [Increase the number of open files for jobs managed by supervisord](https://ma.ttias.be/increase-the-number-of-open-files-for-jobs-managed-by-supervisord/)
 * [突破操作系统limit的限制](https://mp.weixin.qq.com/s/JFTUWBJmWeRp-IMYJIND5A)
+* [link1st/go-stress-testing](https://github.com/link1st/go-stress-testing)
     
 ### Tools
 * [ideawu/c1000k](https://github.com/ideawu/c1000k): A tool to test if you OS supports 1 million connections(c1000k).
+
