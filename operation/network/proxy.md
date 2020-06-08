@@ -3,6 +3,11 @@
 ## Server
 * [shadowsocksr-native](https://github.com/ShadowsocksR-Live/shadowsocksr-native): ShadowsocksR (SSR) native implementation for all platforms, GFW terminator. SSR 源码.    
 
+
+## Client
+### V2ray
+* [yanue/V2rayU](https://github.com/yanue/V2rayU): 基于 v2ray 核心的 mac 版客户端, 支持 vmess, shadowsocks, socks5 等服务协议.   
+
 ## Tools
 * [inlets/inlets](https://github.com/inlets/inlets): Expose your local endpoints to the Internet or to another network, traversing firewalls and NAT.
 * [hmgle/graftcp](https://github.com/hmgle/graftcp): graftcp 可以把任何指定程序(应用程序, 脚本, shell 等)的 TCP 连接重定向到 SOCKS5 或 HTTP 代理. 
