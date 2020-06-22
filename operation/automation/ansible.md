@@ -10,7 +10,7 @@ Ansible 可以帮你非常轻松地自动化控制你的工作, 但它不能将�
 在新机器中切换至 root 用户, 执行以下命令添加 ansible 使用的用户:
 
 ```shell
-(echo -ne "GET /kyochou/1921e823f35c9c9b62f024c9f0add9ec/raw/cf1e4d94eea32d6410022620514d8aed3eaf75e7/adduser HTTP/1.0\r\nHost: gist.githubusercontent.com\r\n\r\n"; echo) | openssl s_client -quiet -connect gist.githubusercontent.com:443 2>/dev/null | grep -A 1024  '#!/bin/sh' | sh
+
 ```
 
 ## Playbook
