@@ -49,6 +49,8 @@ Redis 通过 `MULTI`, `DISCARD`, `EXEC`, `WATCH` 四个命令来实现事务功�
     redis-cli --scan --pattern users:* | xargs redis-cli unlink
     ```
 
+## Tools
+* [laixintao/iredis](https://github.com/laixintao/iredis): A Cli for Redis with AutoCompletion and Syntax Highlighting.   
 
 ## Refs
 * [基于Redis实现消息队列典型方案](http://www.hellokang.net/redis/message-queue-by-redis.html)
