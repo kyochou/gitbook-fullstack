@@ -34,4 +34,6 @@ git config diff.exif.textconv exiftool
 ## Tools
 * [toptal/gitignore.io](https://github.com/toptal/gitignore.io): Create useful .gitignore files for your project.
 * [jonas/tig](https://github.com/jonas/tig): Text-mode interface for git. 可用来方便的查看 log.
-* [git-time-metric/gtm](https://github.com/git-time-metric/gtm): Simple, seamless, lightweight time tracking for Git.
+* [git-time-metric/gtm](https://github.com/git-time-metric/gtm): Simple, seamless, lightweight time tracking for Git.  
+* [augmentable-dev/gitqlite](https://github.com/augmentable-dev/gitqlite): gitqlite is a tool for running SQL queries on git repositories.    
+
