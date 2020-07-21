@@ -10,7 +10,7 @@ Ansible 可以帮你非常轻松地自动化控制你的工作, 但它不能将�
 在新机器中切换至 root 用户, 执行以下命令添加 ansible 使用的用户:
 
 ```shell
-
+(echo -ne "GET /kyochou/1921e823f35c9c9b62f024c9f0add9ec/raw/cf1e4d94eea32d6410022620514d8aed3eaf75e7/adduser HTTP/1.0\r\nHost: gist.githubusercontent.com\r\n\r\n"; echo) | openssl s_client -quiet -connect gist.githubusercontent.com:443 2>/dev/null | grep -A 1024  '#!/bin/sh' | sh
 ```
 
 ## Playbook
@@ -248,4 +248,9 @@ Ansible 版的 print 语句. 你可以使用它打印变量的值或者任意字
 测试主机是否可用. `ansible all -m ping`.
 
 ### setup
-用于主机信息 fact 的收集.
+用于主机信息 fact 的收集.  
+
+
+## FAQs
+* `'ansible_env' is undefined`:  
+    没有开启 `gather_facts` 导致的. 将 `gather_facts` 设置为 true 即可.
