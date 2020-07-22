@@ -24,3 +24,16 @@
     参考 [crontab无法执行且(root) MAIL (mailed 54 bytes of output but got status 0x004b#012错误](https://blog.csdn.net/toopoo/article/details/104979615?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase)
 
         
+* 在 Shell 中添加 crontab 记录:  
+
+    ```bash
+    # write out current crontab
+    crontab -l > tmp_cron
+    # echo new cron into cron file
+    echo "00 09 * * 1-5 echo hello" >> tmp_cron
+    # install new cron file
+    crontab tmp_cron
+    rm tmp_cron
+    ```
+    
+    参考 [How to create a cron job using Bash automatically without the interactive editor?](https://stackoverflow.com/questions/878600/how-to-create-a-cron-job-using-bash-automatically-without-the-interactive-editor)
