@@ -11,6 +11,19 @@
 
 
 ## 设置
+
+### 账号
+
+```shell
+
+# 将访问方式由 https 协议转换为 git 协议
+git config --global url."git@github.com:".insteadOf "https://github.com/"
+
+```
+
+#### Refs
+* [解决 go get (github) private repos 权限问题](https://www.gitdig.com/post/go-get-private-github-repo/)
+
 ### 属性
 在 `.gitattributes` 文件中可设置 git 的相关属性.
 可以用 Git 属性让 Git 知道哪些是二进制文件(以防它没有识别出来), 并指示其如何处理这些文件. 例如, 一些文本文件是由机器产生的, 没办法进行比较(比如 XCode .pbxproj 文件), 但一些二进制文件是可以进行比较的(如果图片的属性). 
