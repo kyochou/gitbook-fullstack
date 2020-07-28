@@ -30,6 +30,14 @@ Trace 级别的日志只应该在开发环境中开启.
     用来帮助开发调试的更加具体的信息, 此级别在生产环境不应该开启.
     
     
+## Practices
+
+```shell
+# 清空文件
+sudo truncate -s 0 /var/log/**/*.log 
+
+```
+    
     
     
 
