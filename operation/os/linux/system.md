@@ -13,3 +13,9 @@ sudo systemctl stop ssh
 sudo systemctl status ssh
 
 ```
+
+### 添加新服务
+1. 将新服务的启动脚本如 `supervisord.service` 放入 `/usr/lib/systemd/system` 目录;
+2. `sudo systemctl daemon-reload`
+3. `sudo systemctl enable supervisord.service`
+4. `sudo systemctl start supervisord.service`
