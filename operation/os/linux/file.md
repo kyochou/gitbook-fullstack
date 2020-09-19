@@ -1,5 +1,19 @@
 # File
 
+## 合并
+```shell
+# 多个文件合并成一个
+echo a.txt b.txt > c.txt
+# 显示最后 9 行
+tail -n 9 file
+# 显示自第 9 行开始, 后面的所有行
+tail -n +1000 file
+# 显示前面 9 行
+head -n 9 file
+# 显示中间行(第 5 至第 10 行)
+sed -n '5,10p' file
+```
+
 ## 权限
 ### 用户
 Linux 文件的访问者有三种身份:
