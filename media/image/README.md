@@ -4,7 +4,7 @@
 
 
 ## WallWrapper
-* [宫崎骏的吉卜力工作室-动画片图片](http://www.ghibli.jp/info/013251/)
+* [宫崎骏的吉卜力工作室](http://www.ghibli.jp/)
 
 ## Tools
 * [pichance](https://pichance.com/): 图片分辨率放大工具.   
