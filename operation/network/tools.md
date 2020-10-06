@@ -1,5 +1,15 @@
 # Tools
 
+## 下载
+
+```shell
+# 下载 tar.gz 并解压
+curl "$url" 2>/dev/null | tar -xz 
+```
+
+### Refs
+* [How to Download and Extract Tar Files with One Command](https://www.tecmint.com/download-and-extract-tar-files-with-one-command/)
+
 ## 抓包
 ### Refs
 * [关于手机App的Https抓包](https://blog.huoding.com/2019/05/31/741)
