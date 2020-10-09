@@ -8,7 +8,8 @@
 * [junegunn/fzf](https://github.com/junegunn/fzf): 查找文件(模糊). A command-line fuzzy finder.
 
 ## Device
-* [ncdu](https://dev.yorhel.nl/ncdu): 显示目录文件大小. NCurses Disk Usage.
+* [ncdu](https://dev.yorhel.nl/ncdu): 显示目录文件大小. NCurses Disk Usage.  
+* [muesli/duf](https://github.com/muesli/duf): Disk Usage/Free Utility.
 
 
 ## DataViewer
