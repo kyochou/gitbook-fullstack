@@ -49,4 +49,5 @@ git config diff.exif.textconv exiftool
 * [jonas/tig](https://github.com/jonas/tig): Text-mode interface for git. 可用来方便的查看 log.
 * [git-time-metric/gtm](https://github.com/git-time-metric/gtm): Simple, seamless, lightweight time tracking for Git.  
 * [augmentable-dev/gitqlite](https://github.com/augmentable-dev/gitqlite): gitqlite is a tool for running SQL queries on git repositories.    
+* [sobolevn/git-secret](https://github.com/sobolevn/git-secret): A bash-tool to store your private data inside a git repository.
 
