@@ -22,7 +22,7 @@ func main() {
     p.X = 5 // 使用 p.X 取代 (*p).X
     v = Vertex{X: 1} // 只为指定字段赋值
     fmt.Println(v.X)
-}
+}                                       
 ```
 
 ## 匿名成员
