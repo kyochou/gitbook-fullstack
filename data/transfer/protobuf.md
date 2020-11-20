@@ -1,6 +1,7 @@
 # Protobuf
 
 同一个 `message` 的每个字段都有唯一一个编号, 建议这个编号终生不要改变.
+如若需要在 Protobuf 中传递动态的属性对, 建议使用 `bytes` 格式的 json 对象做为载体. 参考 [三种传递gRPC动态参数方式的使用体验](https://mp.weixin.qq.com/s/TR-keSUcspTvM0d165v8cw).   
 
 ## Golang
 使用 `github.com/golang/protobuf/proto` 包的 `Marshal`, `Unmarshal` 方法在 `[]byte` 与结构体之间转换. 不要使用 Protobuf 结构体的 `XXX_Unmarshal`, `XXX_Marshal` 方法, 此方法在有 Message 嵌套时会出现解析失败的情况:
