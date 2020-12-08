@@ -31,6 +31,8 @@ Grafana 与 Prometheus 是一对多的关系. 即可以在一个 Grafana 应用�
 2. 打开安装的 [Grafana](http://<IP>:3000), 将相关 Exporter 的 DashBoard 导入.
     1. 在 [Dashboards](https://grafana.com/grafana/dashboards) 中找到相关 Exporter 的 Dashboard. 记下其 ID.
     2. 在安装的 Grafana 页面上选择 `+ -> Import`, 输入 ID.
+        * 11074: [Node Exporter for Prometheus Dashboard](https://grafana.com/grafana/dashboards/11074)
+        * 4202: [Named processes by host](https://grafana.com/grafana/dashboards/4202)
 
 
 ### Refs
