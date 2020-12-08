@@ -33,7 +33,15 @@ Grafana 与 Prometheus 是一对多的关系. 即可以在一个 Grafana 应用�
     2. 在安装的 Grafana 页面上选择 `+ -> Import`, 输入 ID.
         * 11074: [Node Exporter for Prometheus Dashboard](https://grafana.com/grafana/dashboards/11074)
         * 4202: [Named processes by host](https://grafana.com/grafana/dashboards/4202)
-
+        
+            ```json
+            ## 自定义 Panel
+            # 进程的 CPU 使用时间. 可以认为单个 CPU 被完全占用的值为一秒. 用输出的值除以单位秒即可做为进程的 CPU 使用率.
+            # Legend {{groupname}}
+            sum without (mode)(
+        rate(namedprocess_namegroup_cpu_seconds_total{groupname=~"$processes",instance=~"$host"}[$interval])
+)
+        ```
 
 ### Refs
 * [Prometheus 集成 Node Exporter](https://juejin.im/post/5d54bc80f265da03a6531063)
