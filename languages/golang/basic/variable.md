@@ -56,3 +56,12 @@ type (
 
 ```
 
+## 命名
+### 接口
+根据命名规则, 一种方法的接口, 需要在名称后面加上 `-er` 的后缀, 或者通过代理名词的方式来进行修饰. 如 `Reader`, `Writer`, `Formatter`, `CloseNotifier` 等.    
+### Getters
+Getter 不需要添加 `Get` 前缀, 直接使用属性名即可. Setter 方法如果没有任何特殊, 直接将变量导出也是个选择.    
+
+
+### Refs
+* [在编程中，有两件事情最难：聊聊 Go 中的简短变量名](https://mp.weixin.qq.com/s/gcTM1zM7kUkth-tCHDZjzA)
