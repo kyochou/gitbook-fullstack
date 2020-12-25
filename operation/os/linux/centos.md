@@ -1,6 +1,24 @@
 # CentOS
 
 ## YUM
+### SCL
+[Software collections(SCLs)](https://www.softwarecollections.org/) 是一个 Linux 软件多版本共存的解决方案, 适用于 RHEL/CentOS/Fedora. 
+SCL 不会修改已安装软件, 也不会与其产生冲突.   
+
+```bash
+# 添加源及工具
+yum install scl-utils
+# centos-release-scl 是 SCLs 的软件包
+# centos-release-scl-rh 是 RedHat 的软件包
+yum install centos-release-scl centos-release-scl-rh
+
+# 安装 nginx
+yum install -y rh-nginx116
+
+# 注意, 安装过后的软件并
+```
+
+
 ### FAQs
 * 设置 yum 代理:
     添加代理设置如 `proxy=http://192.168.198.120:19999` 到 `/etc/yum.conf` 文件中.
