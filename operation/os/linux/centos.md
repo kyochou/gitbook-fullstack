@@ -4,6 +4,9 @@
 ### SCL
 [Software collections(SCLs)](https://www.softwarecollections.org/) 是一个 Linux 软件多版本共存的解决方案, 适用于 RHEL/CentOS/Fedora. 
 SCL 不会修改已安装软件, 也不会与其产生冲突.   
+SCLs 相关的软件会安装在 `/opt/rh` 目录下.  
+`scl` 命令用于激活 SCL 软件或在该软件环境下执行其他操作.   
+
 
 ```bash
 # 添加源及工具
@@ -15,7 +18,10 @@ yum install centos-release-scl centos-release-scl-rh
 # 安装 nginx
 yum install -y rh-nginx116
 
-# 注意, 安装过后的软件并
+# 注意, 基于 SCL 的软件在安装后默认并不会添加到环境变量中. 可通过使用 scl enable 命令进入其 Shell 环境
+scl enable rh-nginx116 bash
+# 或者将其添加到环境变量和系统服务中
+source /opt/rh/rh-nginx116/enable
 ```
 
 
