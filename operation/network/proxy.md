@@ -5,6 +5,28 @@
 
 
 ## Client
+### ssh
+
+```shell
+# 使用 ssh 命令做为 socks5 代理 
+ssh -q -N -C -D 19911 proxy
+```
+
+#### Refs
+* [Create a SOCKS proxy on a Linux server with SSH to bypass content filters](https://ma.ttias.be/socks-proxy-linux-ssh-bypass-content-filters/)
+
+### polipo
+用于将 socks 代理转换为 http. 
+
+```ini
+socksParentProxy = 127.0.0.1:19911
+socksProxyType = socks5
+
+proxyAddress = 0.0.0.0
+proxyPort = 19999
+```
+
+
 ### V2ray
 * [yanue/V2rayU](https://github.com/yanue/V2rayU): 基于 v2ray 核心的 mac 版客户端, 支持 vmess, shadowsocks, socks5 等服务协议.   
 
@@ -20,7 +42,7 @@
     基于 SSH 的 VPN 代理. 可快速使用远程主机代理本地的所有的网络流量.
     
     ```shell
-    sshuttle --dns -r username@sshserver 0/0
+    sshuttle --dns -N -r username@sshserver 0/0
     ```
     
 * [snail007/goproxy](https://github.com/snail007/goproxy)
