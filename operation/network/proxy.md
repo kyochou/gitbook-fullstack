@@ -9,7 +9,7 @@
 
 ```shell
 # 使用 ssh 命令做为 socks5 代理 
-ssh -q -N -C -D 19911 proxy
+ssh -N -q -f -C -D 19911 proxy
 ```
 
 #### Refs
