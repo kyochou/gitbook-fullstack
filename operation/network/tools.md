@@ -26,6 +26,10 @@ iperf3 -s
 iperf3 -c <IP>
 ```
 
+### Ethr
+[Ethr](https://github.com/microsoft/ethr) 是微软出品的基于 Go 语言的网络测速工具. 简单易用.   
+Ethr is a Comprehensive Network Measurement Tool for TCP, UDP & ICMP.   
+
 ## Wireshark
 ### 过滤器
 #### 捕获过滤器
