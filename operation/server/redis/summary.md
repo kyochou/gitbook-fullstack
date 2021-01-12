@@ -33,3 +33,12 @@ make test
 sudo make install PREFIX=/usr/local/redis6
 
 ```
+
+## Run
+### 优化
+#### 系统优化
+```shell
+# run as root
+echo madvise > /sys/kernel/mm/transparent_hugepage/enabled
+sysctl vm.overcommit_memory=1
+```
