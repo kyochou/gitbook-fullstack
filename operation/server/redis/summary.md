@@ -42,3 +42,13 @@ sudo make install PREFIX=/usr/local/redis6
 echo madvise > /sys/kernel/mm/transparent_hugepage/enabled
 sysctl vm.overcommit_memory=1
 ```
+
+### 压测
+```shell
+# threads 参数的值最好与 Redis 配置中多线程的个数一致(如果开启)
+# 基本上来说开启多线程会提高一倍的 qps
+redis-benchmark -q --threads 4
+```
+#### Refs
+* [Redis 6.0 多线程性能测试结果及分析](https://www.cnblogs.com/wy123/p/14180499.html)
+* [How fast is Redis?](https://redis.io/topics/benchmarks)
