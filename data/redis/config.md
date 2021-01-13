@@ -9,6 +9,9 @@ aof-use-rdb-preamble yes
 # 开启多线程
 io-threads 4
 io-threads-do-reads yes
+# 慢日志
+slowlog-log-slower-than 100000
+slowlog-max-len 128
 ```
 
 ## Refs
