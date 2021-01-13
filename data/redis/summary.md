@@ -1,5 +1,7 @@
 # Redis
 
+Redis 是基于 key/value 存储的单线程内存数据库.   
+
 ## Install
 ### 编译安装
 
