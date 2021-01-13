@@ -16,8 +16,8 @@ FLUSHALL
 LRANGE key 0 -1
 ```
 
-## Stack
-* lpush + lpop   
+### Stack
+* lpush + lpop  
 * rpush + rpop   
 
 ## Queue
@@ -61,6 +61,3 @@ Redis 通过 `MULTI`, `DISCARD`, `EXEC`, `WATCH` 四个命令来实现事务功�
     # redis >= 4.0
     redis-cli --scan --pattern users:* | xargs redis-cli unlink
     ```
-
-## Tools
-* [laixintao/iredis](https://github.com/laixintao/iredis): A Cli for Redis with AutoCompletion and Syntax Highlighting.   

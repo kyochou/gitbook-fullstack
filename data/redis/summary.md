@@ -54,3 +54,7 @@ redis-benchmark -q --threads 4
 #### Refs
 * [Redis 6.0 多线程性能测试结果及分析](https://www.cnblogs.com/wy123/p/14180499.html)
 * [How fast is Redis?](https://redis.io/topics/benchmarks)
+
+
+## Tools
+* [laixintao/iredis](https://github.com/laixintao/iredis): A Cli for Redis with AutoCompletion and Syntax Highlighting.   
