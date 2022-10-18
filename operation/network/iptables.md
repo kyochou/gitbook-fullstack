@@ -16,10 +16,15 @@ iptables 中可以灵活的做各种网络地址转换(NAT), 网络地址主要�
     
 * 删除设置
     ```bash
-    # list 
+    ## add
+    sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+    ## list 
     sudo iptables -t nat -v -L -n --line-number
-    # delete
-    sudo iptables -t nat -D PREROUTING {rule-number-here}
+    ## delete
+    # sudo iptables -t nat -D {chain-name} {rule-line-number}
+    sudo iptables -t nat -D INPUT 1
+    sudo iptables -t nat -D OUTPUT 2
+    sudo iptables -t nat -D PREROUTING 3
     ```    
     
     Refs: [Linux iptables delete prerouting rule command](https://www.cyberciti.biz/faq/linux-iptables-delete-prerouting-rule-command/)
