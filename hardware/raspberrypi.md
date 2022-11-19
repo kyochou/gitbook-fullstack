@@ -12,7 +12,10 @@ sudo raspi-config
 # `System Options` -> `Boot / Auto Login`
 ## 开启 ssh
 # `System Options` -> `Interface Options -> SSH`
-
+## 设置 wifi
+# `System Options` -> `Wireless LAN`
+## 设置时区, 语言等
+# `Localisation Options` -> `Wireless LAN`
 ```
 
 ### network 
@@ -39,14 +42,16 @@ static domain_name_servers=1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
 
 ```ini
 # 修改源 sudo vi /etc/apt/sources.list
-deb https://mirrors.aliyun.com/debian/ bullseye main non-free contrib
-deb-src https://mirrors.aliyun.com/debian/ bullseye main non-free contrib
-deb https://mirrors.aliyun.com/debian-security/ bullseye-security main
-deb-src https://mirrors.aliyun.com/debian-security/ bullseye-security main
-deb https://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
-deb-src https://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
-deb https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
-deb-src https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
+
+deb https://mirrors.ustc.edu.cn/debian/ bullseye main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ bullseye main contrib non-free
+deb https://mirrors.ustc.edu.cn/debian/ bullseye-updates main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ bullseye-updates main contrib non-free
+deb https://mirrors.ustc.edu.cn/debian/ bullseye-backports main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ bullseye-backports main contrib non-free
+deb https://mirrors.ustc.edu.cn/debian-security/ bullseye-security main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian-security/ bullseye-security main contrib non-free
+
 ```
 
 ```shell
@@ -67,6 +72,7 @@ sudo mdadm --detail --scan --verbose | sudo tee -a /etc/mdadm/mdadm.conf
 # 格式化
 sudo mkfs.ext4 /dev/md0
 # 开机自动挂载
+sudo mkdir -p /mnt/raid1
 echo '/dev/md0 /mnt/raid1 ext4 defaults 0 0' | sudo tee -a /etc/fstab
 ```
 #### Refs
