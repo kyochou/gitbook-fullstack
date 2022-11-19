@@ -18,7 +18,7 @@ sudo raspi-config
 # `Localisation Options` -> `Wireless LAN`
 ```
 
-### network 
+### Network 
 ```ini
 ## 使用固定 IP 地址
 ## RaspberryPi 的 bullseye 64bit 版本是使用 dhcpcd 服务来管理的网络, 并没有使用 networking
@@ -38,11 +38,12 @@ static domain_name_servers=1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
 ## 配置好后重启下 Pi: sudo reboot
 ```
 
-### sources
+### Sources
 
 ```ini
 # 修改源 sudo vi /etc/apt/sources.list
 
+# https://mirrors.ustc.edu.cn/repogen/
 deb https://mirrors.ustc.edu.cn/debian/ bullseye main contrib non-free
 deb-src https://mirrors.ustc.edu.cn/debian/ bullseye main contrib non-free
 deb https://mirrors.ustc.edu.cn/debian/ bullseye-updates main contrib non-free
@@ -58,7 +59,13 @@ deb-src https://mirrors.ustc.edu.cn/debian-security/ bullseye-security main cont
 sudo apt-get update && sudo apt-get upgrade
 ```
 
-### raid1
+### Tools
+```shell
+sudo apt-get install vim -y
+echo 'alias vi=vim' >> .bashrc
+```
+
+### Raid
 ```shell
 sudo apt-get install mdadm -y
 # 查看目录磁盘
@@ -69,11 +76,14 @@ sudo mdadm --create /dev/md0 --level=mirror --raid-devices=2 /dev/sdb /dev/sdc
 sudo mdadm --detail /dev/md0
 # 保存 raid 信息
 sudo mdadm --detail --scan --verbose | sudo tee -a /etc/mdadm/mdadm.conf
-# 格式化
+# 格式化, 挂载
 sudo mkfs.ext4 /dev/md0
-# 开机自动挂载
 sudo mkdir -p /mnt/raid1
+sudo mount /dev/md0 /mnt/raid1
+# 开机自动挂载
 echo '/dev/md0 /mnt/raid1 ext4 defaults 0 0' | sudo tee -a /etc/fstab
+
+sudo reboot
 ```
 #### Refs
 * [用Raspberry Pi搭建NAS服务](https://www.jianshu.com/p/f094f76f6ee3)
