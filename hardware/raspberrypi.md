@@ -6,10 +6,31 @@
 ### System
 
 ```shell
-
-## 设置默认启动界面
 sudo raspi-config
+## 设置默认启动界面
 # `System Options` -> `Boot / Auto Login`
+## 开启 ssh
+# `System Options` -> `Interface Options -> SSH`
+
+```
+
+#### network 
+```ini
+## 使用固定 IP 地址
+## sudo vi /etc/network/interfaces
+auto eth0
+iface eth0 inet static
+address 192.168.1.66
+gateway 192.168.1.1
+netmask 255.255.255.0
+dns-nameservers 1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
+
+auto wlan0
+iface wlan0 inet static
+address 192.168.1.88
+gateway 192.168.1.1
+netmask 255.255.255.0
+dns-nameservers 1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
 
 ```
 
