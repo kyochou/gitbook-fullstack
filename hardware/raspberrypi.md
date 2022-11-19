@@ -6,6 +6,7 @@
 ### System
 
 ```shell
+# 使用 sudo service --status-all 命令查看服务的状态
 sudo raspi-config
 ## 设置默认启动界面
 # `System Options` -> `Boot / Auto Login`
@@ -17,21 +18,21 @@ sudo raspi-config
 #### network 
 ```ini
 ## 使用固定 IP 地址
-## sudo vi /etc/network/interfaces
-auto eth0
-iface eth0 inet static
-address 192.168.1.66
-gateway 192.168.1.1
-netmask 255.255.255.0
-dns-nameservers 1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
+## RaspberryPi 的 bullseye 64bit 版本是使用 dhcpcd 服务来管理的网络, 并没有使用 networking
+## sudo vi /etc/dhcpcd.conf
+interface wlan0
+static ip_address=192.168.1.88/24
+# static ip6_address=fd51:42f8:caae:d92e::ff/64
+static routers=192.168.1.1
+static domain_name_servers=1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
 
-auto wlan0
-iface wlan0 inet static
-address 192.168.1.88
-gateway 192.168.1.1
-netmask 255.255.255.0
-dns-nameservers 1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
+interface eth0
+static ip_address=192.168.1.66/24
+# static ip6_address=fd51:42f8:caae:d92e::ff/64
+static routers=192.168.1.1
+static domain_name_servers=1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
 
+## 配置好后重启下 Pi: sudo reboot
 ```
 
 #### Refs
