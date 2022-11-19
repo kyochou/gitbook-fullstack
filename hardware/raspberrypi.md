@@ -35,6 +35,37 @@ static domain_name_servers=1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
 ## 配置好后重启下 Pi: sudo reboot
 ```
 
+#### software
+
+```ini
+# 修改源 sudo vi /etc/apt/sources.list
+deb https://mirrors.aliyun.com/debian/ bullseye main non-free contrib
+deb-src https://mirrors.aliyun.com/debian/ bullseye main non-free contrib
+deb https://mirrors.aliyun.com/debian-security/ bullseye-security main
+deb-src https://mirrors.aliyun.com/debian-security/ bullseye-security main
+deb https://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
+deb-src https://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
+deb https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
+deb-src https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
+```
+
+```shell
+sudo apt-get update && sudo apt-get upgrade
+```
+
+#### raid1
+```shell
+sudo apt-get install mdadm -y
+# 查看目录磁盘
+lsblk
+# 创建 raid1
+sudo mdadm --create /dev/md0 --level=mirror --raid-devices=2 /dev/sdb /dev/sdc
+# 查看 raid 状态
+sudo mdadm --detail /dev/md0
+
+```
+
+
 #### Refs
 * [树莓派格式化u盘（硬盘）ext4格式并挂载](https://www.jianshu.com/p/4a8d7ecddeec)
 
