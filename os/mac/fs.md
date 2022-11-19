@@ -4,8 +4,8 @@
 ```shell
 # 安装后有可能会要求重启电脑
 brew install macfuse --cask
-brew install ext4fuse
-# 如果报 "requires closed-source macFUSE" 错误则执行 vi `brew formula ext4fuse`, 将这个错误相关的代码注释掉.
+brew install ext2fuse
+# 如果报 "requires closed-source macFUSE" 错误则执行 vi `brew formula ext2fuse`, 将这个错误相关的代码注释掉.
 
 # 查看要挂载的 block
 diskutil list 
