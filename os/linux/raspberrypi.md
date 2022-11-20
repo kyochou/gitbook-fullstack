@@ -77,6 +77,7 @@ sudo apt-get install vim -y && echo 'alias vi=vim' >> .bashrc
        read only = yes
        public = yes
     ```
+* `sudo service smbd restart`
     
 * 小米电视的应用中找到 "高清播放器", 然后 "设备->添加设备" 即可.
 
