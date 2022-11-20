@@ -61,8 +61,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 ### Tools
 ```shell
-sudo apt-get install vim -y
-echo 'alias vi=vim' >> .bashrc
+sudo apt-get install vim -y && echo 'alias vi=vim' >> .bashrc
 ```
 
 ### Raid
