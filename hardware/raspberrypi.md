@@ -64,11 +64,28 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install vim -y && echo 'alias vi=vim' >> .bashrc
 ```
 
+### Device
+```shell
+# 查看
+lsblk -f
+# 格式化
+sudo mkfs.ext4 /dev/sda
+# 挂载
+sudo mkdir -p /mnt/data
+sudo chown -R kyo:kyo /mnt/data
+sudo mount -t ext4 /dev/sda /mnt/data
+# 卸载
+sudo umount /mnt/data
+# 开机自动挂载
+echo '/dev/sda /mnt/data ext4 defaults 0 0' | sudo tee -a /etc/fstab
+
+```
+
 ### Raid
 ```shell
 sudo apt-get install mdadm -y
 # 查看目录磁盘
-lsblk
+lsblk -f
 # 创建 raid1
 sudo mdadm --create /dev/md0 --level=mirror --raid-devices=2 /dev/sdb /dev/sdc
 # 查看 raid 状态
