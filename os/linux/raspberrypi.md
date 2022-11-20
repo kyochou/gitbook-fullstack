@@ -64,49 +64,6 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install vim -y && echo 'alias vi=vim' >> .bashrc
 ```
 
-### Device
-```shell
-# 查看
-lsblk -f
-# 格式化
-sudo mkfs.ext4 /dev/sda
-# 挂载
-sudo mkdir -p /mnt/data
-sudo chown -R kyo:kyo /mnt/data
-sudo mount -t ext4 /dev/sda /mnt/data
-# 卸载
-sudo umount /mnt/data
-# 开机自动挂载
-echo '/dev/sda /mnt/data ext4 defaults 0 0' | sudo tee -a /etc/fstab
-
-```
-
-### Raid
-```shell
-sudo apt-get install mdadm -y
-# 查看目录磁盘
-lsblk -f
-# 创建 raid1
-sudo mdadm --create /dev/md0 --level=mirror --raid-devices=2 /dev/sdb /dev/sdc
-# 查看 raid 状态
-sudo mdadm --detail /dev/md0
-# 保存 raid 信息
-sudo mdadm --detail --scan --verbose | perl -pe's/\n/ /g' | sudo tee -a /etc/mdadm/mdadm.conf
-# 格式化, 挂载
-sudo mkfs.ext4 /dev/md0
-sudo mkdir -p /mnt/raid1
-sudo mount /dev/md0 /mnt/raid1
-# 开机自动挂载
-echo '/dev/md0 /mnt/raid1 ext4 defaults 0 0' | sudo tee -a /etc/fstab
-
-sudo reboot
-```
-#### Refs
-* [用Raspberry Pi搭建NAS服务](https://www.jianshu.com/p/f094f76f6ee3)
-
-#### Refs
-* [树莓派格式化u盘（硬盘）ext4格式并挂载](https://www.jianshu.com/p/4a8d7ecddeec)
-
 ### Apps
 ### 视频播放
 * 安装 samba 服务: `sudo apt-get install -y samba`
@@ -114,8 +71,8 @@ sudo reboot
 
     ```ini
     [videos]
-       comment = Pi Videos
-       path = /media/video
+       comment = Videos On Pi
+       path = /path/to/video
        browseable = yes
        read only = yes
        public = yes
@@ -123,6 +80,22 @@ sudo reboot
     
 * 小米电视的应用中找到 "高清播放器", 然后 "设备->添加设备" 即可.
 
+### TimeMachine 支持
+```shell
+sudo apt install netatalk avahi-daemon -y
+```
+```ini
+# sudo vim /etc/netatalk/afp.conf
+[Time Machine Server Name]
+path = /path/to/back/timemachine
+time machine = yes
+```
+```shell
+sudo service netatalk restart
+sudo service avahi-daemon restart
+
+# 然后在 Mac 上就可以找到这个配置的磁盘了
+```
 
 #### Refs
 * [从此Mac上的文件再也不会丟了，我来教你使用树莓派做无线时间机器](https://zhuanlan.zhihu.com/p/335259509)
