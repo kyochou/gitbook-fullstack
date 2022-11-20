@@ -56,7 +56,7 @@ deb-src https://mirrors.ustc.edu.cn/debian-security/ bullseye-security main cont
 ```
 
 ```shell
-sudo apt-get update && sudo apt-get upgrade
+sudo apt-get update && sudo apt-get upgrade -y
 ```
 
 ### Tools
