@@ -93,9 +93,9 @@ sudo mdadm --detail /dev/md0
 # 保存 raid 信息
 sudo mdadm --detail --scan --verbose | perl -pe's/\n/ /g' | sudo tee -a /etc/mdadm/mdadm.conf
 # 格式化, 挂载
-**sudo mkfs.ext4 /dev/md0
+sudo mkfs.ext4 /dev/md0
 sudo mkdir -p /mnt/raid1
-sudo mount /dev/md0 /mnt/raid1**
+sudo mount /dev/md0 /mnt/raid1
 # 开机自动挂载
 echo '/dev/md0 /mnt/raid1 ext4 defaults 0 0' | sudo tee -a /etc/fstab
 
