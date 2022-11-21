@@ -124,5 +124,6 @@ sudo service polipo restart && sudo service polipo status
 ```
 
 ### Syncthing
-* [Debian/Ubuntu Packages](https://apt.syncthing.net/)
+
+* [Syncthing](https://syncthing.net/)
 * [详细步骤记录如何用Syncthing实时同步树莓派上的文件](https://www.labno3.com/2021/03/31/synchronizing-files-on-your-raspberry-pi-with-syncthing/)
