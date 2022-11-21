@@ -4,7 +4,7 @@
 
 ## System
 
-### config
+### Config
 ```shell
 # 使用 sudo service --status-all 命令查看服务的状态
 sudo raspi-config
@@ -59,7 +59,7 @@ deb-src https://mirrors.ustc.edu.cn/debian-security/ bullseye-security main cont
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-### sendmail
+### Sendmail
 ```shell
 sudo apt-get install ssmtp mailutils -y
 ```
@@ -94,7 +94,7 @@ sudo apt-get install vim -y && echo 'alias vi=vim' >> .bashrc
 ```
 
 ## Apps
-### samba(视频播放)
+### Samba(视频播放)
 * 安装 samba 服务: `sudo apt-get install -y samba`
 * 修改配置(`sudo vi /etc/samba/smb.conf`)并重启服务:  
 
@@ -116,10 +116,11 @@ sudo apt install netatalk avahi-daemon -y
 ```
 ```ini
 # sudo vim /etc/netatalk/afp.conf
-[Time Machine Server Name]
-path = /path/to/back/timemachine
-time machine = yes
+ [Time Machine Server Name]
+  path = /path/to/back/timemachine
+  time machine = yes
 ```
+
 ```shell
 sudo service netatalk restart
 sudo service avahi-daemon restart
