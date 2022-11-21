@@ -59,6 +59,27 @@ deb-src https://mirrors.ustc.edu.cn/debian-security/ bullseye-security main cont
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
+### sendmail
+```shell
+sudo apt-get install ssmtp mailutils -y
+```
+
+```ini
+# sudo vi /etc/ssmtp/ssmtp.conf
+root=postmaster
+mailhub=smtp.163.com
+hostname=raspi
+FromLineOverride=Yes
+UseSTARTTLS=YES
+UseTLS=YES
+AuthUser=noreply_kyo@163.com
+AuthPass=<password>
+```
+
+```shell
+# 注意, 有的邮箱服务要求邮件的发送者()
+```
+
 ### Tools
 ```shell
 sudo apt-get install vim -y && echo 'alias vi=vim' >> .bashrc
@@ -127,3 +148,5 @@ sudo service polipo restart && sudo service polipo status
 
 * [Syncthing](https://syncthing.net/)
 * [详细步骤记录如何用Syncthing实时同步树莓派上的文件](https://www.labno3.com/2021/03/31/synchronizing-files-on-your-raspberry-pi-with-syncthing/)
+
+
