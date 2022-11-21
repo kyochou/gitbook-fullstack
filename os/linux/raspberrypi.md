@@ -100,3 +100,29 @@ sudo service avahi-daemon restart
 
 #### Refs
 * [从此Mac上的文件再也不会丟了，我来教你使用树莓派做无线时间机器](https://zhuanlan.zhihu.com/p/335259509)
+
+
+### polipo
+```shell
+# 由于 polipo 已停止了维护. debian bullseye 上已经没有这个软件的源了. 需要下载 deb 文件安装.
+sudo dpkg -i /mnt/raid1/linux/debian/polipo_1.1.1-10_arm64.deb
+
+```
+
+```ini
+# 添加配置到 /etc/polipo/config
+socksParentProxy = 127.0.0.1:19911
+socksProxyType = socks5
+
+proxyAddress = 0.0.0.0
+proxyPort = 19999
+```
+
+```shell
+# 重启服务
+sudo service polipo restart && sudo service polipo status
+```
+
+### Syncthing
+* [Debian/Ubuntu Packages](https://apt.syncthing.net/)
+* [详细步骤记录如何用Syncthing实时同步树莓派上的文件](https://www.labno3.com/2021/03/31/synchronizing-files-on-your-raspberry-pi-with-syncthing/)
