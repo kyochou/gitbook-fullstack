@@ -94,23 +94,47 @@ sudo apt-get install vim -y && echo 'alias vi=vim' >> .bashrc
 ```
 
 ## Apps
-### Samba(视频播放)
-* 安装 samba 服务: `sudo apt-get install -y samba`
-* 修改配置(`sudo vi /etc/samba/smb.conf`)并重启服务:  
+### Samba
+```shell
+# smbnetfs 用于将服务广播到网络中
+sudo apt-get install -y samba smbnetfs
+# 添加用户
+smbpasswd -a kyo 
+```
+```ini
+# sudo vi /etc/samba/smb.conf
 
-    ```ini
-    [videos]
-       comment = Videos On Pi
-       path = /path/to/video
-       browseable = yes
-       read only = yes
-       public = yes
-    ```
-* `sudo service smbd restart`
-    
-* 小米电视的应用中找到 "高清播放器", 然后 "设备->添加设备" 即可.
+[global]
+  workgroup = WORKGROUP
+  # 兼容小米摄像头
+  server min protocol = NT1
+
+# 小米电视的应用中找到 "高清播放器", 然后 "设备->添加设备" 即可
+[videos]
+  comment = Videos On Pi
+  path = /mnt/raid1/media/video
+  available = yes
+  browseable = yes
+  read only = yes
+  public = yes
+
+# 小米摄像头要求必须使用用户登录
+[xiaomi-camera]
+  comment = xiaomi camera
+  path = /mnt/data/yuntai
+  available = yes
+  browseable = yes
+  writable = yes
+  public = no
+
+```
+
+```shell
+sudo service smbd restart && sudo service nmbd restart
+```
 
 ### TimeMachine 支持
+
 ```shell
 sudo apt install netatalk avahi-daemon -y
 ```
