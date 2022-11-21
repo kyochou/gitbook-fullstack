@@ -51,34 +51,46 @@ sudo mkdir -p /mnt/raid1
 sudo mount /dev/md0 /mnt/raid1
 # 开机自动挂载
 echo 'UUID=<uuid_in_lsblk> /mnt/raid1 ext4 defaults,nofail 0 0' | sudo tee -a /etc/fstab
+
+```
+
+```ini
+## 配置邮箱预警
+# 需要先配置好 ssmtp
+# sudo vim /etc/mdadm/mdadm.conf
+
+# instruct the monitoring daemon where to send mail alerts
+MAILADDR develop.kyo@gmail.com
+MAILFROM noreply_kyo@163.com
+
 ```
 
 ```shell
 ## 其他操作
-## 查看状态
+
+# 测试能否收到邮件
+sudo mdadm --monitor /dev/md0 --test
+
+# 查看状态
 sudo mdadm --detail /dev/md0
 cat /proc/mdstat
 
-## 开启 pending 状态的 raid 设备
+# 开启 pending 状态的 raid 设备
 mdadm --readwrite /dev/md1
 
-## 关闭 raid
+# 关闭 raid
 umount /dev/md0
 mdadm --stop /dev/md0
 # 清除 raid 配置信息
 mdadm --zero-superblock /dev/sda1 /dev/sdb1
 
 ```
-#### Refs
+### Refs
+* [Debian 组建软 RAID 1 磁盘阵列](https://www.dreamxu.com/debian-create-software-raid-one-arrays/)
 * [Software RAID on Raspberry Pi](https://www.spatacoli.com/blog/2022/01/software-raid-on-rpi/)
 * [How to clear up pending resync on RAID array](https://sleeplessbeastie.eu/2015/03/23/how-to-clear-up-pending-resync-on-raid-array/)
 * [Removal of mdadm RAID Devices – How to do it quickly?](https://bobcares.com/blog/removal-of-mdadm-raid-devices/)
-
 * [用Raspberry Pi搭建NAS服务](https://www.jianshu.com/p/f094f76f6ee3)
-
-#### Refs
-* [树莓派格式化u盘（硬盘）ext4格式并挂载](https://www.jianshu.com/p/4a8d7ecddeec)
-
 
 ## fstab
 因挂载的设备所属的设备名(e.g. /dev/sda, /dev/sdb)有可能发生变化, 因此在设置挂载时最好统一用 UUID 来标识设备.  
