@@ -1,6 +1,10 @@
 # Summary
 
 ## Libraries
+
+* [Find The Best Vuejs Resources For Your Project](https://bestofvue.com/)
+
+
 ### Common
 
 * [qs](https://github.com/ljharb/qs): A querystring parser with nesting support.

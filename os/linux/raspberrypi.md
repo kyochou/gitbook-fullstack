@@ -38,6 +38,23 @@ static domain_name_servers=1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
 ## 配置好后重启下 Pi: sudo reboot
 ```
 
+```ini
+# vi /etc/network/interfaces 
+# 备用 IP 设置.
+auto eth0
+iface eth0 inet static
+address 192.168.1.66
+gateway 192.168.1.1
+netmask 255.255.255.0
+dns-nameservers 1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
+
+auto wlan0
+iface wlan0 inet static
+address 192.168.1.88
+gateway 192.168.1.1
+netmask 255.255.255.0
+dns-nameservers 1.1.1.1 223.5.5.5 180.76.76.76 8.8.8.8
+```
 ### Sources
 
 ```ini
