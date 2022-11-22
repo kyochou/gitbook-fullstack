@@ -1,5 +1,8 @@
 # 前端
 
+## Resources
+* [JavaScript Rising Stars](https://risingstars.js.org/): Github 上 JS 项目增星的年度排行.   
+
 ## 跨平台
 * [dcloudio/uni-app](https://github.com/dcloudio/uni-app): 使用 Vue.js 开发跨平台应用的前端框架.
 
