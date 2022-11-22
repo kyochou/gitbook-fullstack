@@ -13,7 +13,7 @@ brew install macfuse --cask
 # 查看要挂载的 block
 diskutil list 
 # 以读写权限挂载
-sudo ext4fuse /dev/disk3s1 ~/tmp/ext4_disk3s1 -o allow_other
+fuse-ext2 /dev/disk2s1 ~/tmp/disk2s1 -o rw+
 ```
 
 ### Refs
