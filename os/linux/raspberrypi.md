@@ -125,6 +125,17 @@ smbpasswd -a kyo
   workgroup = WORKGROUP
   # 兼容小米摄像头
   server min protocol = NT1
+  
+# 共享目录
+[shared]
+  comment = Shared on Pi
+  # 注意要把这个目录权限改为 777, 以便匿名用户写入
+  path = /mnt/data/shared
+  public = yes
+  writable = yes
+  guest ok = yes
+  create mode = 0666
+  directory mode = 1777
 
 # 小米电视的应用中找到 "高清播放器", 然后 "设备->添加设备" 即可
 [videos]
