@@ -56,12 +56,14 @@ echo 'UUID=<uuid_in_lsblk> /mnt/raid1 ext4 defaults,nofail 0 0' | sudo tee -a /e
 
 ```ini
 ## 配置邮箱预警
-# 需要先配置好 ssmtp
+# 需要先配置好 postfix
 # sudo vim /etc/mdadm/mdadm.conf
 
 # instruct the monitoring daemon where to send mail alerts
-MAILADDR develop.kyo@gmail.com
-MAILFROM noreply_kyo@163.com
+# MAILADDR develop.kyo@gmail.com
+# MAILFROM noreply_kyo@163.com
+# 发送到本地邮箱
+MAILADDR kyo
 
 ```
 
