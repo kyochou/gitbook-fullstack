@@ -1,0 +1,15 @@
+# 初始化配置
+
+```shell
+
+git config --global user.name "kyo chou"
+git config --global user.email "develop.kyo@gmail.com"
+# 保存用户名和密码
+git config --global credential.helper store    
+# 解决 'Filename too long' 的错误
+git config --global core.longpaths true
+# 终端直接显示非 ASCII 字符, 如果终端显示乱码可再打开
+git config --global core.quotepath off
+# 支持大文件, 需要先安装 [git-lfs](https://git-lfs.github.com/)
+git lfs install --skip-repo
+```
