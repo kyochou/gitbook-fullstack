@@ -1,5 +1,7 @@
-# APT
-## config
+# Debian
+
+## APT
+### config
 
 ```json
 # 设置代理
