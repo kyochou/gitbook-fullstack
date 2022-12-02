@@ -11,7 +11,7 @@ tail -n +1000 file
 # 显示前面 9 行
 head -n 9 file
 # 显示中间行(第 5 至第 10 行)
-sed -n '5,10p' file
+sed -n '5,10p' fileø
 ```
 
 ## 权限
