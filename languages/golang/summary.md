@@ -1,5 +1,8 @@
 # Golang
 
+## Tools
+* [golangci-lint](https://github.com/golangci/golangci-lint): lint 工具. 
+
 
 ## 优秀资源推荐
 * [Go 语言设计与实现](https://draveness.me/golang/)
