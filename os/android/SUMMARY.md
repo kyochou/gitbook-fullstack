@@ -1,5 +1,11 @@
 # Android
 
+## Network
+使用私有 NDS 可防止 NDS 被劫持. 参考 [国内可用的 IPv4 公共加密 DNS：DoH/DoT/DoQ](https://www.cccitu.com/2205354.html).
+### APK
+* [ConnectBot](https://play.google.com/store/apps/details?id=org.connectbot): ssh 连接工具. 可以通过设置端口转发将 ssh 连接做为 socks 代理使用.
+* [SocksDroid](https://play.google.com/store/apps/details?id=net.typeblog.socks): 使用 socks5 服务的 VPN. 
+
 ## APK
 
 ### Applications
