@@ -3,7 +3,7 @@
 ### 通过 iptables
 
 ```bash
-# 将 8080 转发到本地的 22222
+# 将 8080 转发到本地的 22222, 如可用于绕过内网的 ssh 登录限制.
 iptables -A PREROUTING -t nat -p tcp --dport 8080 -j DNAT --to 127.0.0.1:22222
 ```
 
