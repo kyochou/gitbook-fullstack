@@ -23,7 +23,8 @@ sudo chown -R root:root /home/kyo/etc/logrotate.supervisor
 ```ini
 /var/log/supervisor/*.log {
   rotate 168 # 指定日志文件删除之前转储的次数
-  copytruncate # 用于还在打开中的日志文件, 把当前日志备份并截断. 是先拷贝再清空的方式，拷贝和清空之间有一个时间差，可能会丢失部分日志数据。
+  # copytruncate # 文件转储方式. 把当前日志备份并截断. 是先拷贝再清空的方式，拷贝和清空之间有一个时间差，可能会丢失部分日志数据。
+  create # 文件转储方式. 重命名原日志文件然后创建新的日志文件. 需要应用程序支持重新打开日志文件功能(在 postrotate 中发送信息).
   compress # 通过 gzip 压缩转储以后的日志
   delaycompress # 和compress 一起使用时, 转储的日志文件到下一次转储时才压缩
   missingok # 如果日志丢失, 不报错继续滚动下一个日志
@@ -35,9 +36,12 @@ sudo chown -R root:root /home/kyo/etc/logrotate.supervisor
   ifempty # 即使日志文件为空文件也做轮转
   noolddir # 转储后的日志文件和当前日志文件放在同一个目录下
   postrotate # 在 logrotate 转储之后需要执行的指令. 必须独立成行
-    t="$2.warning"
-    egrep -v 'level=info|level=debug|level=trace|duplicate proto type registered' "$2" > "$t"
-    [ -s "$t" ] || rm "$t"
+    # 发送重新加载配置文件信息
+    pkill -USR2 supervisord
+    ## 生成 warning 日志
+    #t="$2.warning"
+    #egrep -v 'level=info|level=debug|level=trace|duplicate proto type registered' "$2" > "$t"
+    #[ -s "$t" ] || rm "$t"
   endscript
 }
 ```
@@ -48,4 +52,5 @@ sudo chown -R root:root /home/kyo/etc/logrotate.supervisor
 ## Refs
 * [logrotate/logrotate](https://github.com/logrotate/logrotate)
 * [logrotate](https://wangchujiang.com/linux-command/c/logrotate.html)
+* [Linux 日志切割神器 logrotate 原理介绍和配置详解](https://wsgzao.github.io/post/logrotate/)
 * [CentOS 7下使用Logrotate管理日志](https://www.jianshu.com/p/6d3647f02437)
