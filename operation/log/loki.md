@@ -38,5 +38,8 @@ scrape_configs:
         __path__: /var/log/supervisor/qznn-*.log
 ```
 
+
+
+
 ## Refs
 * [Loki Documentation](https://grafana.com/docs/loki/latest/)
