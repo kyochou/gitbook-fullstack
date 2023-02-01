@@ -1,6 +1,6 @@
 # Prod
 ## Build
-build 时添加参数 `-gcflags=all="-N -l" ` 以使生成的 coredump 文件中的变量可读.
+build 时添加参数 `-gcflags=all="-N -l" -ldflags "-compressdwarf=false"` 以使生成的 coredump 文件中的变量可读.
 
 ## Run
 ### coredump

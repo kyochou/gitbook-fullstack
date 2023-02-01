@@ -7,7 +7,7 @@
     ```
 
 * git 对二进制文件也具备相当不错的可用性, 只是需要配套的 diff 工具. 参考: 
-[gitattributes](https://git-scm.com/docs/gitattributes), [git-diff-image](https://github.com/ewanmellor/git-diff-image)
+[gitattributes](https://git-scm.com/docs/gitattributes), [git-diff-image](https://github.com/ewanmellor/git-diff-image).
 
 ### Refs
 * [git stderr(错误流) 探秘](https://juejin.im/entry/5b96509c5188255c56448677)
