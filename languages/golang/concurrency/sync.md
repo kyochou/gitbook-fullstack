@@ -43,11 +43,12 @@ sync.Once 可以保证其保护的代码可以安全的仅执行一次. 一般�
   
 ### Map  
 与单纯使用原生 map 和互斥锁的方案相比, 使用 `sync.Map` 可以显著地减少锁的争用. `sync.Map` 本身虽然也用到了锁, 但是, 它其实在尽可能地避免使用锁.  
-`sync.Map` 在读多写少时性能会比较好.  
+`sync.Map` 在读多写少时性能会比较好. 而 `concurrent-map` 在 key 的 hash 度高的情况下性能比较好. 在无法确定读写比的情况下, 建议使用 `concurrent-map`.
   
 #### Refs  
 * [Go 1.9 sync.Map揭秘](https://colobu.com/2017/07/11/dive-into-sync-Map/)  
 * [orcaman/concurrent-map](https://github.com/orcaman/concurrent-map/blob/master/README-zh.md)  
+* [concurrent-map 和 sync.Map，我该选择哪个？](https://www.cnblogs.com/yjf512/p/17139605.html)
   
   
 ## x/sync  
