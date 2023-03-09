@@ -18,7 +18,7 @@
         ## sudo vi /etc/mysql/my.cnf
         [mysqld]
         default-character-set=utf8
-        # 设定连接 mysql 数据库时使用 utf8 编码, 以让mysql数据库为utf8运行
+        # 设定连接 mysql 数据库时使用 utf8 编码
         init_connect='SET NAMES utf8'
     
         [client]
@@ -28,12 +28,8 @@
 
 
 
-
 ## FAQs
-
-Mysql 无法远程连接:
-
-通过 netstat -ano | grep 3306 命令查看 mysqld 所监听的端口是本地(127.0.0.1) 还是所有(0.0.0.0).
-
-检查 my.cnf 文件中 bind-address 的值是否为 localhost(只有本地可以访问), 可以直接将其注释掉.
-```
+* Mysql 无法远程连接:
+    * 通过 `netstat -ano | grep 3306` 命令查看 mysqld 所监听的端口是本地(127.0.0.1) 还是所有(0.0.0.0).
+    * 检查 my.cnf 文件中 `bind-address` 的值是否为 localhost(只有本地可以访问), 可以直接将其注释掉.
+* 
