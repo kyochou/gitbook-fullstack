@@ -1,5 +1,19 @@
 # Syntax
 
+```typescript
+
+// 定义变量(`const`, `var`, `let`)
+const name:string = `kyo` 
+const name = `kyo` // TSC 可自动推断类型
+
+
+// 定义函数
+function greet(name:string) void {
+    return `hello` + name
+}
+
+```
+
 ## Variables
 声明变量(`const`, `var`, `let`).
 
