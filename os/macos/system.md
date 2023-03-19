@@ -14,7 +14,7 @@
 
 ## Tools
 
-* sleepwatcher: 在系统进入 Sleep 和 Wake 状态时执行相关脚本. 
+* [sleepwatcher](https://www.bernhard-baehr.de/): 在系统进入 Sleep 和 Wake 状态时执行相关脚本. 
 
     ```shell
     mkdir -p /usr/local/sbin
@@ -26,4 +26,6 @@
     
     注意需要给相应脚本添加执行权限.
 
-* blueutil: 控制蓝牙. `brew install blueutil`.
+* [blueutil](https://github.com/toy/blueutil): 控制蓝牙.
+* [brightness](https://github.com/nriley/brightness): 系统亮度控制的 CLI 工具. 亮度设置为 0 后可通过快捷键(Fn)把亮度调回来.
+* 
