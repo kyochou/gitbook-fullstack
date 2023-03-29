@@ -161,7 +161,7 @@
     * [HTML](frontend/languages/html/summary.md)
         * [Mobile](frontend/languages/html/mobile.md)
         * [Tag](frontend/languages/html/tag.md)
-    * [小程序](frontend/miniprogram.md)
+    * [小程序](miniprogram.md)
     * [CSS](frontend/languages/css/summary.md)
         * [动画](frontend/languages/css/animation.md)
     * [Vue.js](frontend/languages/vuejs/summary.md)
