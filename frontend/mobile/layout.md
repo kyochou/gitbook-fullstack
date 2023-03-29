@@ -1,39 +1,8 @@
 # Layout
 
-## Practices
 
-### 解决方案
-* 使用 rpx 做为像素单位.
-
-### Note
+## Note
 更少层次的嵌套构建出的网页更优雅.
-
-
-
-## Term
-
-dpr(Device Pixel Ratio) 是显示设备的物理像素(physical pixels)和逻辑像素(px, 设备无关像素, device-independent pixels)的比值. 即显示设备使用几个像素点显示一个逻辑像素.  
-
-微信小程序的长度单位 rpx 的换算方式为: `rpx = px * (目标设备宽 px 值 / 750)`. 举个例子:
-* 目标设备的宽度如果是 375px(@1x的尺寸), 按照 750rpx 进行换算, 则等于 1rpx = 0.5px
-* 目标设备的宽度如果是 750px(@2x的尺寸), 换算后 1rpx = 1px 
-* 目标设备的宽度如果是 1125px(@3x的尺寸), 换算后 1rpx = 1.5px
-
-
-## Design
-
-开发时可将模拟设备的尺寸设置为 375X750(iphone6 的尺寸为 375x667, 但现在大多数手机长度都比 667 大, 所以使用 750), Dpr 设置为 2. 
-设计以 @1x 为标准(375x750)切图, 切图时直接出 @2x, @3x 的图即可(@1x 对应的机型已经被淘汰了).   
-
-## 自适应布局
-### 移动端
-
-使用 rem&vw 适配方案.
-#### 参考
-* [rem, vw, 还是...? 各凭本事的移动端适配方案](https://juejin.im/post/5bc07ebf6fb9a05d026119a9)
-* [再聊移动端页面的适配](https://www.w3cplus.com/css/vw-for-layout.html)
-* [如何在 Vue 项目中使用 vw 实现移动端适配](https://www.w3cplus.com/mobile/vw-layout-in-vue.html)
-* [分享手淘过年项目中采用到的前端技术](https://www.w3cplus.com/css/taobao-2018-year.html)
 
 ## Box Alignment
 
