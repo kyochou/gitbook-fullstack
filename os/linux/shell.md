@@ -1,10 +1,14 @@
-# Bash
-## 变量
-### 定义
+# Shell
+
+
+
+## Bash
+### 变量
+#### 定义
 * 指定默认值: `FOO=${VARIABLE:-default}  # If variable not set or null, use default.`
 * 指定默认值, 并赋予引用变量(同时为两个变量赋值): `FOO=${VARIABLE:=default}  # If variable not set or null, set it to default.`
 
-## 参数
+### 参数
 
 * $0: 脚本文件名.
 * $<n>: n 为数字, 表示传递给文件的第 n 个参数.
