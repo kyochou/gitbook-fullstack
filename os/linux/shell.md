@@ -1,6 +1,13 @@
 # Shell
 
+## 环境变量
 
+
+* `PATH`: All shells on Unix-like systems search `PATH` for an executable to run as a child process.
+* `FPATH`: is the search path for function definitions(ksh, zsh). shell 用来定义函数的地方. shell  环境初始化时会加载这些目录中的脚本. 命令自动补全(completions)脚本也是放在这里的.
+
+## tab 提示(completions)
+命令的 tab 提示(completions) 脚本一般放在 `$FPATH` 中的 completions 相关目录中. 且一般以 `_命令行` 做为脚本名. 如 cheat 命令的自动提示文件为 `/usr/local/share/zsh-completions/_cheat`.
 
 ## Bash
 ### 变量
