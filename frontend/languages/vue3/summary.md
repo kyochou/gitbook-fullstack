@@ -4,7 +4,7 @@
 ### 响应式
 通过 `ref` 定义的值在模板中可以直接访问. 但在 js 中需要通过 `.value` 的方式才能访问.
 对于引用类型的对象, 优先使用 `reactive`. 
-`ref` 在的使用场景:
+`ref` 的使用场景:
 ```ts
 // 基本类型的响应式化
 const num = ref(1)
@@ -13,6 +13,15 @@ const num = ref(1)
 const form = ref()
 
 ```
+
+`reactive` 的一些使用技巧:
+```typescript
+const editform = reactive(new Usr())
+editform.id = 10
+// 重置一个 reactive 对象
+Object.assign(editform, new User())
+```
+
 
 #### Refs
 * [ref及reactive的区别及本质](https://juejin.cn/post/7013326406444646407)
